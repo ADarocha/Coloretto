@@ -9,27 +9,21 @@ using System.Windows.Forms;
 
 namespace projet_Coloretto_Da_Rocha_Grossmann
 {
-    public partial class Form1 : Form
+    public partial class Coloretto : Form
     {
-        //coucou
-        public Form1()
+        public Coloretto()
         {
             InitializeComponent();
             
         }
+
+        int nbJoueurs = 0;
 
         private void Form1_Load(object sender, EventArgs e)
         {
             Jeu coloretto = new Jeu();
             Joueur cloclo = new Joueur("clocloleCharclo", "JauneAsiatique");
         }
-
-
-
-
-
-
-
 
         private void DeuxJoueurs(Jeu coloretto)
         {
@@ -39,6 +33,17 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             }
             else coloretto.DeuxJoueurs = false;
         }
+
+        private void btMoins_Click(object sender, EventArgs e)
+        {
+            nbJoueurs = nbJoueurs - 1;
+        }
+
+        private void btPlus_Click(object sender, EventArgs e)
+        {
+            nbJoueurs = nbJoueurs + 1;
+        }
+
 
 
 
