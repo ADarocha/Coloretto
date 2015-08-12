@@ -1,0 +1,7 @@
+C:\Users\Anthony\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\bin\Debug\projet Coloretto Da Rocha Grossmann.exe
+C:\Users\Anthony\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\bin\Debug\projet Coloretto Da Rocha Grossmann.pdb
+C:\Users\Anthony\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet_Coloretto_Da_Rocha_Grossmann.Form1.resources
+C:\Users\Anthony\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.resources
+C:\Users\Anthony\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet Coloretto Da Rocha Grossmann.csproj.GenerateResource.Cache
+C:\Users\Anthony\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet Coloretto Da Rocha Grossmann.exe
+C:\Users\Anthony\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet Coloretto Da Rocha Grossmann.pdb
