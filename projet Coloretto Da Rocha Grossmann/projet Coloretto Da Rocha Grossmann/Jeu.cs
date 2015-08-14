@@ -8,16 +8,15 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
     class Jeu
     {
         private List<Joueur> listeJoueurs;
-        private bool deuxJoueurs;
-        private bool beigeOuGris;
-        private bool dernierTour;
+        private int nbJoueurs = 2;
+        private bool deuxJoueurs; // true = 2 joueurs, false = +
+        private bool beigeOuGris; //beige = true, gris = false
+        private bool dernierTour; // true = dernier tour
 
 
         public Jeu()
         {
             this.listeJoueurs = new List<Joueur>();
-
-
         }
 
         private void ajouterJoueur(Joueur joueur)
@@ -28,6 +27,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         public int NbJoueurs
 
         {
+            set { this.nbJoueurs = value; }
             get { return this.listeJoueurs.Count(); }
         }
 
