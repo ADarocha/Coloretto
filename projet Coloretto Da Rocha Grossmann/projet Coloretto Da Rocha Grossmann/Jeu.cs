@@ -19,7 +19,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             this.listeJoueurs = new List<Joueur>();
         }
 
-        private void ajouterJoueur(Joueur joueur)
+        public void AjouterJoueur(Joueur joueur)
         {
             listeJoueurs.Add(joueur);
         }

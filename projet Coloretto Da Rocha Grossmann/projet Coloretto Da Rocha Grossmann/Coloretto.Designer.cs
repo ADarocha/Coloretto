@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gbJoueurs = new System.Windows.Forms.GroupBox();
+            this.btReset = new System.Windows.Forms.Button();
+            this.btValider = new System.Windows.Forms.Button();
             this.gbJ5 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -75,6 +77,8 @@
             // 
             // gbJoueurs
             // 
+            this.gbJoueurs.Controls.Add(this.btReset);
+            this.gbJoueurs.Controls.Add(this.btValider);
             this.gbJoueurs.Controls.Add(this.gbJ5);
             this.gbJoueurs.Controls.Add(this.gbJ4);
             this.gbJoueurs.Controls.Add(this.gbJ3);
@@ -91,6 +95,26 @@
             this.gbJoueurs.TabIndex = 0;
             this.gbJoueurs.TabStop = false;
             this.gbJoueurs.Text = "Initialisation de la partie";
+            // 
+            // btReset
+            // 
+            this.btReset.Location = new System.Drawing.Point(90, 451);
+            this.btReset.Name = "btReset";
+            this.btReset.Size = new System.Drawing.Size(75, 23);
+            this.btReset.TabIndex = 37;
+            this.btReset.Text = "Reset";
+            this.btReset.UseVisualStyleBackColor = true;
+            this.btReset.Click += new System.EventHandler(this.btReset_Click);
+            // 
+            // btValider
+            // 
+            this.btValider.Location = new System.Drawing.Point(9, 451);
+            this.btValider.Name = "btValider";
+            this.btValider.Size = new System.Drawing.Size(75, 23);
+            this.btValider.TabIndex = 1;
+            this.btValider.Text = "Valider";
+            this.btValider.UseVisualStyleBackColor = true;
+            this.btValider.Click += new System.EventHandler(this.btValider_Click);
             // 
             // gbJ5
             // 
@@ -532,6 +556,8 @@
         private System.Windows.Forms.TextBox tbNomJ2;
         private System.Windows.Forms.ComboBox cbCouleurJ2;
         private System.Windows.Forms.GroupBox gbJ1;
+        private System.Windows.Forms.Button btReset;
+        private System.Windows.Forms.Button btValider;
     }
 }
 

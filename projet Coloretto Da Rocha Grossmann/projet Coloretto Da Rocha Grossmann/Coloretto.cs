@@ -13,13 +13,13 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
     {
         public Coloretto()
         {
-            InitializeComponent();
-            
+            InitializeComponent(); 
         }
 
+        Principal principal;
         int nbJoueurs = 2;
         Jeu coloretto = new Jeu();
-        Joueur cloclo = new Joueur("clocloleCharclo", "JauneAsiatique");
+        Joueur joueur1, joueur2, joueur3, joueur4, joueur5; //création des objets de la classe Joueur
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -109,6 +109,83 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             coloretto.TypeScore = false; 
             lbScoreBeige.Visible = false;
             lbScoreGris.Visible = true;
+        }
+
+        private void btReset_Click(object sender, EventArgs e)
+        {
+            //pour chaque control dans tout les controls du form
+            foreach (Control gb in this.Controls)
+            {
+                //si le control est une GroupBox
+                if (gb is GroupBox)
+                {
+                    //pour chaque control dans la GroupBox
+                    foreach (Control tb in gb.Controls)
+                    {
+                        //si le control est une TextBos
+                        if (tb is TextBox)
+                        {
+                            //cast de la class TextBox sur la variable locale et vidage de sa zone de texte
+                            ((TextBox)tb).Clear();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btValider_Click(object sender, EventArgs e)
+        {
+            switch (nbJoueurs)
+            {
+                case 2:
+                    joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString());
+                    joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString());
+                    coloretto.AjouterJoueur(joueur1);
+                    coloretto.AjouterJoueur(joueur2);
+                    principal = new Principal();
+                    principal.Show();
+                    this.Hide();
+                    break;
+                case 3:
+                    joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString());
+                    joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString());
+                    joueur3 = new Joueur(tbNomJ3.Text, cbCouleurJ3.SelectedItem.ToString());
+                    coloretto.AjouterJoueur(joueur1);
+                    coloretto.AjouterJoueur(joueur2);
+                    coloretto.AjouterJoueur(joueur3);
+                    principal = new Principal();
+                    principal.Show();
+                    this.Hide();
+                    break;
+                case 4:
+                    joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString());
+                    joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString());
+                    joueur3 = new Joueur(tbNomJ3.Text, cbCouleurJ3.SelectedItem.ToString());
+                    joueur4 = new Joueur(tbNomJ4.Text, cbCouleurJ4.SelectedItem.ToString());
+                    coloretto.AjouterJoueur(joueur1);
+                    coloretto.AjouterJoueur(joueur2);
+                    coloretto.AjouterJoueur(joueur3);
+                    coloretto.AjouterJoueur(joueur4);
+                    principal = new Principal();
+                    principal.Show();
+                    this.Hide();
+                    break;
+                case 5:
+                    joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString());
+                    joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString());
+                    joueur3 = new Joueur(tbNomJ3.Text, cbCouleurJ3.SelectedItem.ToString());
+                    joueur4 = new Joueur(tbNomJ4.Text, cbCouleurJ4.SelectedItem.ToString());
+                    joueur5 = new Joueur(tbNomJ5.Text, cbCouleurJ5.SelectedItem.ToString());
+                    coloretto.AjouterJoueur(joueur1);
+                    coloretto.AjouterJoueur(joueur2);
+                    coloretto.AjouterJoueur(joueur3);
+                    coloretto.AjouterJoueur(joueur4);
+                    coloretto.AjouterJoueur(joueur5);
+                    principal = new Principal();
+                    principal.Show();
+                    this.Hide();
+                    break;
+            }
         }
     }
 }
