@@ -5,7 +5,8 @@ using System.Text;
 
 namespace projet_Coloretto_Da_Rocha_Grossmann
 {
-    class Jeu
+    //passage de la classe en public (si rien, une classe est considérée comme private de base) pour pouvoir accèder aux méthodes dans les autres classes et Form
+    public class Jeu
     {
         private List<Joueur> listeJoueurs;
         private int nbJoueurs = 2;
@@ -13,12 +14,18 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         private bool beigeOuGris; //beige = true, gris = false
         private bool dernierTour; // true = dernier tour
 
-
+        /// <summary>
+        /// Constructeur de base de la classe
+        /// </summary>
         public Jeu()
         {
             this.listeJoueurs = new List<Joueur>();
         }
 
+        /// <summary>
+        /// Constructeur surchargé pour génèrer la liste des joueurs
+        /// </summary>
+        /// <param name="listeJoueurs">Liste d'objets de la classe Joueur</param>
         public Jeu(List<Joueur> listeJoueurs)
         {
             this.listeJoueurs = new List<Joueur>(listeJoueurs);
@@ -54,5 +61,9 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             get { return this.dernierTour; }
         }
 
+        public List<Joueur> ListeJoueurs
+        {
+            get { return this.listeJoueurs; }
+        }
     }
 }

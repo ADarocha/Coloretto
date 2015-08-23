@@ -16,11 +16,11 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             InitializeComponent(); 
         }
 
-        Principal principal;
+        Principal principal; //initialisation du Form de la fenêtre de jeu principale
         int nbJoueurs = 2;
         Jeu coloretto;
         List<Joueur> listeJoueurs;
-        Joueur joueur1, joueur2, joueur3, joueur4, joueur5; //création des objets de la classe Joueur
+        Joueur joueur1, joueur2, joueur3, joueur4, joueur5; //initialisation des objets de la classe Joueur
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -123,7 +123,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                     //pour chaque control dans la GroupBox
                     foreach (Control tb in gb.Controls)
                     {
-                        //si le control est une TextBos
+                        //si le control est une TextBox
                         if (tb is TextBox)
                         {
                             //cast de la class TextBox sur la variable locale et vidage de sa zone de texte
@@ -134,67 +134,24 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             }
         }
 
-        private void btValider_Click(object sender, EventArgs e)
+        public void btValider_Click(object sender, EventArgs e)
         {
             try
             {
                 switch (nbJoueurs)
                 {
+                    //Utilisation de sous-programmes décrits plus bas pour allèger le code
                     case 2:
-                        joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString());
-                        joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString());
-                        listeJoueurs = new List<Joueur>();
-                        listeJoueurs.Add(joueur1);
-                        listeJoueurs.Add(joueur2);
-                        coloretto = new Jeu(listeJoueurs);
-                        principal = new Principal();
-                        principal.Show();
-                        this.Hide();
+                        DeuxJoueurss();
                         break;
                     case 3:
-                        joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString());
-                        joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString());
-                        joueur3 = new Joueur(tbNomJ3.Text, cbCouleurJ3.SelectedItem.ToString());
-                        listeJoueurs = new List<Joueur>();
-                        listeJoueurs.Add(joueur1);
-                        listeJoueurs.Add(joueur2);
-                        listeJoueurs.Add(joueur3);
-                        coloretto = new Jeu(listeJoueurs);
-                        principal = new Principal();
-                        principal.Show();
-                        this.Hide();
+                        TroisJoueurs();
                         break;
                     case 4:
-                        joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString());
-                        joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString());
-                        joueur3 = new Joueur(tbNomJ3.Text, cbCouleurJ3.SelectedItem.ToString());
-                        joueur4 = new Joueur(tbNomJ4.Text, cbCouleurJ4.SelectedItem.ToString());
-                        listeJoueurs = new List<Joueur>();
-                        listeJoueurs.Add(joueur1);
-                        listeJoueurs.Add(joueur2);
-                        listeJoueurs.Add(joueur3);
-                        listeJoueurs.Add(joueur4);
-                        coloretto = new Jeu(listeJoueurs);
-                        principal = new Principal();
-                        principal.Show();
-                        this.Hide();
+                        QuatreJoueurs();
                         break;
                     case 5:
-                        joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString());
-                        joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString());
-                        joueur3 = new Joueur(tbNomJ3.Text, cbCouleurJ3.SelectedItem.ToString());
-                        joueur4 = new Joueur(tbNomJ4.Text, cbCouleurJ4.SelectedItem.ToString());
-                        joueur5 = new Joueur(tbNomJ5.Text, cbCouleurJ5.SelectedItem.ToString());
-                        listeJoueurs = new List<Joueur>();
-                        listeJoueurs.Add(joueur1);
-                        listeJoueurs.Add(joueur2);
-                        listeJoueurs.Add(joueur3);
-                        listeJoueurs.Add(joueur4);
-                        listeJoueurs.Add(joueur5);
-                        coloretto = new Jeu(listeJoueurs);
-                        principal = new Principal();
-                        principal.Show();
-                        this.Hide();
+                        CinqJoueurs();
                         break;
                 }
             }
@@ -202,6 +159,82 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        /// <summary>
+        /// Sous-prog générant un objet de la classe Jeu pour deux joueurs puis ouverture de la fenêtre de jeu principale
+        /// </summary>
+        private void DeuxJoueurss()
+        {
+            joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString()); //instanciation du premier joueur
+            joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString()); //instanciation du second joueur
+            listeJoueurs = new List<Joueur>(); //instanciation de la liste des joueurs
+            listeJoueurs.Add(joueur1); //ajouts des joueurs à la liste
+            listeJoueurs.Add(joueur2);
+            coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            principal = new Principal(coloretto); //instanciation du Form de la fenêtre de jeu principale avec l'objet Jeu en paramètre
+            principal.Show(); //Affiche la fenêtre de jeu principale à l'utilisateur
+            this.Hide(); //cache la fenêtre de paramètrage de la partie
+        }
+
+        /// <summary>
+        /// Sous-prog générant un objet de la classe Jeu pour trois joueurs puis ouverture de la fenêtre de jeu principale
+        /// </summary>
+        private void TroisJoueurs()
+        {
+            joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString()); //instanciation du premier joueur
+            joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString()); //instanciation du second joueur
+            joueur3 = new Joueur(tbNomJ3.Text, cbCouleurJ3.SelectedItem.ToString()); //instanciation du troisième joueur
+            listeJoueurs = new List<Joueur>(); //instanciation de la liste des joueurs
+            listeJoueurs.Add(joueur1); //ajouts des joueurs à la liste
+            listeJoueurs.Add(joueur2);
+            listeJoueurs.Add(joueur3);
+            coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            principal = new Principal(coloretto); //instanciation du Form de la fenêtre de jeu principale avec l'objet Jeu en paramètre
+            principal.Show(); //Affiche la fenêtre de jeu principale à l'utilisateur
+            this.Hide(); //cache la fenêtre de paramètrage de la partie
+        }
+
+        /// <summary>
+        /// Sous-prog générant un objet de la classe Jeu pour quatre joueurs puis ouverture de la fenêtre de jeu principale
+        /// </summary>
+        private void QuatreJoueurs()
+        {
+            joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString()); //instanciation du premier joueur
+            joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString()); //instanciation du second joueur
+            joueur3 = new Joueur(tbNomJ3.Text, cbCouleurJ3.SelectedItem.ToString()); //instanciation du troisième joueur
+            joueur4 = new Joueur(tbNomJ4.Text, cbCouleurJ4.SelectedItem.ToString()); //instanciation du quatrième joueur
+            listeJoueurs = new List<Joueur>(); //instanciation de la liste des joueurs
+            listeJoueurs.Add(joueur1); //ajouts des joueurs à la liste
+            listeJoueurs.Add(joueur2);
+            listeJoueurs.Add(joueur3);
+            listeJoueurs.Add(joueur4);
+            coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            principal = new Principal(coloretto); //instanciation du Form de la fenêtre de jeu principale avec l'objet Jeu en paramètre
+            principal.Show(); //Affiche la fenêtre de jeu principale à l'utilisateur
+            this.Hide(); //cache la fenêtre de paramètrage de la partie
+        }
+
+        /// <summary>
+        /// Sous-prog générant un objet de la classe Jeu pour cinq joueurs puis ouverture de la fenêtre de jeu principale
+        /// </summary>
+        private void CinqJoueurs()
+        {
+            joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString()); //instanciation du premier joueur
+            joueur2 = new Joueur(tbNomJ2.Text, cbCouleurJ2.SelectedItem.ToString()); //instanciation du second joueur
+            joueur3 = new Joueur(tbNomJ3.Text, cbCouleurJ3.SelectedItem.ToString()); //instanciation du troisième joueur
+            joueur4 = new Joueur(tbNomJ4.Text, cbCouleurJ4.SelectedItem.ToString()); //instanciation du quatrième joueur
+            joueur5 = new Joueur(tbNomJ5.Text, cbCouleurJ5.SelectedItem.ToString()); //instanciation du cinquième joueur
+            listeJoueurs = new List<Joueur>(); //instanciation de la liste des joueurs
+            listeJoueurs.Add(joueur1); //ajouts des joueurs à la liste
+            listeJoueurs.Add(joueur2); 
+            listeJoueurs.Add(joueur3);
+            listeJoueurs.Add(joueur4);
+            listeJoueurs.Add(joueur5);
+            coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            principal = new Principal(coloretto); //instanciation du Form de la fenêtre de jeu principale avec l'objet Jeu en paramètre
+            principal.Show(); //Affiche la fenêtre de jeu principale à l'utilisateur
+            this.Hide(); //cache la fenêtre de paramètrage de la partie
         }
     }
 }

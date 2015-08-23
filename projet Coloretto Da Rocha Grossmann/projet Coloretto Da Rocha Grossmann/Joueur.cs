@@ -5,7 +5,8 @@ using System.Text;
 
 namespace projet_Coloretto_Da_Rocha_Grossmann
 {
-    class Joueur
+    //passage de la classe en public (si rien, une classe est considérée comme private de base) pour pouvoir accèder aux méthodes dans les autres classes et Form
+    public class Joueur
     {
 
         private string nom;
