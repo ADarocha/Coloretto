@@ -24,7 +24,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tbNbJoueurs.Text = "2"; //initialise la textBox avec le nombre de joueurs
+            tbNbJoueurs.Text = nbJoueurs.ToString(); //initialise la textBox avec le nombre de joueurs
         }
 
         private void DeuxJoueurs()
@@ -67,12 +67,10 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void btMoins_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(tbNbJoueurs.Text) > 2)
+            if (nbJoueurs > 2)
             {
-                coloretto.NbJoueurs = coloretto.NbJoueurs - 1; //modifie le nombre de joueurs dans l'objet.
-                nbJoueurs = nbJoueurs - 1; //variable local pour compter le nombre de joueurs (va servir à déterminer le nombre de nom de joueurs à demander).
-                tbNbJoueurs.Text = nbJoueurs.ToString(); //affiche le nouveau nombre de joueurs.
-                configJoueurs(nbJoueurs);
+                nbJoueurs--;
+                tbNbJoueurs.Text = nbJoueurs.ToString();
             }
             else
             {
@@ -83,12 +81,10 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         private void btPlus_Click(object sender, EventArgs e)
         {
 
-            if (Convert.ToInt32(tbNbJoueurs.Text) < 5)
+            if (nbJoueurs < 5)
             {
-                coloretto.NbJoueurs = coloretto.NbJoueurs + 1; //modifie le nombre de joueurs dans l'objet.
-                nbJoueurs = nbJoueurs + 1; //variable local pour compter le nombre de joueurs (va servir à déterminer le nombre de nom de joueurs à demander).
-                tbNbJoueurs.Text = nbJoueurs.ToString(); //affiche le nouveau nombre de joueurs.
-                configJoueurs(nbJoueurs);
+                nbJoueurs++;
+                tbNbJoueurs.Text = nbJoueurs.ToString();
             }
             else
             {
