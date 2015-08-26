@@ -159,13 +159,13 @@
             // 
             this.cbCouleurJ5.FormattingEnabled = true;
             this.cbCouleurJ5.Items.AddRange(new object[] {
-            "Orange",
-            "Bleu",
-            "Marron",
-            "Jaune",
-            "Violet",
-            "Vert",
-            "Rouge"});
+            "orange",
+            "bleu",
+            "marron",
+            "jaune",
+            "violet",
+            "vert",
+            "rouge"});
             this.cbCouleurJ5.Location = new System.Drawing.Point(223, 21);
             this.cbCouleurJ5.Name = "cbCouleurJ5";
             this.cbCouleurJ5.Size = new System.Drawing.Size(121, 21);
@@ -214,13 +214,13 @@
             // 
             this.cbCouleurJ4.FormattingEnabled = true;
             this.cbCouleurJ4.Items.AddRange(new object[] {
-            "Orange",
-            "Bleu",
-            "Marron",
-            "Jaune",
-            "Violet",
-            "Vert",
-            "Rouge"});
+            "orange",
+            "bleu",
+            "marron",
+            "jaune",
+            "violet",
+            "vert",
+            "rouge"});
             this.cbCouleurJ4.Location = new System.Drawing.Point(223, 21);
             this.cbCouleurJ4.Name = "cbCouleurJ4";
             this.cbCouleurJ4.Size = new System.Drawing.Size(121, 21);
@@ -269,13 +269,13 @@
             // 
             this.cbCouleurJ3.FormattingEnabled = true;
             this.cbCouleurJ3.Items.AddRange(new object[] {
-            "Orange",
-            "Bleu",
-            "Marron",
-            "Jaune",
-            "Violet",
-            "Vert",
-            "Rouge"});
+            "orange",
+            "bleu",
+            "marron",
+            "jaune",
+            "violet",
+            "vert",
+            "rouge"});
             this.cbCouleurJ3.Location = new System.Drawing.Point(223, 21);
             this.cbCouleurJ3.Name = "cbCouleurJ3";
             this.cbCouleurJ3.Size = new System.Drawing.Size(121, 21);
@@ -323,13 +323,13 @@
             // 
             this.cbCouleurJ2.FormattingEnabled = true;
             this.cbCouleurJ2.Items.AddRange(new object[] {
-            "Orange",
-            "Bleu",
-            "Marron",
-            "Jaune",
-            "Violet",
-            "Vert",
-            "Rouge"});
+            "orange",
+            "bleu",
+            "marron",
+            "jaune",
+            "violet",
+            "vert",
+            "rouge"});
             this.cbCouleurJ2.Location = new System.Drawing.Point(223, 21);
             this.cbCouleurJ2.Name = "cbCouleurJ2";
             this.cbCouleurJ2.Size = new System.Drawing.Size(121, 21);
@@ -377,13 +377,13 @@
             // 
             this.cbCouleurJ1.FormattingEnabled = true;
             this.cbCouleurJ1.Items.AddRange(new object[] {
-            "Orange",
-            "Bleu",
-            "Marron",
-            "Jaune",
-            "Violet",
-            "Vert",
-            "Rouge"});
+            "orange",
+            "bleu",
+            "marron",
+            "jaune",
+            "violet",
+            "vert",
+            "rouge"});
             this.cbCouleurJ1.Location = new System.Drawing.Point(223, 21);
             this.cbCouleurJ1.Name = "cbCouleurJ1";
             this.cbCouleurJ1.Size = new System.Drawing.Size(121, 21);
@@ -495,7 +495,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 662);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.gbJoueurs);
             this.Name = "Coloretto";
             this.Text = "Coloretto";

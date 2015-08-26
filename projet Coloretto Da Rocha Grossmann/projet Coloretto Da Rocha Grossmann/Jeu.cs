@@ -13,6 +13,9 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         private bool deuxJoueurs; // true = 2 joueurs, false = +
         private bool beigeOuGris; //beige = true, gris = false
         private bool dernierTour; // true = dernier tour
+        List<string> paquetCartes = new List<string> { "bleu", "bleu", "bleu", "bleu", "bleu", "bleu", "bleu", "bleu", "bleu", "jaune", "jaune", "jaune", "jaune", "jaune", "jaune", "jaune", "jaune", "jaune", "marron", "marron", "marron", "marron", "marron", "marron", "marron", "marron", "marron",
+            "orange","orange","orange","orange","orange","orange","orange","orange","orange", "rouge","rouge","rouge","rouge","rouge","rouge","rouge","rouge","rouge", "vert","vert","vert","vert","vert","vert","vert","vert","vert", "violet", "violet", "violet", "violet", "violet", "violet", "violet", "violet", "violet",
+        "+2","+2"};
 
         /// <summary>
         /// Constructeur de base de la classe
@@ -64,6 +67,11 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         public List<Joueur> ListeJoueurs
         {
             get { return this.listeJoueurs; }
+        }
+
+        public List<string> PaquetCartes
+        {
+            get { return this.paquetCartes; }
         }
     }
 }

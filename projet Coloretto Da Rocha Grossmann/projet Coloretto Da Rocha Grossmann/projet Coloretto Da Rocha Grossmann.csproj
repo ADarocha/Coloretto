@@ -94,6 +94,57 @@
   <ItemGroup>
     <None Include="Resources\carteGrise.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carteBleue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carteFinPartie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carteJaune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carteMarron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carteOrange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cartePlateau.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cartePlus2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carteRouge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carteVert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carteViolet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pCarteBleu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pCarteJaune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pCarteMarron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pCarteOrange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pCarteRouge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pCarteVert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pCarteViolet.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -11,13 +11,13 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private string nom;
         private int score;
-        private List<string> main;
+        private string couleurDepart;
 
-        public Joueur(string nomJoueur, string couleurJoueur)
+        public Joueur(string nomJoueur, string couleur)
         {
             this.nom = nomJoueur;
             this.score = 0;
-            this.main = new List<string>{couleurJoueur};
+            this.couleurDepart = couleur;
 
         }
 
@@ -32,5 +32,12 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             get { return this.score; }
             set { this.score = value; }
         }
+
+        public string CouleurDepart
+        {
+            get { return this.couleurDepart; }
+            set { this.couleurDepart = value; }
+        }
+
     }
 }

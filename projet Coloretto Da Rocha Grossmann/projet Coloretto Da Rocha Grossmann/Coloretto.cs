@@ -71,6 +71,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             {
                 nbJoueurs--;
                 tbNbJoueurs.Text = nbJoueurs.ToString();
+                configJoueurs(nbJoueurs);
             }
             else
             {
@@ -85,6 +86,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             {
                 nbJoueurs++;
                 tbNbJoueurs.Text = nbJoueurs.ToString();
+                configJoueurs(nbJoueurs);
             }
             else
             {
@@ -94,7 +96,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void btScoreBeige_Click(object sender, EventArgs e)
         {
-            coloretto.TypeScore = true; //active le score beige dans l'objet.
+            //coloretto.TypeScore = true; //active le score beige dans l'objet.
             lbScoreGris.Visible = false; //rend invisible le label confirmant le score gris si il avait été séléctionné auparavant.
             lbScoreBeige.Visible = true; //rend visible le label confirmant le score beige.
 
@@ -103,7 +105,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         private void btScoreGris_Click(object sender, EventArgs e)
         {
             //voir btScoreBeige_Click
-            coloretto.TypeScore = false; 
+            //coloretto.TypeScore = false; 
             lbScoreBeige.Visible = false;
             lbScoreGris.Visible = true;
         }
@@ -168,6 +170,10 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             listeJoueurs.Add(joueur1); //ajouts des joueurs à la liste
             listeJoueurs.Add(joueur2);
             coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            if (lbScoreBeige.Visible == true)
+                coloretto.TypeScore = true;
+            else
+                coloretto.TypeScore = false;
             principal = new Principal(coloretto); //instanciation du Form de la fenêtre de jeu principale avec l'objet Jeu en paramètre
             principal.Show(); //Affiche la fenêtre de jeu principale à l'utilisateur
             this.Hide(); //cache la fenêtre de paramètrage de la partie
@@ -186,6 +192,10 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             listeJoueurs.Add(joueur2);
             listeJoueurs.Add(joueur3);
             coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            if (lbScoreBeige.Visible == true)
+                coloretto.TypeScore = true;
+            else
+                coloretto.TypeScore = false;
             principal = new Principal(coloretto); //instanciation du Form de la fenêtre de jeu principale avec l'objet Jeu en paramètre
             principal.Show(); //Affiche la fenêtre de jeu principale à l'utilisateur
             this.Hide(); //cache la fenêtre de paramètrage de la partie
@@ -206,6 +216,10 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             listeJoueurs.Add(joueur3);
             listeJoueurs.Add(joueur4);
             coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            if (lbScoreBeige.Visible == true)
+                coloretto.TypeScore = true;
+            else
+                coloretto.TypeScore = false;
             principal = new Principal(coloretto); //instanciation du Form de la fenêtre de jeu principale avec l'objet Jeu en paramètre
             principal.Show(); //Affiche la fenêtre de jeu principale à l'utilisateur
             this.Hide(); //cache la fenêtre de paramètrage de la partie
@@ -228,6 +242,10 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             listeJoueurs.Add(joueur4);
             listeJoueurs.Add(joueur5);
             coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            if (lbScoreBeige.Visible == true)
+                coloretto.TypeScore = true;
+            else
+                coloretto.TypeScore = false;
             principal = new Principal(coloretto); //instanciation du Form de la fenêtre de jeu principale avec l'objet Jeu en paramètre
             principal.Show(); //Affiche la fenêtre de jeu principale à l'utilisateur
             this.Hide(); //cache la fenêtre de paramètrage de la partie
