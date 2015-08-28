@@ -34,7 +34,9 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         bool tourJ3;
         bool tourJ4;
         bool tourJ5;
+        bool pioche;
         int manche;
+
         List<int> cartesBleu = new List<int> {0,0,0,0,0};
         List<int> cartesJaune = new List<int> { 0, 0, 0, 0, 0 };
         List<int> cartesMarron = new List<int> { 0, 0, 0, 0, 0 };
@@ -48,9 +50,10 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         private void Principal_Load(object sender, EventArgs e)
         {
             List<string> paquetCartes = coloretto.PaquetCartes; //recuperation du paquet de carte
+
             //melanger les cartes
 
-
+            pioche = true; //permet au premier joueur de piocher.
             lbTourJoueur.Text = coloretto.ListeJoueurs[0].Nom; //le joueur 1 est le premier à jouer
             tourJ1 = true; //tour du J1
             tourJ2 = false; //tour du J2
@@ -202,46 +205,60 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             manche = 1; //definition du premier tour
             lbNoTour.Text = manche.ToString(); // Tour 1
             lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer."; //nom du premier joueur à jouer.
-            btPioche.Text = coloretto.PaquetCartes.Count().ToString(); //nombre de carte sur le bouton de la pioche
+            lbNbCartes.Text = coloretto.PaquetCartes.Count().ToString(); //nombre de carte sur le bouton de la pioche
             actualiserVosCartes(0);
             resumeJoueurs();
 
         }
 
-        private void btTourSuivant_Click(object sender, EventArgs e)
+        private void tourSuivant()
         {
-            //On verifie Quel joueur vient de cliquer sur Tour suivant. Puis, en fonction du nombre de joueurs, on passe au joueur suivant, où on termine la manche et reviens au premier joueur
-            if (tourJ1 == true)
-            {
-                tourJ1 = false;
-                tourJ2 = true;
-                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
-                actualiserVosCartes(1);
-                resumeJoueurs();
-            }
-            else
-            {
-                if (tourJ2 == true)
+
+
+                cacherAfficherBoutons(true); //fait apparaître les boutons permettant au joueur de jouer.
+                if (pbR1C1.Image == null) //rend impossible de ramasser une rangée vide.
+                    btRamasserR1.Visible = false;
+                if (pbR2C1.Image == null)
+                    btRamasserR2.Visible = false;
+                if (pbR3C1.Image == null)
+                    btRamasserR3.Visible = false;
+                if (pbR4C1.Image == null)
+                    btRamasserR4.Visible = false;  
+                pioche = true; //autorise la pioche au joueur.
+
+
+
+                //On verifie Quel joueur vient de cliquer sur Tour suivant. Puis, en fonction du nombre de joueurs, on passe au joueur suivant, où on termine la manche et reviens au premier joueur.
+                if (tourJ1 == true)
                 {
-                    if (coloretto.NbJoueurs > 2)
-                    {
-                        tourJ2 = false;
-                        tourJ3 = true;
-                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
-                        actualiserVosCartes(2);
-                        resumeJoueurs();
-                    }
-                    else
-                    {
-                        tourJ2 = false;
-                        tourJ1 = true;
-                        manche++;
-                        lbNoTour.Text = manche.ToString();
-                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
-                        actualiserVosCartes(0);
-                        resumeJoueurs();
-                    } 
+                    tourJ1 = false;
+                    tourJ2 = true;
+                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                    actualiserVosCartes(1);
+                    resumeJoueurs();
                 }
+                else
+                {
+                    if (tourJ2 == true)
+                    {
+                        if (coloretto.NbJoueurs > 2)
+                        {
+                            tourJ2 = false;
+                            tourJ3 = true;
+                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                            actualiserVosCartes(2);
+                            resumeJoueurs();
+                        }
+                        else
+                        {
+                            tourJ2 = false;
+                            tourJ1 = true;
+                            lbNoTour.Text = manche.ToString();
+                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                            actualiserVosCartes(0);
+                            resumeJoueurs();
+                        }
+                    }
                     else
                     {
                         if (tourJ3 == true)
@@ -258,7 +275,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                             {
                                 tourJ3 = false;
                                 tourJ1 = true;
-                                manche++;
                                 lbNoTour.Text = manche.ToString();
                                 lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                                 actualiserVosCartes(0);
@@ -281,20 +297,18 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 {
                                     tourJ4 = false;
                                     tourJ1 = true;
-                                    manche++;
                                     lbNoTour.Text = manche.ToString();
                                     lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                                     actualiserVosCartes(0);
                                     resumeJoueurs();
                                 }
                             }
-                            else 
+                            else
                             {
                                 if (tourJ5 == true)
                                 {
                                     tourJ5 = false;
                                     tourJ1 = true;
-                                    manche++;
                                     lbNoTour.Text = manche.ToString();
                                     lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                                     actualiserVosCartes(0);
@@ -302,11 +316,154 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 }
                             }
                         }
+                    }
                 }
-            }
-
-
         }
+
+        private void btPioche_Click(object sender, EventArgs e)
+        {
+            cacherRamasser(); //empêche de ramasser une rangée après avoir piocher.
+            if (pbR1C3.Image != null)
+                btPlacerR1.Visible = false;
+            if (pbR2C3.Image != null)
+                btPlacerR2.Visible = false;
+            if (pbR3C3.Image != null)
+                btPlacerR3.Visible = false;
+            if (pbR4C3.Image != null)
+                btPlacerR4.Visible = false;
+
+            if (pioche == true) //Si le joueur peut piocher
+            {
+                switch (coloretto.PaquetCartes[0]) //on affiche la carte qu'il a piocher sur le bouton de la pioche
+                {
+                    case "jaune":
+                        btPioche.Image = Properties.Resources.carteJaune;
+                        break;
+                    case "bleu":
+                        btPioche.Image = Properties.Resources.carteBleue;
+                        break;
+                    case "rouge":
+                        btPioche.Image = Properties.Resources.carteRouge;
+                        break;
+                    case "marron":
+                        btPioche.Image = Properties.Resources.carteMarron;
+                        break;
+                    case "orange":
+                        btPioche.Image = Properties.Resources.carteOrange;
+                        break;
+                    case "vert":
+                        btPioche.Image = Properties.Resources.carteVert;
+                        break;
+                    case "violet":
+                        btPioche.Image = Properties.Resources.carteViolet;
+                        break;
+                    case "+2":
+                        btPioche.Image = Properties.Resources.cartePlus2;
+                        //
+                        //
+                        //
+                        //
+                        //
+                        //
+                        // FAIRE QUELQUE CHOSE ICI
+                        //
+                        //
+                        //
+                        //
+                        //
+                        //
+                        break;
+                }
+                pioche = false; //empêche le joueur de piocher deux fois.
+                lbNbCartes.Text = coloretto.PaquetCartes.Count().ToString(); //on actualise le nombr de cartes dans la pioche.
+            }
+            else
+            {
+                MessageBox.Show("Impossible ! vous avez déjà piocher, ou vous avez ramasser une rangée!"); //sinon on préviens qu'il n'est pas possible de piocher.
+            }
+        }
+
+        private void btPlacerR1_Click(object sender, EventArgs e)
+        {
+            placerImage(pbR1C1, pbR1C2, pbR1C3);
+            btPioche.Image = null; //retire l'image de la pioche
+            cacherAfficherBoutons(false);
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            tourSuivant();
+        }
+
+        private void btRamasserR1_Click(object sender, EventArgs e)
+        {
+            ramasserRangee(pbR1C1, pbR1C2, pbR1C3);
+            pbR1C1.Tag = null; pbR1C2.Tag = null; pbR1C3.Tag = null; //reset des tags
+            cacherAfficherBoutons(false);
+            pioche = false;
+            tourSuivant();
+        }
+
+        private void btPlacerR2_Click(object sender, EventArgs e)
+        {
+            placerImage(pbR2C1, pbR2C2, pbR2C3);
+            btPioche.Image = null; //retire l'image de la pioche
+            cacherAfficherBoutons(false);
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            tourSuivant();
+        }
+
+        private void btRamasserR2_Click(object sender, EventArgs e)
+        {
+            ramasserRangee(pbR2C1, pbR2C2, pbR2C3);
+            pbR2C1.Tag = null; pbR2C2.Tag = null; pbR2C3.Tag = null; //reset des tags
+            cacherAfficherBoutons(false);
+            pioche = false;
+            tourSuivant();
+        }
+
+        private void btPlacerR3_Click(object sender, EventArgs e)
+        {
+            placerImage(pbR3C1, pbR3C2, pbR3C3);
+            btPioche.Image = null; //retire l'image de la pioche
+            cacherAfficherBoutons(false);
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            tourSuivant();
+        }
+
+        private void btRamasserR3_Click(object sender, EventArgs e)
+        {
+            ramasserRangee(pbR3C1, pbR3C2, pbR3C3);
+            pbR3C1.Tag = null; pbR3C2.Tag = null; pbR3C3.Tag = null; //reset des tags
+            cacherAfficherBoutons(false);
+            pioche = false;
+            tourSuivant();
+        }
+
+        private void btPlacerR4_Click(object sender, EventArgs e)
+        {
+            placerImage(pbR4C1, pbR4C2, pbR4C3);
+            btPioche.Image = null; //retire l'image de la pioche
+            cacherAfficherBoutons(false);
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            tourSuivant();
+        }
+
+        private void btRamasserR4_Click(object sender, EventArgs e)
+        {
+            ramasserRangee(pbR4C1, pbR4C2, pbR4C3);
+            pbR4C1.Tag = null; pbR4C2.Tag = null; pbR4C3.Tag = null; //reset des tags
+            cacherAfficherBoutons(false);
+            pioche = false;
+            tourSuivant();
+        }
+
+
+
+
+
+        /// <summary>
+        /// Méthodes
+        /// </summary>
+
+
         private void resumeJoueurs()
         {
             //actualise la liste des cartes des joueurs dans la groupbox en haut à gauche " Joueurs "
@@ -326,5 +483,255 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             lbNbBleu.Text = cartesBleu[joueur].ToString(); lbNbJaune.Text = cartesJaune[joueur].ToString(); lbNbRouge.Text = cartesRouge[joueur].ToString(); lbNbMarron.Text = cartesMarron[joueur].ToString(); lbNbOrange.Text = cartesOrange[joueur].ToString(); lbNbVert.Text = cartesVert[joueur].ToString(); lbNbViolet.Text = cartesViolet[joueur].ToString();
         }
 
+        private void cacherAfficherBoutons(bool etat)
+        {
+            btPlacerR1.Visible = etat;
+            btPlacerR2.Visible = etat;
+            btPlacerR3.Visible = etat;
+            btPlacerR4.Visible = etat;
+            btRamasserR1.Visible = etat;
+            btRamasserR2.Visible = etat;
+            btRamasserR3.Visible = etat;
+            btRamasserR4.Visible = etat;
+        }
+
+        private void cacherRamasser()
+        {
+            btRamasserR1.Visible = false;
+            btRamasserR2.Visible = false;
+            btRamasserR3.Visible = false;
+            btRamasserR4.Visible = false;
+        }
+
+        private void placerImage(PictureBox pb1, PictureBox pb2, PictureBox pb3)
+        {
+            switch (coloretto.PaquetCartes[0])
+            {
+                case "jaune":
+                    if (pb1.Image == null)
+                    {
+                        pb1.Tag = "jaune";
+                        pb1.Image = Properties.Resources.carteJaune;
+                    }
+                    else
+                    {
+                        if (pb2.Image == null)
+                        {
+                            pb2.Tag = "jaune";
+                            pb2.Image = Properties.Resources.carteJaune;
+                        }
+                        else
+                        {
+                            pb3.Tag = "jaune";
+                            pb3.Image = Properties.Resources.carteJaune;
+                        }
+                    }
+                    break;
+                case "bleu":
+                    if (pb1.Image == null)
+                    {
+                        pb1.Tag = "bleu";
+                        pb1.Image = Properties.Resources.carteBleue;
+                    }
+                    else
+                    {
+                        if (pb2.Image == null)
+                        {
+                            pb2.Tag = "bleu";
+                            pb2.Image = Properties.Resources.carteBleue;
+                        }
+                        else
+                        {
+                            pb3.Tag = "bleu";
+                            pb3.Image = Properties.Resources.carteBleue;
+                        }
+                    }
+                    break;
+                case "rouge":
+                    if (pb1.Image == null)
+                    {
+                        pb1.Tag = "rouge";
+                        pb1.Image = Properties.Resources.carteRouge;
+                    }
+                    else
+                    {
+                        if (pb2.Image == null)
+                        {
+                            pb2.Tag = "rouge";
+                            pb2.Image = Properties.Resources.carteRouge;
+                        }
+                        else
+                        {
+                            pb3.Tag = "rouge";
+                            pb3.Image = Properties.Resources.carteRouge;
+                        }
+                    }
+                    break;
+                case "marron":
+                    if (pb1.Image == null)
+                    {
+                        pb1.Tag = "marron";
+                        pb1.Image = Properties.Resources.carteMarron;
+                    }
+                    else
+                    {
+                        if (pb2.Image == null)
+                        {
+                            pb2.Tag = "marron";
+                            pb2.Image = Properties.Resources.carteMarron;
+                        }
+                        else
+                        {
+                            pb3.Tag = "marron";
+                            pb3.Image = Properties.Resources.carteMarron;
+                        }
+                    }
+                    break;
+                case "orange":
+                    if (pb1.Image == null)
+                    {
+                        pb1.Tag = "orange";
+                        pb1.Image = Properties.Resources.carteOrange;
+                    }
+                    else
+                    {
+                        if (pb2.Image == null)
+                        {
+                            pb2.Tag = "orange";
+                            pb2.Image = Properties.Resources.carteOrange;
+                        }
+                        else
+                        {
+                            pb3.Tag = "orange";
+                            pb3.Image = Properties.Resources.carteOrange;
+                        }
+                    }
+                    break;
+                case "vert":
+                    if (pb1.Image == null)
+                    {
+                        pb1.Tag = "vert";
+                        pb1.Image = Properties.Resources.carteVert;
+                    }
+                    else
+                    {
+                        if (pb2.Image == null)
+                        {
+                            pb2.Tag = "vert";
+                            pb2.Image = Properties.Resources.carteVert;
+                        }
+                        else
+                        {
+                            pb3.Tag = "vert";
+                            pb3.Image = Properties.Resources.carteVert;
+                        }
+                    }
+                    break;
+                case "violet":
+                    if (pb1.Image == null)
+                    {
+                        pb1.Tag = "violet";
+                        pb1.Image = Properties.Resources.carteViolet;
+                    }
+                    else
+                    {
+                        if (pb2.Image == null)
+                        {
+                            pb2.Tag = "violet";
+                            pb2.Image = Properties.Resources.carteViolet;
+                        }
+                        else
+                        {
+                            pb3.Tag = "violet";
+                            pb3.Image = Properties.Resources.carteViolet;
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private void ramasserRangee(PictureBox pb1, PictureBox pb2, PictureBox pb3)
+        {
+            if (tourJ1 == true)
+            {
+                ramasser(pb1, 0);
+                ramasser(pb2, 0);
+                ramasser(pb3, 0);
+                pb1.Image = null;
+                pb2.Image = null;
+                pb3.Image = null;
+            }
+            else
+            {
+                if (tourJ2 == true)
+                {
+                    ramasser(pb1, 1);
+                    ramasser(pb2, 1);
+                    ramasser(pb3, 1);
+                    pb1.Image = null;
+                    pb2.Image = null;
+                    pb3.Image = null;
+                }
+                else
+                {
+                    if (tourJ3 == true)
+                    {
+                        ramasser(pb1, 2);
+                        ramasser(pb2, 2);
+                        ramasser(pb3, 2);
+                        pb1.Image = null;
+                        pb2.Image = null;
+                        pb3.Image = null;
+                    }
+                    else
+                    {
+                        if (tourJ4 == true)
+                        {
+                            ramasser(pb1, 3);
+                            ramasser(pb2, 3);
+                            ramasser(pb3, 3);
+                            pb1.Image = null;
+                            pb2.Image = null;
+                            pb3.Image = null;
+                        }
+                        else
+                        {
+                            if (tourJ5 == true)
+                            {
+                                ramasser(pb1, 4);
+                                ramasser(pb2, 4);
+                                ramasser(pb3, 4);
+                                pb1.Image = null;
+                                pb2.Image = null;
+                                pb3.Image = null;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ramasser(PictureBox pb, int joueur)
+        {
+            if (pb.Image != null)
+            {
+                if (pb.Image == Properties.Resources.carteJaune)
+                {
+                    cartesJaune[joueur]++;
+                }
+                else if (pb.Tag.ToString() == "bleu")
+                    cartesBleu[joueur]++;
+                else if (pb.Tag.ToString() == "rouge")
+                    cartesRouge[joueur]++;
+                else if (pb.Tag.ToString() == "marron")
+                    cartesMarron[joueur]++;
+                else if (pb.Tag.ToString() == "vert")
+                    cartesVert[joueur]++;
+                else if (pb.Tag.ToString() == "violet")
+                    cartesViolet[joueur]++;
+                else if (pb.Tag.ToString() == "orange")
+                    cartesOrange[joueur]++;
+            }
+        }
     }
 }
