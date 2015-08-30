@@ -106,6 +106,12 @@
             this.pictureBox37 = new System.Windows.Forms.PictureBox();
             this.pictureBox36 = new System.Windows.Forms.PictureBox();
             this.gbJeu = new System.Windows.Forms.GroupBox();
+            this.btRamasserR5 = new System.Windows.Forms.Button();
+            this.btPlacerR5 = new System.Windows.Forms.Button();
+            this.pbR5C3 = new System.Windows.Forms.PictureBox();
+            this.pbR5C2 = new System.Windows.Forms.PictureBox();
+            this.pbR5C1 = new System.Windows.Forms.PictureBox();
+            this.pbTypeR5 = new System.Windows.Forms.PictureBox();
             this.btRamasserR4 = new System.Windows.Forms.Button();
             this.btPlacerR4 = new System.Windows.Forms.Button();
             this.btRamasserR3 = new System.Windows.Forms.Button();
@@ -194,6 +200,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
             this.gbJeu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR5C3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR5C2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR5C1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTypeR5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR4C3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR3C3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR1C3)).BeginInit();
@@ -983,6 +993,12 @@
             // 
             // gbJeu
             // 
+            this.gbJeu.Controls.Add(this.btRamasserR5);
+            this.gbJeu.Controls.Add(this.btPlacerR5);
+            this.gbJeu.Controls.Add(this.pbR5C3);
+            this.gbJeu.Controls.Add(this.pbR5C2);
+            this.gbJeu.Controls.Add(this.pbR5C1);
+            this.gbJeu.Controls.Add(this.pbTypeR5);
             this.gbJeu.Controls.Add(this.btRamasserR4);
             this.gbJeu.Controls.Add(this.btPlacerR4);
             this.gbJeu.Controls.Add(this.btRamasserR3);
@@ -1007,12 +1023,65 @@
             this.gbJeu.Controls.Add(this.pbR2C2);
             this.gbJeu.Controls.Add(this.pbR2C1);
             this.gbJeu.Controls.Add(this.pbTypeR2);
-            this.gbJeu.Location = new System.Drawing.Point(332, 45);
+            this.gbJeu.Location = new System.Drawing.Point(332, 12);
             this.gbJeu.Name = "gbJeu";
-            this.gbJeu.Size = new System.Drawing.Size(390, 457);
+            this.gbJeu.Size = new System.Drawing.Size(390, 527);
             this.gbJeu.TabIndex = 2;
             this.gbJeu.TabStop = false;
             this.gbJeu.Text = "Tapis de jeu";
+            // 
+            // btRamasserR5
+            // 
+            this.btRamasserR5.Location = new System.Drawing.Point(297, 472);
+            this.btRamasserR5.Name = "btRamasserR5";
+            this.btRamasserR5.Size = new System.Drawing.Size(87, 25);
+            this.btRamasserR5.TabIndex = 31;
+            this.btRamasserR5.Text = "Ramasser";
+            this.btRamasserR5.UseVisualStyleBackColor = true;
+            this.btRamasserR5.Click += new System.EventHandler(this.btRamasserR5_Click);
+            // 
+            // btPlacerR5
+            // 
+            this.btPlacerR5.Location = new System.Drawing.Point(297, 441);
+            this.btPlacerR5.Name = "btPlacerR5";
+            this.btPlacerR5.Size = new System.Drawing.Size(87, 25);
+            this.btPlacerR5.TabIndex = 30;
+            this.btPlacerR5.Text = "Placer ici";
+            this.btPlacerR5.UseVisualStyleBackColor = true;
+            this.btPlacerR5.Click += new System.EventHandler(this.btPlacerR5_Click);
+            // 
+            // pbR5C3
+            // 
+            this.pbR5C3.Location = new System.Drawing.Point(232, 441);
+            this.pbR5C3.Name = "pbR5C3";
+            this.pbR5C3.Size = new System.Drawing.Size(60, 80);
+            this.pbR5C3.TabIndex = 29;
+            this.pbR5C3.TabStop = false;
+            // 
+            // pbR5C2
+            // 
+            this.pbR5C2.Location = new System.Drawing.Point(158, 441);
+            this.pbR5C2.Name = "pbR5C2";
+            this.pbR5C2.Size = new System.Drawing.Size(60, 80);
+            this.pbR5C2.TabIndex = 28;
+            this.pbR5C2.TabStop = false;
+            // 
+            // pbR5C1
+            // 
+            this.pbR5C1.Location = new System.Drawing.Point(82, 441);
+            this.pbR5C1.Name = "pbR5C1";
+            this.pbR5C1.Size = new System.Drawing.Size(60, 80);
+            this.pbR5C1.TabIndex = 27;
+            this.pbR5C1.TabStop = false;
+            // 
+            // pbTypeR5
+            // 
+            this.pbTypeR5.Image = ((System.Drawing.Image)(resources.GetObject("pbTypeR5.Image")));
+            this.pbTypeR5.Location = new System.Drawing.Point(6, 441);
+            this.pbTypeR5.Name = "pbTypeR5";
+            this.pbTypeR5.Size = new System.Drawing.Size(60, 80);
+            this.pbTypeR5.TabIndex = 26;
+            this.pbTypeR5.TabStop = false;
             // 
             // btRamasserR4
             // 
@@ -1514,6 +1583,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
             this.gbJeu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbR5C3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR5C2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR5C1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTypeR5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR4C3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR3C3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR1C3)).EndInit();
@@ -1667,5 +1740,11 @@
         private System.Windows.Forms.Label lbTourNoX;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbNbCartes;
+        private System.Windows.Forms.Button btRamasserR5;
+        private System.Windows.Forms.Button btPlacerR5;
+        private System.Windows.Forms.PictureBox pbR5C3;
+        private System.Windows.Forms.PictureBox pbR5C2;
+        private System.Windows.Forms.PictureBox pbR5C1;
+        private System.Windows.Forms.PictureBox pbTypeR5;
     }
 }
