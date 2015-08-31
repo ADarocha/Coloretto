@@ -22,3 +22,4 @@ C:\Users\antho\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\pr
 C:\Users\antho\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet_Coloretto_Da_Rocha_Grossmann.Principal.resources
 C:\Users\antho\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.resources
 C:\Users\antho\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet Coloretto Da Rocha Grossmann.csproj.GenerateResource.Cache
+C:\Users\antho\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet Coloretto Da Rocha Grossmann.csprojResolveAssemblyReference.cache

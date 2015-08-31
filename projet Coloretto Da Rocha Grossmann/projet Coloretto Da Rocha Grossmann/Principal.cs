@@ -29,13 +29,8 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         // variables
 
-        bool tourJ1;
-        bool tourJ2;
-        bool tourJ3;
-        bool tourJ4;
-        bool tourJ5;
-        bool pioche;
-        int manche;
+        bool tourJ1; bool tourJ2; bool tourJ3; bool tourJ4; bool tourJ5; bool pioche; int manche;
+        bool derniereManche; bool J1aRamasse; bool J2aRamasse; bool J3aRamasse; bool J4aRamasse; bool J5aRamasse; bool tousARamasse; string dernierAJouer;
 
         List<int> cartesBleu = new List<int> {0,0,0,0,0};
         List<int> cartesJaune = new List<int> { 0, 0, 0, 0, 0 };
@@ -53,13 +48,16 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
             //melanger les cartes
 
+            J1aRamasse = false; J2aRamasse = false; J3aRamasse = true; J4aRamasse = true; J5aRamasse = true; //les deux premiers joueurs sont considérés comme pouvant jouer. On ajoute les autres joueurs plus tard en fonction du nombre de joueurs
+
+            derniereManche = false; // le tour ne sera pas le dernier
             pioche = true; //permet au premier joueur de piocher.
             lbTourJoueur.Text = coloretto.ListeJoueurs[0].Nom; //le joueur 1 est le premier à jouer
             tourJ1 = true; //tour du J1
             tourJ2 = false; //tour du J2
-            gbJ1.Text = coloretto.ListeJoueurs[0].Nom; // nom du J1
-            gbJ2.Text = coloretto.ListeJoueurs[1].Nom; // nom du J2
+            gbJ1.Text = coloretto.ListeJoueurs[0].Nom; gbJ2.Text = coloretto.ListeJoueurs[1].Nom; // nom du J1 et J2
             cacherPlacerAfficherRamasser(false, false); //cache tous les boutons
+
             switch (coloretto.ListeJoueurs[0].CouleurDepart) //Assigne la carte de départ du joueur 1 à sa main
             {
                 case "bleu":
@@ -84,6 +82,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                     cartesViolet[0]++;
                     break;
             }
+
             switch (coloretto.ListeJoueurs[1].CouleurDepart) //il en va de même pour le J2
             {
                 case "bleu":
@@ -111,8 +110,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
             if (coloretto.NbJoueurs > 2)
             {
-                tourJ3 = false;
-                gbJ3.Visible = true;
+                J3aRamasse = false; tourJ3 = false; gbJ3.Visible = true; //Active le joueur 3 et la rangée n°3
                 gbJ3.Text = coloretto.ListeJoueurs[2].Nom;
 
                 switch (coloretto.ListeJoueurs[2].CouleurDepart) //definition de la carte de départ dans la main de J3
@@ -142,8 +140,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 
                 if (coloretto.NbJoueurs > 3)
                 {
-                    tourJ4 = false;
-                    gbJ4.Visible = true;
+                    J4aRamasse = false; tourJ4 = false; gbJ4.Visible = true; //active J4 et rangée 4
                     gbJ4.Text = coloretto.ListeJoueurs[3].Nom;
 
                     switch (coloretto.ListeJoueurs[3].CouleurDepart)//definition de la carte de départ dans la main de J4
@@ -173,8 +170,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 }
                 if (coloretto.NbJoueurs == 5)
                 {
-                    tourJ5 = false;
-                    gbJ5.Visible = true;
+                    J5aRamasse = false; tourJ5 = false; gbJ5.Visible = true; //active J5 et la rangée 5
                     gbJ5.Text = coloretto.ListeJoueurs[4].Nom;
 
                     switch (coloretto.ListeJoueurs[4].CouleurDepart)//definition de la carte de départ dans la main de J5
@@ -203,6 +199,21 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                     }
                 }
             }
+            switch (coloretto.NbJoueurs) //cache des rangées de carte en fonction du nombre de joueurs
+            {
+                case 2 :
+                    //rien pour l'instant. Mode deux joueurs ici pour plus tard
+                    break;
+                case 3:
+                    gbRangee4.Visible = false; gbRangee5.Visible = false;
+                    break;
+                case 4:
+                    gbRangee5.Visible = false;
+                    break;
+                case 5:
+                    //rien
+                    break;
+            }
             manche = 1; //definition du premier tour
             lbNoTour.Text = manche.ToString(); // Tour 1
             lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer."; //nom du premier joueur à jouer.
@@ -216,7 +227,8 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void btPioche_Click(object sender, EventArgs e)
         {
-            cacherPlacerAfficherRamasser(true, false);
+            cacherPlacerAfficherRamasser(true, false); //cache les boutons ramasser.
+            //Si une rangée possède 3 carte, le joueur ne pourra pas placer car le bouton placer ne sera pas disponible
             if (pbR1C3.Image != null)
                 btPlacerR1.Visible = false;
             if (pbR2C3.Image != null)
@@ -261,7 +273,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                         //
                         //
                         //
-                        // FAIRE QUELQUE CHOSE ICI
+                        // FAIRE QUELQUE CHOSE ICI POUR LE MODE J2 (voir à la fin)
                         //
                         //
                         //
@@ -292,6 +304,50 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             ramasserRangee(pbR1C1, pbR1C2, pbR1C3);
             pbR1C1.Tag = null; pbR1C2.Tag = null; pbR1C3.Tag = null; //reset des tags
             pioche = false;
+            if (tourJ1)
+            {
+                J1aRamasse = true;
+                if (J2aRamasse && J3aRamasse && J4aRamasse && J5aRamasse)
+                    dernierAJouer = "J1"; //determine quel joueur à terminé le tour
+            }
+            else
+            {
+                if (tourJ2)
+                {
+                    J2aRamasse = true;
+                    if (J1aRamasse && J3aRamasse && J4aRamasse && J5aRamasse)
+                        dernierAJouer = "J2";
+                }
+
+                else
+                {
+                    if (tourJ3)
+                    {
+                        J3aRamasse = true;
+                        if (J1aRamasse && J2aRamasse && J4aRamasse && J5aRamasse)
+                            dernierAJouer = "J3";
+                    }
+                    else
+                    {
+                        if (tourJ4)
+                        {
+                            J4aRamasse = true;
+                            if (J2aRamasse && J3aRamasse && J1aRamasse && J5aRamasse)
+                                dernierAJouer = "J4";
+                        }
+                        else
+                        {
+                            if (tourJ5)
+                            {
+                                J5aRamasse = true;
+                                if (J2aRamasse && J3aRamasse && J4aRamasse && J1aRamasse)
+                                    dernierAJouer = "J5";
+                            }
+                        }
+                    }
+                }
+            }
+            gbRangee1.Visible = false; //cache la rangée une fois qu'elle est ramassée
             tourSuivant();
         }
 
@@ -308,6 +364,50 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             ramasserRangee(pbR2C1, pbR2C2, pbR2C3);
             pbR2C1.Tag = null; pbR2C2.Tag = null; pbR2C3.Tag = null; //reset des tags
             pioche = false;
+            if (tourJ1)
+            {
+                J1aRamasse = true;
+                if (J2aRamasse && J3aRamasse && J4aRamasse && J5aRamasse)
+                    dernierAJouer = "J1";
+            }
+            else
+            {
+                if (tourJ2)
+                {
+                    J2aRamasse = true;
+                    if (J1aRamasse && J3aRamasse && J4aRamasse && J5aRamasse)
+                        dernierAJouer = "J2";
+                }
+
+                else
+                {
+                    if (tourJ3)
+                    {
+                        J3aRamasse = true;
+                        if (J1aRamasse && J2aRamasse && J4aRamasse && J5aRamasse)
+                            dernierAJouer = "J3";
+                    }
+                    else
+                    {
+                        if (tourJ4)
+                        {
+                            J4aRamasse = true;
+                            if (J2aRamasse && J3aRamasse && J1aRamasse && J5aRamasse)
+                                dernierAJouer = "J4";
+                        }
+                        else
+                        {
+                            if (tourJ5)
+                            {
+                                J5aRamasse = true;
+                                if (J2aRamasse && J3aRamasse && J4aRamasse && J1aRamasse)
+                                    dernierAJouer = "J5";
+                            }
+                        }
+                    }
+                }
+            }
+            gbRangee2.Visible = false;
             tourSuivant();
         }
 
@@ -324,6 +424,50 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             ramasserRangee(pbR3C1, pbR3C2, pbR3C3);
             pbR3C1.Tag = null; pbR3C2.Tag = null; pbR3C3.Tag = null; //reset des tags
             pioche = false;
+            if (tourJ1)
+            {
+                J1aRamasse = true;
+                if (J2aRamasse && J3aRamasse && J4aRamasse && J5aRamasse)
+                    dernierAJouer = "J1";
+            }
+            else
+            {
+                if (tourJ2)
+                {
+                    J2aRamasse = true;
+                    if (J1aRamasse && J3aRamasse && J4aRamasse && J5aRamasse)
+                        dernierAJouer = "J2";
+                }
+
+                else
+                {
+                    if (tourJ3)
+                    {
+                        J3aRamasse = true;
+                        if (J1aRamasse && J2aRamasse && J4aRamasse && J5aRamasse)
+                            dernierAJouer = "J3";
+                    }
+                    else
+                    {
+                        if (tourJ4)
+                        {
+                            J4aRamasse = true;
+                            if (J2aRamasse && J3aRamasse && J1aRamasse && J5aRamasse)
+                                dernierAJouer = "J4";
+                        }
+                        else
+                        {
+                            if (tourJ5)
+                            {
+                                J5aRamasse = true;
+                                if (J2aRamasse && J3aRamasse && J4aRamasse && J1aRamasse)
+                                    dernierAJouer = "J5";
+                            }
+                        }
+                    }
+                }
+            }
+            gbRangee3.Visible = false;
             tourSuivant();
         }
 
@@ -340,6 +484,50 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             ramasserRangee(pbR4C1, pbR4C2, pbR4C3);
             pbR4C1.Tag = null; pbR4C2.Tag = null; pbR4C3.Tag = null; //reset des tags
             pioche = false;
+            if (tourJ1)
+            {
+                J1aRamasse = true;
+                if (J2aRamasse && J3aRamasse && J4aRamasse && J5aRamasse)
+                    dernierAJouer = "J1";
+            }
+            else
+            {
+                if (tourJ2)
+                {
+                    J2aRamasse = true;
+                    if (J1aRamasse && J3aRamasse && J4aRamasse && J5aRamasse)
+                        dernierAJouer = "J2";
+                }
+
+                else
+                {
+                    if (tourJ3)
+                    {
+                        J3aRamasse = true;
+                        if (J1aRamasse && J2aRamasse && J4aRamasse && J5aRamasse)
+                            dernierAJouer = "J3";
+                    }
+                    else
+                    {
+                        if (tourJ4)
+                        {
+                            J4aRamasse = true;
+                            if (J2aRamasse && J3aRamasse && J1aRamasse && J5aRamasse)
+                                dernierAJouer = "J4";
+                        }
+                        else
+                        {
+                            if (tourJ5)
+                            {
+                                J5aRamasse = true;
+                                if (J2aRamasse && J3aRamasse && J4aRamasse && J1aRamasse)
+                                    dernierAJouer = "J5";
+                            }
+                        }
+                    }
+                }
+            }
+            gbRangee4.Visible = false;
             tourSuivant();
         }
 
@@ -357,6 +545,50 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             ramasserRangee(pbR5C1, pbR5C2, pbR5C3);
             pbR5C1.Tag = null; pbR5C2.Tag = null; pbR5C3.Tag = null; //reset des tags
             pioche = false;
+            if (tourJ1)
+            {
+                J1aRamasse = true;
+                if (J2aRamasse && J3aRamasse && J4aRamasse && J5aRamasse)
+                    dernierAJouer = "J1";
+            }
+            else
+            {
+                if (tourJ2)
+                {
+                    J2aRamasse = true;
+                    if (J1aRamasse && J3aRamasse && J4aRamasse && J5aRamasse)
+                        dernierAJouer = "J2";
+                }
+
+                else
+                {
+                    if (tourJ3)
+                    {
+                        J3aRamasse = true;
+                        if (J1aRamasse && J2aRamasse && J4aRamasse && J5aRamasse)
+                            dernierAJouer = "J3";
+                    }
+                    else
+                    {
+                        if (tourJ4)
+                        {
+                            J4aRamasse = true;
+                            if (J2aRamasse && J3aRamasse && J1aRamasse && J5aRamasse)
+                                dernierAJouer = "J4";
+                        }
+                        else
+                        {
+                            if (tourJ5)
+                            {
+                                J5aRamasse = true;
+                                if (J2aRamasse && J3aRamasse && J4aRamasse && J1aRamasse)
+                                    dernierAJouer = "J5";
+                            }
+                        }
+                    }
+                }
+            }
+            gbRangee5.Visible = false;
             tourSuivant();
         }
 
@@ -384,9 +616,34 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         private void tourSuivant()
         {
 
+            if (J1aRamasse && J2aRamasse && J3aRamasse && J4aRamasse && J5aRamasse) //si tous le monde a ramasser dans le tour
+                tousARamasse = true;
+
+            if(tousARamasse) //si tous le monde a ramasser
+            {
+                switch (coloretto.NbJoueurs) // en fonction du nombre de joueurs, on fais ré-apparaître les rangées de cartes.
+                {
+                    case 1:
+                        break;
+                    case 2:
+                        gbRangee1.Visible = true; gbRangee2.Visible = true;
+                        break;
+                    case 3:
+                        gbRangee1.Visible = true; gbRangee2.Visible = true; gbRangee3.Visible = true;
+                        break;
+                    case 4 :
+                        gbRangee1.Visible = true; gbRangee2.Visible = true; gbRangee3.Visible = true; gbRangee4.Visible = true;
+                        break;
+                    case 5:
+                        gbRangee1.Visible = true; gbRangee2.Visible = true; gbRangee3.Visible = true; gbRangee4.Visible = true; gbRangee5.Visible = true; 
+                        break;
+                }
+            }
 
 
-            cacherPlacerAfficherRamasser(false, true);
+
+
+            cacherPlacerAfficherRamasser(false, true); //on cache les boutons ramasser.
             if (pbR1C1.Image == null) //rend impossible de ramasser une rangée vide.
                 btRamasserR1.Visible = false;
             if (pbR2C1.Image == null)
@@ -400,54 +657,67 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             pioche = true; //autorise la pioche au joueur.
 
 
-
-            //On verifie Quel joueur vient de cliquer sur Tour suivant. Puis, en fonction du nombre de joueurs, on passe au joueur suivant, où on termine la manche et reviens au premier joueur.
-            if (tourJ1 == true)
+            if (tousARamasse) // si tous le monde a ramasser
             {
-                tourJ1 = false;
-                tourJ2 = true;
-                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
-                actualiserVosCartes(1);
-                resumeJoueurs();
-            }
-            else
-            {
-                if (tourJ2 == true)
+                switch (dernierAJouer) // en fonction du dernier joueur à avoir ramasser dans le tour, celui-ci relance le tour suivant.
                 {
-                    if (coloretto.NbJoueurs > 2)
-                    {
-                        tourJ2 = false;
-                        tourJ3 = true;
-                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
-                        actualiserVosCartes(2);
-                        resumeJoueurs();
-                    }
-                    else
-                    {
-                        tourJ2 = false;
-                        tourJ1 = true;
-                        lbNoTour.Text = manche.ToString();
+                    case "J1":
+                        tourJ1 = true; tourJ2 = false; tourJ3 = false; tourJ4 = false; tourJ5 = false;
                         lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                         actualiserVosCartes(0);
                         resumeJoueurs();
-                    }
+                        break;
+                    case "J2":
+                        tourJ2 = true; tourJ1 = false; tourJ3 = false; tourJ4 = false; tourJ5 = false;
+                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                        actualiserVosCartes(1);
+                        resumeJoueurs();
+                        break;
+                    case "J3":
+                        tourJ3 = true; tourJ2 = false; tourJ1 = false; tourJ4 = false; tourJ5 = false;
+                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                        actualiserVosCartes(2);
+                        resumeJoueurs();
+                        break;
+                    case "J4":
+                        tourJ4 = true; tourJ2 = false; tourJ3 = false; tourJ1 = false; tourJ5 = false;
+                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                        actualiserVosCartes(3);
+                        resumeJoueurs();
+                        break;
+                    case "J5":
+                        tourJ5 = true; tourJ2 = false; tourJ3 = false; tourJ4 = false; tourJ1 = false;
+                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom + " de jouer.";
+                        actualiserVosCartes(4);
+                        resumeJoueurs();
+                        break;
+                }
+            }
+            else //sinon
+            {
+                //en fonction du nombre de joueurs, on passe au joueur suivant, où on termine la manche et reviens au premier joueur.
+                if (tourJ1 == true)
+                {
+                    tourJ1 = false;
+                    tourJ2 = true;
+                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                    actualiserVosCartes(1);
+                    resumeJoueurs();
                 }
                 else
                 {
-                    if (tourJ3 == true)
+                    if (tourJ2 == true)
                     {
-                        if (coloretto.NbJoueurs > 3)
+                        if (coloretto.NbJoueurs > 2)
                         {
-                            tourJ3 = false;
-                            tourJ4 = true;
-                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
-                            actualiserVosCartes(3);
+                            tourJ2 = false; tourJ3 = true;
+                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                            actualiserVosCartes(2);
                             resumeJoueurs();
                         }
                         else
                         {
-                            tourJ3 = false;
-                            tourJ1 = true;
+                            tourJ2 = false; tourJ1 = true;
                             lbNoTour.Text = manche.ToString();
                             lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                             actualiserVosCartes(0);
@@ -456,20 +726,18 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                     }
                     else
                     {
-                        if (tourJ4 == true)
+                        if (tourJ3 == true)
                         {
-                            if (coloretto.NbJoueurs == 5)
+                            if (coloretto.NbJoueurs > 3)
                             {
-                                tourJ4 = false;
-                                tourJ5 = true;
-                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom + " de jouer.";
-                                actualiserVosCartes(4);
+                                tourJ3 = false; tourJ4 = true;
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                                actualiserVosCartes(3);
                                 resumeJoueurs();
                             }
                             else
                             {
-                                tourJ4 = false;
-                                tourJ1 = true;
+                                tourJ3 = false; tourJ1 = true;
                                 lbNoTour.Text = manche.ToString();
                                 lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                                 actualiserVosCartes(0);
@@ -478,18 +746,46 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                         }
                         else
                         {
-                            if (tourJ5 == true)
+                            if (tourJ4 == true)
                             {
-                                tourJ5 = false;
-                                tourJ1 = true;
-                                lbNoTour.Text = manche.ToString();
-                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
-                                actualiserVosCartes(0);
-                                resumeJoueurs();
+                                if (coloretto.NbJoueurs == 5)
+                                {
+                                    tourJ4 = false; tourJ5 = true;
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom + " de jouer.";
+                                    actualiserVosCartes(4);
+                                    resumeJoueurs();
+                                }
+                                else
+                                {
+                                    tourJ4 = false; tourJ1 = true;
+                                    lbNoTour.Text = manche.ToString();
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                    actualiserVosCartes(0);
+                                    resumeJoueurs();
+                                }
+                            }
+                            else
+                            {
+                                if (tourJ5 == true)
+                                {
+                                    tourJ5 = false; tourJ1 = true;
+                                    lbNoTour.Text = manche.ToString();
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                    actualiserVosCartes(0);
+                                    resumeJoueurs();
+                                }
                             }
                         }
                     }
                 }
+            }
+            if (derniereManche) //si c'est la dernière manche, on préviens les joueurs
+                MessageBox.Show("Dernière manche !");
+
+            if (tousARamasse) //si le tour es terminé, on remet à zéro les valeurs
+            {
+                J1aRamasse = false; J2aRamasse = false; J3aRamasse = false; J4aRamasse = false; J5aRamasse = false; tousARamasse = false; dernierAJouer = "";
+                manche++;
             }
         }
 
@@ -518,143 +814,117 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void cacherPlacerAfficherRamasser(bool etatPlacer, bool etatRamasser)
         {
-            btPlacerR1.Visible = etatPlacer;
-            btPlacerR2.Visible = etatPlacer;
-            btPlacerR3.Visible = etatPlacer;
-            btPlacerR4.Visible = etatPlacer;
-            btPlacerR5.Visible = etatPlacer;
-            btRamasserR1.Visible = etatRamasser;
-            btRamasserR2.Visible = etatRamasser;
-            btRamasserR3.Visible = etatRamasser;
-            btRamasserR4.Visible = etatRamasser;
-            btRamasserR5.Visible = etatRamasser;
+            //permet de cacher / afficher les boutons ramasser / placer ici
+            btPlacerR1.Visible = etatPlacer; btPlacerR2.Visible = etatPlacer; btPlacerR3.Visible = etatPlacer; btPlacerR4.Visible = etatPlacer; btPlacerR5.Visible = etatPlacer;
+            btRamasserR1.Visible = etatRamasser; btRamasserR2.Visible = etatRamasser; btRamasserR3.Visible = etatRamasser; btRamasserR4.Visible = etatRamasser; btRamasserR5.Visible = etatRamasser;
         }
 
         private void cacherRamasser()
         {
-            btRamasserR1.Visible = false;
-            btRamasserR2.Visible = false;
-            btRamasserR3.Visible = false;
-            btRamasserR4.Visible = false;
-            btRamasserR5.Visible = false;
+            //peut-être à supprimer, ne sert pas (?)
+            btRamasserR1.Visible = false; btRamasserR2.Visible = false; btRamasserR3.Visible = false; btRamasserR4.Visible = false; btRamasserR5.Visible = false;
         }
 
         private void placerImage(PictureBox pb1, PictureBox pb2, PictureBox pb3)
         {
+            //permet de placer une image dans une rangée en fonction du nombre de carte déjà présentent dans la rangée, et selon la carte.
             switch (coloretto.PaquetCartes[0])
             {
                 case "jaune":
                     if (pb1.Image == null)
                     {
-                        pb1.Tag = "jaune";
-                        pb1.Image = Properties.Resources.carteJaune;
+                        pb1.Tag = "jaune"; pb1.Image = Properties.Resources.carteJaune;
                     }
                     else
                     {
                         if (pb2.Image == null)
                         {
-                            pb2.Tag = "jaune";
-                            pb2.Image = Properties.Resources.carteJaune;
+                            pb2.Tag = "jaune"; pb2.Image = Properties.Resources.carteJaune;
                         }
                         else
                         {
-                            pb3.Tag = "jaune";
-                            pb3.Image = Properties.Resources.carteJaune;
+                            pb3.Tag = "jaune"; pb3.Image = Properties.Resources.carteJaune;
                         }
                     }
                     break;
                 case "bleu":
                     if (pb1.Image == null)
                     {
-                        pb1.Tag = "bleu";
-                        pb1.Image = Properties.Resources.carteBleue;
+                        pb1.Tag = "bleu"; pb1.Image = Properties.Resources.carteBleue;
                     }
                     else
                     {
                         if (pb2.Image == null)
                         {
-                            pb2.Tag = "bleu";
-                            pb2.Image = Properties.Resources.carteBleue;
+                            pb2.Tag = "bleu"; pb2.Image = Properties.Resources.carteBleue;
                         }
                         else
                         {
-                            pb3.Tag = "bleu";
-                            pb3.Image = Properties.Resources.carteBleue;
+                            pb3.Tag = "bleu"; pb3.Image = Properties.Resources.carteBleue;
                         }
                     }
                     break;
                 case "rouge":
                     if (pb1.Image == null)
                     {
-                        pb1.Tag = "rouge";
-                        pb1.Image = Properties.Resources.carteRouge;
+                        pb1.Tag = "rouge"; pb1.Image = Properties.Resources.carteRouge;
                     }
                     else
                     {
                         if (pb2.Image == null)
                         {
-                            pb2.Tag = "rouge";
-                            pb2.Image = Properties.Resources.carteRouge;
+                            pb2.Tag = "rouge"; pb2.Image = Properties.Resources.carteRouge;
                         }
                         else
                         {
-                            pb3.Tag = "rouge";
-                            pb3.Image = Properties.Resources.carteRouge;
+                            pb3.Tag = "rouge"; pb3.Image = Properties.Resources.carteRouge;
                         }
                     }
                     break;
                 case "marron":
                     if (pb1.Image == null)
                     {
-                        pb1.Tag = "marron";
-                        pb1.Image = Properties.Resources.carteMarron;
+                        pb1.Tag = "marron"; pb1.Image = Properties.Resources.carteMarron;
                     }
                     else
                     {
                         if (pb2.Image == null)
                         {
-                            pb2.Tag = "marron";
-                            pb2.Image = Properties.Resources.carteMarron;
+                            pb2.Tag = "marron"; pb2.Image = Properties.Resources.carteMarron;
                         }
                         else
                         {
-                            pb3.Tag = "marron";
-                            pb3.Image = Properties.Resources.carteMarron;
+                            pb3.Tag = "marron"; pb3.Image = Properties.Resources.carteMarron;
                         }
                     }
                     break;
                 case "orange":
                     if (pb1.Image == null)
                     {
-                        pb1.Tag = "orange";
-                        pb1.Image = Properties.Resources.carteOrange;
+                        pb1.Tag = "orange"; pb1.Image = Properties.Resources.carteOrange;
                     }
                     else
                     {
                         if (pb2.Image == null)
                         {
-                            pb2.Tag = "orange";
-                            pb2.Image = Properties.Resources.carteOrange;
+                            pb2.Tag = "orange"; pb2.Image = Properties.Resources.carteOrange;
                         }
                         else
                         {
-                            pb3.Tag = "orange";
-                            pb3.Image = Properties.Resources.carteOrange;
+                            pb3.Tag = "orange"; pb3.Image = Properties.Resources.carteOrange;
                         }
                     }
                     break;
                 case "vert":
                     if (pb1.Image == null)
                     {
-                        pb1.Tag = "vert";
-                        pb1.Image = Properties.Resources.carteVert;
+                        pb1.Tag = "vert"; pb1.Image = Properties.Resources.carteVert;
                     }
                     else
                     {
                         if (pb2.Image == null)
                         {
-                            pb2.Tag = "vert";
-                            pb2.Image = Properties.Resources.carteVert;
+                            pb2.Tag = "vert"; pb2.Image = Properties.Resources.carteVert;
                         }
                         else
                         {
@@ -666,20 +936,17 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 case "violet":
                     if (pb1.Image == null)
                     {
-                        pb1.Tag = "violet";
-                        pb1.Image = Properties.Resources.carteViolet;
+                        pb1.Tag = "violet"; pb1.Image = Properties.Resources.carteViolet;
                     }
                     else
                     {
                         if (pb2.Image == null)
                         {
-                            pb2.Tag = "violet";
-                            pb2.Image = Properties.Resources.carteViolet;
+                            pb2.Tag = "violet"; pb2.Image = Properties.Resources.carteViolet;
                         }
                         else
                         {
-                            pb3.Tag = "violet";
-                            pb3.Image = Properties.Resources.carteViolet;
+                            pb3.Tag = "violet"; pb3.Image = Properties.Resources.carteViolet;
                         }
                     }
                     break;
@@ -688,58 +955,39 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void ramasserRangee(PictureBox pb1, PictureBox pb2, PictureBox pb3)
         {
+            //verifie qui est entrain de jouer, et ramasse les cartes pour lui.
             if (tourJ1 == true)
             {
-                ramasser(pb1, 0);
-                ramasser(pb2, 0);
-                ramasser(pb3, 0);
-                pb1.Image = null;
-                pb2.Image = null;
-                pb3.Image = null;
+                ramasser(pb1, 0); ramasser(pb2, 0); ramasser(pb3, 0);
+                pb1.Image = null; pb2.Image = null; pb3.Image = null;
             }
             else
             {
                 if (tourJ2 == true)
                 {
-                    ramasser(pb1, 1);
-                    ramasser(pb2, 1);
-                    ramasser(pb3, 1);
-                    pb1.Image = null;
-                    pb2.Image = null;
-                    pb3.Image = null;
+                    ramasser(pb1, 1); ramasser(pb2, 1); ramasser(pb3, 1);
+                    pb1.Image = null; pb2.Image = null; pb3.Image = null;
                 }
                 else
                 {
                     if (tourJ3 == true)
                     {
-                        ramasser(pb1, 2);
-                        ramasser(pb2, 2);
-                        ramasser(pb3, 2);
-                        pb1.Image = null;
-                        pb2.Image = null;
-                        pb3.Image = null;
+                        ramasser(pb1, 2); ramasser(pb2, 2); ramasser(pb3, 2);
+                        pb1.Image = null; pb2.Image = null; pb3.Image = null;
                     }
                     else
                     {
                         if (tourJ4 == true)
                         {
-                            ramasser(pb1, 3);
-                            ramasser(pb2, 3);
-                            ramasser(pb3, 3);
-                            pb1.Image = null;
-                            pb2.Image = null;
-                            pb3.Image = null;
+                            ramasser(pb1, 3); ramasser(pb2, 3); ramasser(pb3, 3);
+                            pb1.Image = null; pb2.Image = null; pb3.Image = null;
                         }
                         else
                         {
                             if (tourJ5 == true)
                             {
-                                ramasser(pb1, 4);
-                                ramasser(pb2, 4);
-                                ramasser(pb3, 4);
-                                pb1.Image = null;
-                                pb2.Image = null;
-                                pb3.Image = null;
+                                ramasser(pb1, 4); ramasser(pb2, 4); ramasser(pb3, 4);
+                                pb1.Image = null; pb2.Image = null; pb3.Image = null;
                             }
                         }
                     }
@@ -749,6 +997,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void ramasser(PictureBox pb, int joueur)
         {
+            //ramasse une carte
             if (pb.Image != null)
             {
                 if (pb.Tag.ToString() == "jaune")
@@ -767,9 +1016,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                     cartesOrange[joueur]++;
             }
         }
-
-
-
 
         
     }

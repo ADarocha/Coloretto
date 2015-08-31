@@ -16,6 +16,8 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             InitializeComponent(); 
         }
 
+        List<string> listeCouleurD = new List<string>();
+        bool isUnique;
         Principal principal; //initialisation du Form de la fenêtre de jeu principale
         int nbJoueurs = 2;
         Jeu coloretto;
@@ -134,6 +136,50 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         public void btValider_Click(object sender, EventArgs e)
         {
+            switch (nbJoueurs)
+            {
+                //Utilisation de sous-programmes décrits plus bas pour allèger le code
+                case 2:
+                    listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString());
+                    if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
+                        preparationJeu();
+                    else
+                        MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
+                    listeCouleurD.Clear();
+                    break;
+                case 3:
+                    listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ3.SelectedItem.ToString());
+                    if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
+                        preparationJeu();
+                    else
+                        MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
+                    listeCouleurD.Clear();
+                    break;
+                case 4:
+                    listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ3.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ4.SelectedItem.ToString());
+                    if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
+                        preparationJeu();
+                    else
+                        MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
+                    listeCouleurD.Clear();
+                    break;
+                case 5:
+                    listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ3.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ4.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ5.SelectedItem.ToString());
+                    if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
+                        preparationJeu();
+                    else
+                        MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
+                    listeCouleurD.Clear();
+                    break;
+            }
+
+
+        }
+
+
+
+        private void preparationJeu()
+        {
             try
             {
                 switch (nbJoueurs)
@@ -159,9 +205,11 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             }
         }
 
+
         /// <summary>
         /// Sous-prog générant un objet de la classe Jeu pour deux joueurs puis ouverture de la fenêtre de jeu principale
         /// </summary>
+        /// 
         private void DeuxJoueurss()
         {
             joueur1 = new Joueur(tbNomJ1.Text, cbCouleurJ1.SelectedItem.ToString()); //instanciation du premier joueur

@@ -177,7 +177,7 @@
             this.gbJ4.Controls.Add(this.label9);
             this.gbJ4.Controls.Add(this.tbNomJ4);
             this.gbJ4.Controls.Add(this.cbCouleurJ4);
-            this.gbJ4.Location = new System.Drawing.Point(6, 286);
+            this.gbJ4.Location = new System.Drawing.Point(9, 286);
             this.gbJ4.Name = "gbJ4";
             this.gbJ4.Size = new System.Drawing.Size(358, 56);
             this.gbJ4.TabIndex = 36;

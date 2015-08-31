@@ -15,7 +15,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         private bool dernierTour; // true = dernier tour
         List<string> paquetCartes = new List<string> { "bleu", "bleu", "bleu", "bleu", "bleu", "bleu", "bleu", "bleu", "bleu", "jaune", "jaune", "jaune", "jaune", "jaune", "jaune", "jaune", "jaune", "jaune", "marron", "marron", "marron", "marron", "marron", "marron", "marron", "marron", "marron",
             "orange","orange","orange","orange","orange","orange","orange","orange","orange", "rouge","rouge","rouge","rouge","rouge","rouge","rouge","rouge","rouge", "vert","vert","vert","vert","vert","vert","vert","vert","vert", "violet", "violet", "violet", "violet", "violet", "violet", "violet", "violet", "violet",
-        "+2","+2"};
+        "+2","+2","+2","+2","+2","+2","+2","+2","+2","+2","joker","joker","joker"};
 
         /// <summary>
         /// Constructeur de base de la classe

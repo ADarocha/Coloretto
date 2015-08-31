@@ -105,7 +105,7 @@
             this.lbCBleuJ5 = new System.Windows.Forms.Label();
             this.pictureBox37 = new System.Windows.Forms.PictureBox();
             this.pictureBox36 = new System.Windows.Forms.PictureBox();
-            this.gbJeu = new System.Windows.Forms.GroupBox();
+            this.gbRangee1 = new System.Windows.Forms.GroupBox();
             this.btRamasserR5 = new System.Windows.Forms.Button();
             this.btPlacerR5 = new System.Windows.Forms.Button();
             this.pbR5C3 = new System.Windows.Forms.PictureBox();
@@ -158,6 +158,10 @@
             this.lbTourNoX = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbNbCartes = new System.Windows.Forms.Label();
+            this.gbRangee2 = new System.Windows.Forms.GroupBox();
+            this.gbRangee3 = new System.Windows.Forms.GroupBox();
+            this.gbRangee4 = new System.Windows.Forms.GroupBox();
+            this.gbRangee5 = new System.Windows.Forms.GroupBox();
             this.gbResumeJoueurs.SuspendLayout();
             this.gbJ1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -199,7 +203,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
-            this.gbJeu.SuspendLayout();
+            this.gbRangee1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C1)).BeginInit();
@@ -227,6 +231,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCarteMarron)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarteJaune)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarteBleu)).BeginInit();
+            this.gbRangee2.SuspendLayout();
+            this.gbRangee3.SuspendLayout();
+            this.gbRangee4.SuspendLayout();
+            this.gbRangee5.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbResumeJoueurs
@@ -991,48 +999,24 @@
             this.pictureBox36.TabIndex = 101;
             this.pictureBox36.TabStop = false;
             // 
-            // gbJeu
+            // gbRangee1
             // 
-            this.gbJeu.Controls.Add(this.btRamasserR5);
-            this.gbJeu.Controls.Add(this.btPlacerR5);
-            this.gbJeu.Controls.Add(this.pbR5C3);
-            this.gbJeu.Controls.Add(this.pbR5C2);
-            this.gbJeu.Controls.Add(this.pbR5C1);
-            this.gbJeu.Controls.Add(this.pbTypeR5);
-            this.gbJeu.Controls.Add(this.btRamasserR4);
-            this.gbJeu.Controls.Add(this.btPlacerR4);
-            this.gbJeu.Controls.Add(this.btRamasserR3);
-            this.gbJeu.Controls.Add(this.btPlacerR3);
-            this.gbJeu.Controls.Add(this.btRamasserR2);
-            this.gbJeu.Controls.Add(this.btPlacerR2);
-            this.gbJeu.Controls.Add(this.btRamasserR1);
-            this.gbJeu.Controls.Add(this.btPlacerR1);
-            this.gbJeu.Controls.Add(this.pbR4C3);
-            this.gbJeu.Controls.Add(this.pbR3C3);
-            this.gbJeu.Controls.Add(this.pbR1C3);
-            this.gbJeu.Controls.Add(this.pbR2C3);
-            this.gbJeu.Controls.Add(this.pbR4C2);
-            this.gbJeu.Controls.Add(this.pbR4C1);
-            this.gbJeu.Controls.Add(this.pbTypeR4);
-            this.gbJeu.Controls.Add(this.pbR3C2);
-            this.gbJeu.Controls.Add(this.pbR3C1);
-            this.gbJeu.Controls.Add(this.pbTypeR3);
-            this.gbJeu.Controls.Add(this.pbR1C2);
-            this.gbJeu.Controls.Add(this.pbR1C1);
-            this.gbJeu.Controls.Add(this.pbTypeR1);
-            this.gbJeu.Controls.Add(this.pbR2C2);
-            this.gbJeu.Controls.Add(this.pbR2C1);
-            this.gbJeu.Controls.Add(this.pbTypeR2);
-            this.gbJeu.Location = new System.Drawing.Point(332, 12);
-            this.gbJeu.Name = "gbJeu";
-            this.gbJeu.Size = new System.Drawing.Size(390, 527);
-            this.gbJeu.TabIndex = 2;
-            this.gbJeu.TabStop = false;
-            this.gbJeu.Text = "Tapis de jeu";
+            this.gbRangee1.Controls.Add(this.pbTypeR1);
+            this.gbRangee1.Controls.Add(this.pbR1C1);
+            this.gbRangee1.Controls.Add(this.pbR1C2);
+            this.gbRangee1.Controls.Add(this.pbR1C3);
+            this.gbRangee1.Controls.Add(this.btRamasserR1);
+            this.gbRangee1.Controls.Add(this.btPlacerR1);
+            this.gbRangee1.Location = new System.Drawing.Point(332, 18);
+            this.gbRangee1.Name = "gbRangee1";
+            this.gbRangee1.Size = new System.Drawing.Size(390, 122);
+            this.gbRangee1.TabIndex = 2;
+            this.gbRangee1.TabStop = false;
+            this.gbRangee1.Text = " ";
             // 
             // btRamasserR5
             // 
-            this.btRamasserR5.Location = new System.Drawing.Point(297, 472);
+            this.btRamasserR5.Location = new System.Drawing.Point(297, 53);
             this.btRamasserR5.Name = "btRamasserR5";
             this.btRamasserR5.Size = new System.Drawing.Size(87, 25);
             this.btRamasserR5.TabIndex = 31;
@@ -1042,7 +1026,7 @@
             // 
             // btPlacerR5
             // 
-            this.btPlacerR5.Location = new System.Drawing.Point(297, 441);
+            this.btPlacerR5.Location = new System.Drawing.Point(297, 22);
             this.btPlacerR5.Name = "btPlacerR5";
             this.btPlacerR5.Size = new System.Drawing.Size(87, 25);
             this.btPlacerR5.TabIndex = 30;
@@ -1052,7 +1036,7 @@
             // 
             // pbR5C3
             // 
-            this.pbR5C3.Location = new System.Drawing.Point(232, 441);
+            this.pbR5C3.Location = new System.Drawing.Point(232, 22);
             this.pbR5C3.Name = "pbR5C3";
             this.pbR5C3.Size = new System.Drawing.Size(60, 80);
             this.pbR5C3.TabIndex = 29;
@@ -1060,7 +1044,7 @@
             // 
             // pbR5C2
             // 
-            this.pbR5C2.Location = new System.Drawing.Point(158, 441);
+            this.pbR5C2.Location = new System.Drawing.Point(158, 22);
             this.pbR5C2.Name = "pbR5C2";
             this.pbR5C2.Size = new System.Drawing.Size(60, 80);
             this.pbR5C2.TabIndex = 28;
@@ -1068,7 +1052,7 @@
             // 
             // pbR5C1
             // 
-            this.pbR5C1.Location = new System.Drawing.Point(82, 441);
+            this.pbR5C1.Location = new System.Drawing.Point(82, 22);
             this.pbR5C1.Name = "pbR5C1";
             this.pbR5C1.Size = new System.Drawing.Size(60, 80);
             this.pbR5C1.TabIndex = 27;
@@ -1077,7 +1061,7 @@
             // pbTypeR5
             // 
             this.pbTypeR5.Image = ((System.Drawing.Image)(resources.GetObject("pbTypeR5.Image")));
-            this.pbTypeR5.Location = new System.Drawing.Point(6, 441);
+            this.pbTypeR5.Location = new System.Drawing.Point(6, 22);
             this.pbTypeR5.Name = "pbTypeR5";
             this.pbTypeR5.Size = new System.Drawing.Size(60, 80);
             this.pbTypeR5.TabIndex = 26;
@@ -1085,7 +1069,7 @@
             // 
             // btRamasserR4
             // 
-            this.btRamasserR4.Location = new System.Drawing.Point(297, 371);
+            this.btRamasserR4.Location = new System.Drawing.Point(297, 52);
             this.btRamasserR4.Name = "btRamasserR4";
             this.btRamasserR4.Size = new System.Drawing.Size(87, 25);
             this.btRamasserR4.TabIndex = 25;
@@ -1095,7 +1079,7 @@
             // 
             // btPlacerR4
             // 
-            this.btPlacerR4.Location = new System.Drawing.Point(297, 340);
+            this.btPlacerR4.Location = new System.Drawing.Point(297, 21);
             this.btPlacerR4.Name = "btPlacerR4";
             this.btPlacerR4.Size = new System.Drawing.Size(87, 25);
             this.btPlacerR4.TabIndex = 24;
@@ -1105,7 +1089,7 @@
             // 
             // btRamasserR3
             // 
-            this.btRamasserR3.Location = new System.Drawing.Point(297, 271);
+            this.btRamasserR3.Location = new System.Drawing.Point(297, 57);
             this.btRamasserR3.Name = "btRamasserR3";
             this.btRamasserR3.Size = new System.Drawing.Size(87, 25);
             this.btRamasserR3.TabIndex = 23;
@@ -1115,7 +1099,7 @@
             // 
             // btPlacerR3
             // 
-            this.btPlacerR3.Location = new System.Drawing.Point(297, 240);
+            this.btPlacerR3.Location = new System.Drawing.Point(297, 26);
             this.btPlacerR3.Name = "btPlacerR3";
             this.btPlacerR3.Size = new System.Drawing.Size(87, 25);
             this.btPlacerR3.TabIndex = 22;
@@ -1125,7 +1109,7 @@
             // 
             // btRamasserR2
             // 
-            this.btRamasserR2.Location = new System.Drawing.Point(297, 166);
+            this.btRamasserR2.Location = new System.Drawing.Point(297, 50);
             this.btRamasserR2.Name = "btRamasserR2";
             this.btRamasserR2.Size = new System.Drawing.Size(87, 25);
             this.btRamasserR2.TabIndex = 21;
@@ -1135,7 +1119,7 @@
             // 
             // btPlacerR2
             // 
-            this.btPlacerR2.Location = new System.Drawing.Point(297, 135);
+            this.btPlacerR2.Location = new System.Drawing.Point(297, 19);
             this.btPlacerR2.Name = "btPlacerR2";
             this.btPlacerR2.Size = new System.Drawing.Size(87, 25);
             this.btPlacerR2.TabIndex = 20;
@@ -1145,7 +1129,7 @@
             // 
             // btRamasserR1
             // 
-            this.btRamasserR1.Location = new System.Drawing.Point(297, 65);
+            this.btRamasserR1.Location = new System.Drawing.Point(297, 51);
             this.btRamasserR1.Name = "btRamasserR1";
             this.btRamasserR1.Size = new System.Drawing.Size(87, 25);
             this.btRamasserR1.TabIndex = 19;
@@ -1155,7 +1139,7 @@
             // 
             // btPlacerR1
             // 
-            this.btPlacerR1.Location = new System.Drawing.Point(297, 34);
+            this.btPlacerR1.Location = new System.Drawing.Point(297, 20);
             this.btPlacerR1.Name = "btPlacerR1";
             this.btPlacerR1.Size = new System.Drawing.Size(87, 25);
             this.btPlacerR1.TabIndex = 9;
@@ -1165,7 +1149,7 @@
             // 
             // pbR4C3
             // 
-            this.pbR4C3.Location = new System.Drawing.Point(232, 340);
+            this.pbR4C3.Location = new System.Drawing.Point(232, 21);
             this.pbR4C3.Name = "pbR4C3";
             this.pbR4C3.Size = new System.Drawing.Size(60, 80);
             this.pbR4C3.TabIndex = 18;
@@ -1173,7 +1157,7 @@
             // 
             // pbR3C3
             // 
-            this.pbR3C3.Location = new System.Drawing.Point(232, 240);
+            this.pbR3C3.Location = new System.Drawing.Point(232, 26);
             this.pbR3C3.Name = "pbR3C3";
             this.pbR3C3.Size = new System.Drawing.Size(60, 80);
             this.pbR3C3.TabIndex = 17;
@@ -1181,7 +1165,7 @@
             // 
             // pbR1C3
             // 
-            this.pbR1C3.Location = new System.Drawing.Point(232, 34);
+            this.pbR1C3.Location = new System.Drawing.Point(232, 20);
             this.pbR1C3.Name = "pbR1C3";
             this.pbR1C3.Size = new System.Drawing.Size(60, 80);
             this.pbR1C3.TabIndex = 16;
@@ -1189,7 +1173,7 @@
             // 
             // pbR2C3
             // 
-            this.pbR2C3.Location = new System.Drawing.Point(232, 135);
+            this.pbR2C3.Location = new System.Drawing.Point(232, 19);
             this.pbR2C3.Name = "pbR2C3";
             this.pbR2C3.Size = new System.Drawing.Size(60, 80);
             this.pbR2C3.TabIndex = 15;
@@ -1197,7 +1181,7 @@
             // 
             // pbR4C2
             // 
-            this.pbR4C2.Location = new System.Drawing.Point(158, 340);
+            this.pbR4C2.Location = new System.Drawing.Point(158, 21);
             this.pbR4C2.Name = "pbR4C2";
             this.pbR4C2.Size = new System.Drawing.Size(60, 80);
             this.pbR4C2.TabIndex = 14;
@@ -1205,7 +1189,7 @@
             // 
             // pbR4C1
             // 
-            this.pbR4C1.Location = new System.Drawing.Point(82, 340);
+            this.pbR4C1.Location = new System.Drawing.Point(82, 21);
             this.pbR4C1.Name = "pbR4C1";
             this.pbR4C1.Size = new System.Drawing.Size(60, 80);
             this.pbR4C1.TabIndex = 13;
@@ -1214,7 +1198,7 @@
             // pbTypeR4
             // 
             this.pbTypeR4.Image = ((System.Drawing.Image)(resources.GetObject("pbTypeR4.Image")));
-            this.pbTypeR4.Location = new System.Drawing.Point(6, 340);
+            this.pbTypeR4.Location = new System.Drawing.Point(6, 21);
             this.pbTypeR4.Name = "pbTypeR4";
             this.pbTypeR4.Size = new System.Drawing.Size(60, 80);
             this.pbTypeR4.TabIndex = 12;
@@ -1222,7 +1206,7 @@
             // 
             // pbR3C2
             // 
-            this.pbR3C2.Location = new System.Drawing.Point(158, 240);
+            this.pbR3C2.Location = new System.Drawing.Point(158, 26);
             this.pbR3C2.Name = "pbR3C2";
             this.pbR3C2.Size = new System.Drawing.Size(60, 80);
             this.pbR3C2.TabIndex = 11;
@@ -1230,7 +1214,7 @@
             // 
             // pbR3C1
             // 
-            this.pbR3C1.Location = new System.Drawing.Point(82, 240);
+            this.pbR3C1.Location = new System.Drawing.Point(82, 26);
             this.pbR3C1.Name = "pbR3C1";
             this.pbR3C1.Size = new System.Drawing.Size(60, 80);
             this.pbR3C1.TabIndex = 10;
@@ -1239,7 +1223,7 @@
             // pbTypeR3
             // 
             this.pbTypeR3.Image = ((System.Drawing.Image)(resources.GetObject("pbTypeR3.Image")));
-            this.pbTypeR3.Location = new System.Drawing.Point(6, 240);
+            this.pbTypeR3.Location = new System.Drawing.Point(6, 26);
             this.pbTypeR3.Name = "pbTypeR3";
             this.pbTypeR3.Size = new System.Drawing.Size(60, 80);
             this.pbTypeR3.TabIndex = 9;
@@ -1247,7 +1231,7 @@
             // 
             // pbR1C2
             // 
-            this.pbR1C2.Location = new System.Drawing.Point(158, 34);
+            this.pbR1C2.Location = new System.Drawing.Point(158, 20);
             this.pbR1C2.Name = "pbR1C2";
             this.pbR1C2.Size = new System.Drawing.Size(60, 80);
             this.pbR1C2.TabIndex = 8;
@@ -1255,7 +1239,7 @@
             // 
             // pbR1C1
             // 
-            this.pbR1C1.Location = new System.Drawing.Point(82, 34);
+            this.pbR1C1.Location = new System.Drawing.Point(82, 20);
             this.pbR1C1.Name = "pbR1C1";
             this.pbR1C1.Size = new System.Drawing.Size(60, 80);
             this.pbR1C1.TabIndex = 7;
@@ -1264,7 +1248,7 @@
             // pbTypeR1
             // 
             this.pbTypeR1.Image = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.cartePlateau;
-            this.pbTypeR1.Location = new System.Drawing.Point(6, 34);
+            this.pbTypeR1.Location = new System.Drawing.Point(6, 20);
             this.pbTypeR1.Name = "pbTypeR1";
             this.pbTypeR1.Size = new System.Drawing.Size(60, 80);
             this.pbTypeR1.TabIndex = 6;
@@ -1272,7 +1256,7 @@
             // 
             // pbR2C2
             // 
-            this.pbR2C2.Location = new System.Drawing.Point(158, 135);
+            this.pbR2C2.Location = new System.Drawing.Point(158, 19);
             this.pbR2C2.Name = "pbR2C2";
             this.pbR2C2.Size = new System.Drawing.Size(60, 80);
             this.pbR2C2.TabIndex = 5;
@@ -1280,7 +1264,7 @@
             // 
             // pbR2C1
             // 
-            this.pbR2C1.Location = new System.Drawing.Point(82, 135);
+            this.pbR2C1.Location = new System.Drawing.Point(82, 19);
             this.pbR2C1.Name = "pbR2C1";
             this.pbR2C1.Size = new System.Drawing.Size(60, 80);
             this.pbR2C1.TabIndex = 4;
@@ -1289,7 +1273,7 @@
             // pbTypeR2
             // 
             this.pbTypeR2.Image = ((System.Drawing.Image)(resources.GetObject("pbTypeR2.Image")));
-            this.pbTypeR2.Location = new System.Drawing.Point(6, 135);
+            this.pbTypeR2.Location = new System.Drawing.Point(6, 19);
             this.pbTypeR2.Name = "pbTypeR2";
             this.pbTypeR2.Size = new System.Drawing.Size(60, 80);
             this.pbTypeR2.TabIndex = 1;
@@ -1337,7 +1321,7 @@
             // 
             this.lbVosCartes.AutoSize = true;
             this.lbVosCartes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVosCartes.Location = new System.Drawing.Point(17, 580);
+            this.lbVosCartes.Location = new System.Drawing.Point(17, 332);
             this.lbVosCartes.Name = "lbVosCartes";
             this.lbVosCartes.Size = new System.Drawing.Size(120, 24);
             this.lbVosCartes.TabIndex = 7;
@@ -1347,7 +1331,7 @@
             // 
             this.lbNbBleu.AutoSize = true;
             this.lbNbBleu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNbBleu.Location = new System.Drawing.Point(170, 609);
+            this.lbNbBleu.Location = new System.Drawing.Point(15, 423);
             this.lbNbBleu.Name = "lbNbBleu";
             this.lbNbBleu.Size = new System.Drawing.Size(16, 16);
             this.lbNbBleu.TabIndex = 14;
@@ -1357,7 +1341,7 @@
             // 
             this.lbNbJaune.AutoSize = true;
             this.lbNbJaune.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNbJaune.Location = new System.Drawing.Point(287, 609);
+            this.lbNbJaune.Location = new System.Drawing.Point(124, 423);
             this.lbNbJaune.Name = "lbNbJaune";
             this.lbNbJaune.Size = new System.Drawing.Size(16, 16);
             this.lbNbJaune.TabIndex = 33;
@@ -1367,7 +1351,7 @@
             // 
             this.lbNbMarron.AutoSize = true;
             this.lbNbMarron.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNbMarron.Location = new System.Drawing.Point(404, 609);
+            this.lbNbMarron.Location = new System.Drawing.Point(229, 423);
             this.lbNbMarron.Name = "lbNbMarron";
             this.lbNbMarron.Size = new System.Drawing.Size(16, 16);
             this.lbNbMarron.TabIndex = 34;
@@ -1377,7 +1361,7 @@
             // 
             this.lbNbOrange.AutoSize = true;
             this.lbNbOrange.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNbOrange.Location = new System.Drawing.Point(517, 609);
+            this.lbNbOrange.Location = new System.Drawing.Point(14, 509);
             this.lbNbOrange.Name = "lbNbOrange";
             this.lbNbOrange.Size = new System.Drawing.Size(16, 16);
             this.lbNbOrange.TabIndex = 35;
@@ -1387,7 +1371,7 @@
             // 
             this.lbNbRouge.AutoSize = true;
             this.lbNbRouge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNbRouge.Location = new System.Drawing.Point(627, 609);
+            this.lbNbRouge.Location = new System.Drawing.Point(124, 509);
             this.lbNbRouge.Name = "lbNbRouge";
             this.lbNbRouge.Size = new System.Drawing.Size(16, 16);
             this.lbNbRouge.TabIndex = 36;
@@ -1397,7 +1381,7 @@
             // 
             this.lbNbVert.AutoSize = true;
             this.lbNbVert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNbVert.Location = new System.Drawing.Point(744, 609);
+            this.lbNbVert.Location = new System.Drawing.Point(229, 508);
             this.lbNbVert.Name = "lbNbVert";
             this.lbNbVert.Size = new System.Drawing.Size(16, 16);
             this.lbNbVert.TabIndex = 37;
@@ -1407,7 +1391,7 @@
             // 
             this.lbNbViolet.AutoSize = true;
             this.lbNbViolet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNbViolet.Location = new System.Drawing.Point(862, 609);
+            this.lbNbViolet.Location = new System.Drawing.Point(124, 616);
             this.lbNbViolet.Name = "lbNbViolet";
             this.lbNbViolet.Size = new System.Drawing.Size(16, 16);
             this.lbNbViolet.TabIndex = 38;
@@ -1416,7 +1400,7 @@
             // pbCarteViolet
             // 
             this.pbCarteViolet.Image = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.carteViolet;
-            this.pbCarteViolet.Location = new System.Drawing.Point(884, 545);
+            this.pbCarteViolet.Location = new System.Drawing.Point(144, 552);
             this.pbCarteViolet.Name = "pbCarteViolet";
             this.pbCarteViolet.Size = new System.Drawing.Size(60, 80);
             this.pbCarteViolet.TabIndex = 32;
@@ -1425,7 +1409,7 @@
             // pbCarteVert
             // 
             this.pbCarteVert.Image = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.carteVert;
-            this.pbCarteVert.Location = new System.Drawing.Point(766, 545);
+            this.pbCarteVert.Location = new System.Drawing.Point(251, 445);
             this.pbCarteVert.Name = "pbCarteVert";
             this.pbCarteVert.Size = new System.Drawing.Size(60, 80);
             this.pbCarteVert.TabIndex = 31;
@@ -1434,7 +1418,7 @@
             // pbCarteRouge
             // 
             this.pbCarteRouge.Image = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.carteRouge;
-            this.pbCarteRouge.Location = new System.Drawing.Point(647, 545);
+            this.pbCarteRouge.Location = new System.Drawing.Point(144, 445);
             this.pbCarteRouge.Name = "pbCarteRouge";
             this.pbCarteRouge.Size = new System.Drawing.Size(60, 80);
             this.pbCarteRouge.TabIndex = 30;
@@ -1443,7 +1427,7 @@
             // pbCarteOrange
             // 
             this.pbCarteOrange.Image = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.carteOrange;
-            this.pbCarteOrange.Location = new System.Drawing.Point(540, 545);
+            this.pbCarteOrange.Location = new System.Drawing.Point(37, 445);
             this.pbCarteOrange.Name = "pbCarteOrange";
             this.pbCarteOrange.Size = new System.Drawing.Size(60, 80);
             this.pbCarteOrange.TabIndex = 29;
@@ -1452,7 +1436,7 @@
             // pbCarteMarron
             // 
             this.pbCarteMarron.Image = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.carteMarron;
-            this.pbCarteMarron.Location = new System.Drawing.Point(426, 545);
+            this.pbCarteMarron.Location = new System.Drawing.Point(251, 359);
             this.pbCarteMarron.Name = "pbCarteMarron";
             this.pbCarteMarron.Size = new System.Drawing.Size(60, 80);
             this.pbCarteMarron.TabIndex = 28;
@@ -1461,7 +1445,7 @@
             // pbCarteJaune
             // 
             this.pbCarteJaune.Image = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.carteJaune;
-            this.pbCarteJaune.Location = new System.Drawing.Point(309, 545);
+            this.pbCarteJaune.Location = new System.Drawing.Point(146, 359);
             this.pbCarteJaune.Name = "pbCarteJaune";
             this.pbCarteJaune.Size = new System.Drawing.Size(60, 80);
             this.pbCarteJaune.TabIndex = 27;
@@ -1470,7 +1454,7 @@
             // pbCarteBleu
             // 
             this.pbCarteBleu.Image = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.carteBleue;
-            this.pbCarteBleu.Location = new System.Drawing.Point(192, 545);
+            this.pbCarteBleu.Location = new System.Drawing.Point(37, 359);
             this.pbCarteBleu.Name = "pbCarteBleu";
             this.pbCarteBleu.Size = new System.Drawing.Size(60, 80);
             this.pbCarteBleu.TabIndex = 26;
@@ -1504,11 +1488,75 @@
             this.lbNbCartes.TabIndex = 41;
             this.lbNbCartes.Text = "nbCartes";
             // 
+            // gbRangee2
+            // 
+            this.gbRangee2.Controls.Add(this.pbTypeR2);
+            this.gbRangee2.Controls.Add(this.pbR2C2);
+            this.gbRangee2.Controls.Add(this.pbR2C1);
+            this.gbRangee2.Controls.Add(this.pbR2C3);
+            this.gbRangee2.Controls.Add(this.btPlacerR2);
+            this.gbRangee2.Controls.Add(this.btRamasserR2);
+            this.gbRangee2.Location = new System.Drawing.Point(332, 146);
+            this.gbRangee2.Name = "gbRangee2";
+            this.gbRangee2.Size = new System.Drawing.Size(390, 122);
+            this.gbRangee2.TabIndex = 3;
+            this.gbRangee2.TabStop = false;
+            this.gbRangee2.Text = " ";
+            // 
+            // gbRangee3
+            // 
+            this.gbRangee3.Controls.Add(this.pbTypeR3);
+            this.gbRangee3.Controls.Add(this.pbR3C1);
+            this.gbRangee3.Controls.Add(this.pbR3C2);
+            this.gbRangee3.Controls.Add(this.pbR3C3);
+            this.gbRangee3.Controls.Add(this.btPlacerR3);
+            this.gbRangee3.Controls.Add(this.btRamasserR3);
+            this.gbRangee3.Location = new System.Drawing.Point(332, 274);
+            this.gbRangee3.Name = "gbRangee3";
+            this.gbRangee3.Size = new System.Drawing.Size(390, 122);
+            this.gbRangee3.TabIndex = 3;
+            this.gbRangee3.TabStop = false;
+            this.gbRangee3.Text = " ";
+            // 
+            // gbRangee4
+            // 
+            this.gbRangee4.Controls.Add(this.pbTypeR4);
+            this.gbRangee4.Controls.Add(this.pbR4C1);
+            this.gbRangee4.Controls.Add(this.pbR4C2);
+            this.gbRangee4.Controls.Add(this.pbR4C3);
+            this.gbRangee4.Controls.Add(this.btPlacerR4);
+            this.gbRangee4.Controls.Add(this.btRamasserR4);
+            this.gbRangee4.Location = new System.Drawing.Point(332, 402);
+            this.gbRangee4.Name = "gbRangee4";
+            this.gbRangee4.Size = new System.Drawing.Size(390, 122);
+            this.gbRangee4.TabIndex = 3;
+            this.gbRangee4.TabStop = false;
+            this.gbRangee4.Text = " ";
+            // 
+            // gbRangee5
+            // 
+            this.gbRangee5.Controls.Add(this.pbTypeR5);
+            this.gbRangee5.Controls.Add(this.pbR5C1);
+            this.gbRangee5.Controls.Add(this.pbR5C2);
+            this.gbRangee5.Controls.Add(this.pbR5C3);
+            this.gbRangee5.Controls.Add(this.btRamasserR5);
+            this.gbRangee5.Controls.Add(this.btPlacerR5);
+            this.gbRangee5.Location = new System.Drawing.Point(332, 530);
+            this.gbRangee5.Name = "gbRangee5";
+            this.gbRangee5.Size = new System.Drawing.Size(390, 122);
+            this.gbRangee5.TabIndex = 4;
+            this.gbRangee5.TabStop = false;
+            this.gbRangee5.Text = " ";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.gbRangee5);
+            this.Controls.Add(this.gbRangee4);
+            this.Controls.Add(this.gbRangee3);
+            this.Controls.Add(this.gbRangee2);
             this.Controls.Add(this.lbNbCartes);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbTourNoX);
@@ -1531,7 +1579,7 @@
             this.Controls.Add(this.lbNoTour);
             this.Controls.Add(this.lbPioche);
             this.Controls.Add(this.btPioche);
-            this.Controls.Add(this.gbJeu);
+            this.Controls.Add(this.gbRangee1);
             this.Controls.Add(this.gbResumeJoueurs);
             this.Name = "Principal";
             this.Text = "Principal";
@@ -1582,7 +1630,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
-            this.gbJeu.ResumeLayout(false);
+            this.gbRangee1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C1)).EndInit();
@@ -1610,6 +1658,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCarteMarron)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarteJaune)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarteBleu)).EndInit();
+            this.gbRangee2.ResumeLayout(false);
+            this.gbRangee3.ResumeLayout(false);
+            this.gbRangee4.ResumeLayout(false);
+            this.gbRangee5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1618,7 +1670,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbResumeJoueurs;
-        private System.Windows.Forms.GroupBox gbJeu;
+        private System.Windows.Forms.GroupBox gbRangee1;
         private System.Windows.Forms.Button btPioche;
         private System.Windows.Forms.Label lbPioche;
         private System.Windows.Forms.Label lbNoTour;
@@ -1746,5 +1798,9 @@
         private System.Windows.Forms.PictureBox pbR5C2;
         private System.Windows.Forms.PictureBox pbR5C1;
         private System.Windows.Forms.PictureBox pbTypeR5;
+        private System.Windows.Forms.GroupBox gbRangee2;
+        private System.Windows.Forms.GroupBox gbRangee3;
+        private System.Windows.Forms.GroupBox gbRangee4;
+        private System.Windows.Forms.GroupBox gbRangee5;
     }
 }
