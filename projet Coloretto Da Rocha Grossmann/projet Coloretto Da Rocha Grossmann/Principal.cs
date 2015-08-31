@@ -46,7 +46,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         {
             List<string> paquetCartes = coloretto.PaquetCartes; //recuperation du paquet de carte
 
-            //melanger les cartes
+            paquetCartes = ShufflePaquet(paquetCartes);//melanger les cartes
 
             J1aRamasse = false; J2aRamasse = false; J3aRamasse = true; J4aRamasse = true; J5aRamasse = true; //les deux premiers joueurs sont considérés comme pouvant jouer. On ajoute les autres joueurs plus tard en fonction du nombre de joueurs
 
@@ -695,89 +695,310 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             }
             else //sinon
             {
-                //en fonction du nombre de joueurs, on passe au joueur suivant, où on termine la manche et reviens au premier joueur.
-                if (tourJ1 == true)
+
+
+
+                switch (coloretto.NbJoueurs)
                 {
-                    tourJ1 = false;
-                    tourJ2 = true;
-                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
-                    actualiserVosCartes(1);
-                    resumeJoueurs();
-                }
-                else
-                {
-                    if (tourJ2 == true)
-                    {
-                        if (coloretto.NbJoueurs > 2)
+                    case 1:
+                        break;
+                    case 2:
+                        if (tourJ1)
                         {
-                            tourJ2 = false; tourJ3 = true;
-                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
-                            actualiserVosCartes(2);
+                            tourJ1 = false;
+                            tourJ2 = true;
+                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                            actualiserVosCartes(1);
                             resumeJoueurs();
                         }
                         else
                         {
-                            tourJ2 = false; tourJ1 = true;
-                            lbNoTour.Text = manche.ToString();
-                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
-                            actualiserVosCartes(0);
-                            resumeJoueurs();
-                        }
-                    }
-                    else
-                    {
-                        if (tourJ3 == true)
-                        {
-                            if (coloretto.NbJoueurs > 3)
+                            if (tourJ2)
                             {
-                                tourJ3 = false; tourJ4 = true;
-                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
-                                actualiserVosCartes(3);
-                                resumeJoueurs();
-                            }
-                            else
-                            {
-                                tourJ3 = false; tourJ1 = true;
-                                lbNoTour.Text = manche.ToString();
+                                tourJ1 = true;
+                                tourJ2 = false;
                                 lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                                 actualiserVosCartes(0);
                                 resumeJoueurs();
                             }
                         }
+                        break;
+                    case 3:
+                        if (tourJ1)
+                        {
+                            if (J2aRamasse)
+                            {
+                                tourJ1 = false;
+                                tourJ3 = true;
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                actualiserVosCartes(2);
+                                resumeJoueurs();
+                                tourSuivant();
+
+                            }
+                            else
+                            {
+                                tourJ1 = false;
+                                tourJ2 = true;
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                actualiserVosCartes(1);
+                                resumeJoueurs();
+                            }
+                        }
                         else
                         {
-                            if (tourJ4 == true)
+                            if (tourJ2)
                             {
-                                if (coloretto.NbJoueurs == 5)
+                                if (J3aRamasse)
                                 {
-                                    tourJ4 = false; tourJ5 = true;
-                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom + " de jouer.";
-                                    actualiserVosCartes(4);
+                                    tourJ1 = true;
+                                    tourJ2 = false;
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                    actualiserVosCartes(0);
                                     resumeJoueurs();
+                                    tourSuivant(); 
                                 }
                                 else
                                 {
-                                    tourJ4 = false; tourJ1 = true;
-                                    lbNoTour.Text = manche.ToString();
-                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
-                                    actualiserVosCartes(0);
+                                    tourJ3 = true;
+                                    tourJ2 = false;
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                    actualiserVosCartes(2);
                                     resumeJoueurs();
                                 }
                             }
                             else
                             {
-                                if (tourJ5 == true)
+                                if (tourJ3)
                                 {
-                                    tourJ5 = false; tourJ1 = true;
-                                    lbNoTour.Text = manche.ToString();
-                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
-                                    actualiserVosCartes(0);
-                                    resumeJoueurs();
+                                    if (J1aRamasse)
+                                    {
+                                        tourJ2 = true;
+                                        tourJ3 = false;
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                        actualiserVosCartes(1);
+                                        resumeJoueurs();
+                                        tourSuivant();
+                                    }
+                                    else
+                                    {
+
+                                        tourJ1 = true;
+                                        tourJ3 = false;
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                        actualiserVosCartes(0);
+                                        resumeJoueurs();
+                                    }
                                 }
                             }
                         }
-                    }
+                        break;
+                    case 4 :
+                        if (tourJ1)
+                        {
+                            if (J2aRamasse)
+                            {
+                                tourJ3 = true;
+                                tourJ1 = false;
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                actualiserVosCartes(2);
+                                resumeJoueurs();
+                                tourSuivant();
+                            }
+                            else
+                            {
+                                tourJ1 = false;
+                                tourJ2 = true;
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                actualiserVosCartes(1);
+                                resumeJoueurs();
+                            }
+                        }
+                        else
+                        {
+                            if (tourJ2)
+                            {
+                                if (J3aRamasse)
+                                {
+                                    tourJ4 = true;
+                                    tourJ2 = false;
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                                    actualiserVosCartes(3);
+                                    resumeJoueurs();
+                                    tourSuivant();
+                                }
+                                else
+                                {
+
+                                    tourJ3 = true;
+                                    tourJ2 = false;
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                    actualiserVosCartes(2);
+                                    resumeJoueurs();
+                                }
+                            }
+                            else
+                            {
+                                if (tourJ3)
+                                {
+                                    if (J4aRamasse)
+                                    {
+                                        tourJ1 = true;
+                                        tourJ3 = false;
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                        actualiserVosCartes(0);
+                                        resumeJoueurs();
+                                        tourSuivant();
+                                    }
+                                    else
+                                    {
+                                        tourJ4 = true;
+                                        tourJ3 = false;
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                                        actualiserVosCartes(3);
+                                        resumeJoueurs();
+                                    }
+                                }
+                                else
+                                {
+                                    if (tourJ4)
+                                    {
+                                        if (J1aRamasse)
+                                        {
+                                            tourJ2 = true;
+                                            tourJ4 = false;
+                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                            actualiserVosCartes(1);
+                                            resumeJoueurs();
+                                        }
+                                        else
+                                        {
+                                            tourJ1 = true;
+                                            tourJ4 = false;
+                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                            actualiserVosCartes(0);
+                                            resumeJoueurs();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    case 5:
+                        if (tourJ1)
+                        {
+                            if (J2aRamasse)
+                            {
+                                tourJ3 = true;
+                                tourJ1 = false;
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                actualiserVosCartes(2);
+                                resumeJoueurs();
+                                tourSuivant();
+                            }
+                            else
+                            {
+                                tourJ1 = false;
+                                tourJ2 = true;
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                actualiserVosCartes(1);
+                                resumeJoueurs();
+                            }
+                        }
+                        else
+                        {
+                            if (tourJ2)
+                            {
+                                if (J3aRamasse)
+                                {
+                                    tourJ4 = true;
+                                    tourJ2 = false;
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                                    actualiserVosCartes(3);
+                                    resumeJoueurs();
+                                    tourSuivant();
+                                }
+                                else
+                                {
+                                    tourJ3 = true;
+                                    tourJ2 = false;
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                    actualiserVosCartes(2);
+                                    resumeJoueurs();
+                                }
+                            }
+                            else
+                            {
+                                if (tourJ3)
+                                {
+                                    if (J4aRamasse)
+                                    {
+                                        tourJ5 = true;
+                                        tourJ3 = false;
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom + " de jouer.";
+                                        actualiserVosCartes(4);
+                                        resumeJoueurs();
+                                        tourSuivant();
+                                    }
+                                    else
+                                    {
+                                        tourJ4 = true;
+                                        tourJ3 = false;
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                                        actualiserVosCartes(3);
+                                        resumeJoueurs();
+                                    }
+                                }
+                                else
+                                {
+                                    if (tourJ4)
+                                    {
+                                        if (J5aRamasse)
+                                        {
+                                            tourJ1 = true;
+                                            tourJ4 = false;
+                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                            actualiserVosCartes(0);
+                                            resumeJoueurs();
+                                            tourSuivant();
+                                        }
+                                        else
+                                        {
+                                            tourJ5 = true;
+                                            tourJ4 = false;
+                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom + " de jouer.";
+                                            actualiserVosCartes(0);
+                                            resumeJoueurs();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (tourJ5)
+                                        {
+                                            if (J1aRamasse)
+                                            {
+                                                tourJ2 = true;
+                                                tourJ5 = false;
+                                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                                actualiserVosCartes(1);
+                                                resumeJoueurs();
+                                            }
+                                            else
+                                            {
+                                                tourJ1 = true;
+                                                tourJ5 = false;
+                                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                                actualiserVosCartes(0);
+                                                resumeJoueurs();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        break;      
                 }
+
             }
             if (derniereManche) //si c'est la dernière manche, on préviens les joueurs
                 MessageBox.Show("Dernière manche !");
@@ -1015,6 +1236,21 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 if (pb.Tag.ToString() == "orange")
                     cartesOrange[joueur]++;
             }
+        }
+
+        private List<string> ShufflePaquet(List<string> paquetCartes)
+        {
+            Random rng = new Random(); //on instancie un objet de la classe Random pour pouvoir obtenir un nombre aléatoire
+            int n = paquetCartes.Count(); //on récupère le nombre d'éléments dans la liste
+            int i;
+            for (i = 0; i <= n - 1; i++) //pour i allant de 0 jusqu'au nombre d'éléments dans la liste-1 (pour ne pas dépasser l'index maximale de la liste)
+            {
+                int k = rng.Next(0, n - 1); //on génère et assigne un nombre aléatoire dont la valeur maximale est l'index maximale que peut contenir la liste
+                string valeur = paquetCartes[k]; //on stocke la valeur de l'élément de la liste ayant pour un index le nombre aléatoire
+                paquetCartes[k] = paquetCartes[i]; //on assigne à l'élément de la liste d'index aléatoire l'élément de la liste ayant pour index i
+                paquetCartes[i] = valeur; //on assigne à l'élément de la liste ayant pour index i l'ancienne valeur de l'élément de la liste ayant pour index k
+            }
+            return paquetCartes;
         }
 
         

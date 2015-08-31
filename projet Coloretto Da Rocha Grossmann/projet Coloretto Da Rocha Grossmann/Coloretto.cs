@@ -23,6 +23,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         Jeu coloretto;
         List<Joueur> listeJoueurs;
         Joueur joueur1, joueur2, joueur3, joueur4, joueur5; //initialisation des objets de la classe Joueur
+        bool erreurCouleur = false;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -136,41 +137,86 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         public void btValider_Click(object sender, EventArgs e)
         {
-            switch (nbJoueurs)
+
+            switch (tbNbJoueurs.Text)
             {
-                //Utilisation de sous-programmes décrits plus bas pour allèger le code
-                case 2:
-                    listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString());
-                    if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
-                        preparationJeu();
+                case "2":
+                    if (cbCouleurJ1.Text == "" || cbCouleurJ2.Text == "")
+                    {
+                        MessageBox.Show("Chaque joueur doit choisir une couleur");
+                        erreurCouleur = true;
+                    }
                     else
-                        MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
-                    listeCouleurD.Clear();
+                        erreurCouleur = false;
+
                     break;
-                case 3:
-                    listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ3.SelectedItem.ToString());
-                    if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
-                        preparationJeu();
+                case "3":
+                    if (cbCouleurJ1.Text == "" || cbCouleurJ2.Text == "" || cbCouleurJ3.Text == "")
+                    {
+                        MessageBox.Show("Chaque joueur doit choisir une couleur");
+                        erreurCouleur = true;
+                    }
                     else
-                        MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
-                    listeCouleurD.Clear();
+                        erreurCouleur = false;
                     break;
-                case 4:
-                    listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ3.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ4.SelectedItem.ToString());
-                    if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
-                        preparationJeu();
+                case "4":
+                    if (cbCouleurJ1.Text == "" || cbCouleurJ2.Text == "" || cbCouleurJ3.Text == "" || cbCouleurJ4.Text == "")
+                    {
+                        MessageBox.Show("Chaque joueur doit choisir une couleur");
+                        erreurCouleur = true;
+                    }
                     else
-                        MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
-                    listeCouleurD.Clear();
+                        erreurCouleur = false;
                     break;
-                case 5:
-                    listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ3.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ4.SelectedItem.ToString());listeCouleurD.Add(cbCouleurJ5.SelectedItem.ToString());
-                    if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
-                        preparationJeu();
+                case "5":
+                    if (cbCouleurJ1.Text == "" || cbCouleurJ2.Text == "" || cbCouleurJ3.Text == "" || cbCouleurJ4.Text == "" || cbCouleurJ5.Text == "")
+                    {
+                        MessageBox.Show("Chaque joueur doit choisir une couleur");
+                        erreurCouleur = true;
+                    }
                     else
-                        MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
-                    listeCouleurD.Clear();
+                        erreurCouleur = false;
                     break;
+            }
+
+            if (erreurCouleur == false)
+            {
+                switch (nbJoueurs)
+                {
+                    //Utilisation de sous-programmes décrits plus bas pour allèger le code
+                    case 2:
+                        listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString()); listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString());
+                        if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
+                            preparationJeu();
+                        else
+                            MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
+                        listeCouleurD.Clear();
+                        break;
+                    case 3:
+                        listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString()); listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString()); listeCouleurD.Add(cbCouleurJ3.SelectedItem.ToString());
+                        if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
+                            preparationJeu();
+                        else
+                            MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
+                        listeCouleurD.Clear();
+                        break;
+                    case 4:
+                        listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString()); listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString()); listeCouleurD.Add(cbCouleurJ3.SelectedItem.ToString()); listeCouleurD.Add(cbCouleurJ4.SelectedItem.ToString());
+                        if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
+                            preparationJeu();
+                        else
+                            MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
+                        listeCouleurD.Clear();
+                        break;
+                    case 5:
+                        listeCouleurD.Add(cbCouleurJ1.SelectedItem.ToString()); listeCouleurD.Add(cbCouleurJ2.SelectedItem.ToString()); listeCouleurD.Add(cbCouleurJ3.SelectedItem.ToString()); listeCouleurD.Add(cbCouleurJ4.SelectedItem.ToString()); listeCouleurD.Add(cbCouleurJ5.SelectedItem.ToString());
+                        if (isUnique = listeCouleurD.Distinct().Count() == listeCouleurD.Count())
+                            preparationJeu();
+                        else
+                            MessageBox.Show("Chaque joueur doit avoir une couleur de départ différente.");
+                        listeCouleurD.Clear();
+                        break;
+                }
             }
 
 
