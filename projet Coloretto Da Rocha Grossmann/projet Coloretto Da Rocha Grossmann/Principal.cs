@@ -734,6 +734,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 actualiserVosCartes(2);
                                 resumeJoueurs();
                                 tourSuivant();
+                                break;
 
                             }
                             else
@@ -756,7 +757,8 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                                     actualiserVosCartes(0);
                                     resumeJoueurs();
-                                    tourSuivant(); 
+                                    tourSuivant();
+                                    break;
                                 }
                                 else
                                 {
@@ -779,6 +781,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                         actualiserVosCartes(1);
                                         resumeJoueurs();
                                         tourSuivant();
+                                        break;
                                     }
                                     else
                                     {
@@ -804,6 +807,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 actualiserVosCartes(2);
                                 resumeJoueurs();
                                 tourSuivant();
+                                break;
                             }
                             else
                             {
@@ -826,6 +830,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     actualiserVosCartes(3);
                                     resumeJoueurs();
                                     tourSuivant();
+                                    break;
                                 }
                                 else
                                 {
@@ -849,6 +854,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                         actualiserVosCartes(0);
                                         resumeJoueurs();
                                         tourSuivant();
+                                        break;
                                     }
                                     else
                                     {
@@ -895,6 +901,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 actualiserVosCartes(2);
                                 resumeJoueurs();
                                 tourSuivant();
+                                break;
                             }
                             else
                             {
@@ -917,6 +924,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     actualiserVosCartes(3);
                                     resumeJoueurs();
                                     tourSuivant();
+                                    break;
                                 }
                                 else
                                 {
@@ -939,6 +947,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                         actualiserVosCartes(4);
                                         resumeJoueurs();
                                         tourSuivant();
+                                        break;
                                     }
                                     else
                                     {
@@ -961,6 +970,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                             actualiserVosCartes(0);
                                             resumeJoueurs();
                                             tourSuivant();
+                                            break;
                                         }
                                         else
                                         {
