@@ -106,12 +106,6 @@
             this.pictureBox37 = new System.Windows.Forms.PictureBox();
             this.pictureBox36 = new System.Windows.Forms.PictureBox();
             this.gbRangee1 = new System.Windows.Forms.GroupBox();
-            this.pbTypeR1 = new System.Windows.Forms.PictureBox();
-            this.pbR1C1 = new System.Windows.Forms.PictureBox();
-            this.pbR1C2 = new System.Windows.Forms.PictureBox();
-            this.pbR1C3 = new System.Windows.Forms.PictureBox();
-            this.btRamasserR1 = new System.Windows.Forms.Button();
-            this.btPlacerR1 = new System.Windows.Forms.Button();
             this.btRamasserR5 = new System.Windows.Forms.Button();
             this.btPlacerR5 = new System.Windows.Forms.Button();
             this.pbR5C3 = new System.Windows.Forms.PictureBox();
@@ -124,8 +118,11 @@
             this.btPlacerR3 = new System.Windows.Forms.Button();
             this.btRamasserR2 = new System.Windows.Forms.Button();
             this.btPlacerR2 = new System.Windows.Forms.Button();
+            this.btRamasserR1 = new System.Windows.Forms.Button();
+            this.btPlacerR1 = new System.Windows.Forms.Button();
             this.pbR4C3 = new System.Windows.Forms.PictureBox();
             this.pbR3C3 = new System.Windows.Forms.PictureBox();
+            this.pbR1C3 = new System.Windows.Forms.PictureBox();
             this.pbR2C3 = new System.Windows.Forms.PictureBox();
             this.pbR4C2 = new System.Windows.Forms.PictureBox();
             this.pbR4C1 = new System.Windows.Forms.PictureBox();
@@ -133,6 +130,9 @@
             this.pbR3C2 = new System.Windows.Forms.PictureBox();
             this.pbR3C1 = new System.Windows.Forms.PictureBox();
             this.pbTypeR3 = new System.Windows.Forms.PictureBox();
+            this.pbR1C2 = new System.Windows.Forms.PictureBox();
+            this.pbR1C1 = new System.Windows.Forms.PictureBox();
+            this.pbTypeR1 = new System.Windows.Forms.PictureBox();
             this.pbR2C2 = new System.Windows.Forms.PictureBox();
             this.pbR2C1 = new System.Windows.Forms.PictureBox();
             this.pbTypeR2 = new System.Windows.Forms.PictureBox();
@@ -204,16 +204,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
             this.gbRangee1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTypeR1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbR1C1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbR1C2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbR1C3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTypeR5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR4C3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR3C3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR1C3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR2C3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR4C2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR4C1)).BeginInit();
@@ -221,6 +218,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbR3C2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR3C1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTypeR3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR1C2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR1C1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTypeR1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR2C2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR2C1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTypeR2)).BeginInit();
@@ -1014,59 +1014,6 @@
             this.gbRangee1.TabStop = false;
             this.gbRangee1.Text = " ";
             // 
-            // pbTypeR1
-            // 
-            this.pbTypeR1.Image = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.cartePlateau;
-            this.pbTypeR1.Location = new System.Drawing.Point(6, 20);
-            this.pbTypeR1.Name = "pbTypeR1";
-            this.pbTypeR1.Size = new System.Drawing.Size(60, 80);
-            this.pbTypeR1.TabIndex = 6;
-            this.pbTypeR1.TabStop = false;
-            // 
-            // pbR1C1
-            // 
-            this.pbR1C1.Location = new System.Drawing.Point(82, 20);
-            this.pbR1C1.Name = "pbR1C1";
-            this.pbR1C1.Size = new System.Drawing.Size(60, 80);
-            this.pbR1C1.TabIndex = 7;
-            this.pbR1C1.TabStop = false;
-            // 
-            // pbR1C2
-            // 
-            this.pbR1C2.Location = new System.Drawing.Point(158, 20);
-            this.pbR1C2.Name = "pbR1C2";
-            this.pbR1C2.Size = new System.Drawing.Size(60, 80);
-            this.pbR1C2.TabIndex = 8;
-            this.pbR1C2.TabStop = false;
-            // 
-            // pbR1C3
-            // 
-            this.pbR1C3.Location = new System.Drawing.Point(232, 20);
-            this.pbR1C3.Name = "pbR1C3";
-            this.pbR1C3.Size = new System.Drawing.Size(60, 80);
-            this.pbR1C3.TabIndex = 16;
-            this.pbR1C3.TabStop = false;
-            // 
-            // btRamasserR1
-            // 
-            this.btRamasserR1.Location = new System.Drawing.Point(297, 51);
-            this.btRamasserR1.Name = "btRamasserR1";
-            this.btRamasserR1.Size = new System.Drawing.Size(87, 25);
-            this.btRamasserR1.TabIndex = 19;
-            this.btRamasserR1.Text = "Ramasser";
-            this.btRamasserR1.UseVisualStyleBackColor = true;
-            this.btRamasserR1.Click += new System.EventHandler(this.btRamasserR1_Click);
-            // 
-            // btPlacerR1
-            // 
-            this.btPlacerR1.Location = new System.Drawing.Point(297, 20);
-            this.btPlacerR1.Name = "btPlacerR1";
-            this.btPlacerR1.Size = new System.Drawing.Size(87, 25);
-            this.btPlacerR1.TabIndex = 9;
-            this.btPlacerR1.Text = "Placer ici";
-            this.btPlacerR1.UseVisualStyleBackColor = true;
-            this.btPlacerR1.Click += new System.EventHandler(this.btPlacerR1_Click);
-            // 
             // btRamasserR5
             // 
             this.btRamasserR5.Location = new System.Drawing.Point(297, 53);
@@ -1180,6 +1127,26 @@
             this.btPlacerR2.UseVisualStyleBackColor = true;
             this.btPlacerR2.Click += new System.EventHandler(this.btPlacerR2_Click);
             // 
+            // btRamasserR1
+            // 
+            this.btRamasserR1.Location = new System.Drawing.Point(297, 51);
+            this.btRamasserR1.Name = "btRamasserR1";
+            this.btRamasserR1.Size = new System.Drawing.Size(87, 25);
+            this.btRamasserR1.TabIndex = 19;
+            this.btRamasserR1.Text = "Ramasser";
+            this.btRamasserR1.UseVisualStyleBackColor = true;
+            this.btRamasserR1.Click += new System.EventHandler(this.btRamasserR1_Click);
+            // 
+            // btPlacerR1
+            // 
+            this.btPlacerR1.Location = new System.Drawing.Point(297, 20);
+            this.btPlacerR1.Name = "btPlacerR1";
+            this.btPlacerR1.Size = new System.Drawing.Size(87, 25);
+            this.btPlacerR1.TabIndex = 9;
+            this.btPlacerR1.Text = "Placer ici";
+            this.btPlacerR1.UseVisualStyleBackColor = true;
+            this.btPlacerR1.Click += new System.EventHandler(this.btPlacerR1_Click);
+            // 
             // pbR4C3
             // 
             this.pbR4C3.Location = new System.Drawing.Point(232, 21);
@@ -1195,6 +1162,14 @@
             this.pbR3C3.Size = new System.Drawing.Size(60, 80);
             this.pbR3C3.TabIndex = 17;
             this.pbR3C3.TabStop = false;
+            // 
+            // pbR1C3
+            // 
+            this.pbR1C3.Location = new System.Drawing.Point(232, 20);
+            this.pbR1C3.Name = "pbR1C3";
+            this.pbR1C3.Size = new System.Drawing.Size(60, 80);
+            this.pbR1C3.TabIndex = 16;
+            this.pbR1C3.TabStop = false;
             // 
             // pbR2C3
             // 
@@ -1253,6 +1228,31 @@
             this.pbTypeR3.Size = new System.Drawing.Size(60, 80);
             this.pbTypeR3.TabIndex = 9;
             this.pbTypeR3.TabStop = false;
+            // 
+            // pbR1C2
+            // 
+            this.pbR1C2.Location = new System.Drawing.Point(158, 20);
+            this.pbR1C2.Name = "pbR1C2";
+            this.pbR1C2.Size = new System.Drawing.Size(60, 80);
+            this.pbR1C2.TabIndex = 8;
+            this.pbR1C2.TabStop = false;
+            // 
+            // pbR1C1
+            // 
+            this.pbR1C1.Location = new System.Drawing.Point(82, 20);
+            this.pbR1C1.Name = "pbR1C1";
+            this.pbR1C1.Size = new System.Drawing.Size(60, 80);
+            this.pbR1C1.TabIndex = 7;
+            this.pbR1C1.TabStop = false;
+            // 
+            // pbTypeR1
+            // 
+            this.pbTypeR1.Image = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.cartePlateau;
+            this.pbTypeR1.Location = new System.Drawing.Point(6, 20);
+            this.pbTypeR1.Name = "pbTypeR1";
+            this.pbTypeR1.Size = new System.Drawing.Size(60, 80);
+            this.pbTypeR1.TabIndex = 6;
+            this.pbTypeR1.TabStop = false;
             // 
             // pbR2C2
             // 
@@ -1583,7 +1583,6 @@
             this.Controls.Add(this.gbResumeJoueurs);
             this.Name = "Principal";
             this.Text = "Principal";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
             this.Load += new System.EventHandler(this.Principal_Load);
             this.gbResumeJoueurs.ResumeLayout(false);
             this.gbJ1.ResumeLayout(false);
@@ -1632,16 +1631,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
             this.gbRangee1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbTypeR1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbR1C1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbR1C2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbR1C3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR5C1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTypeR5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR4C3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR3C3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR1C3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR2C3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR4C2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR4C1)).EndInit();
@@ -1649,6 +1645,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbR3C2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR3C1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTypeR3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR1C2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbR1C1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTypeR1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR2C2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbR2C1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTypeR2)).EndInit();

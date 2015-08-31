@@ -46,7 +46,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         {
             List<string> paquetCartes = coloretto.PaquetCartes; //recuperation du paquet de carte
 
-            ShufflePaquet(paquetCartes); //on mélange les cartes
+            //melanger les cartes
 
             J1aRamasse = false; J2aRamasse = false; J3aRamasse = true; J4aRamasse = true; J5aRamasse = true; //les deux premiers joueurs sont considérés comme pouvant jouer. On ajoute les autres joueurs plus tard en fonction du nombre de joueurs
 
@@ -1017,25 +1017,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             }
         }
 
-        private void Principal_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private List<string> ShufflePaquet(List<string> paquetCartes)
-        {
-            Random rng = new Random(); //on instancie un objet de la classe Random pour pouvoir obtenir un nombre aléatoire
-            int n = paquetCartes.Count(); //on récupère le nombre d'éléments dans la liste
-            int i;
-            for (i = 0; i <= n-1; i++) //pour i allant de 0 jusqu'au nombre d'éléments dans la liste-1 (pour ne pas dépasser l'index maximale de la liste)
-            {
-                int k = rng.Next(0, n-1); //on génère et assigne un nombre aléatoire dont la valeur maximale est l'index maximale que peut contenir la liste
-                string valeur = paquetCartes[k]; //on stocke la valeur de l'élément de la liste ayant pour un index le nombre aléatoire
-                paquetCartes[k] = paquetCartes[i]; //on assigne à l'élément de la liste d'index aléatoire l'élément de la liste ayant pour index i
-                paquetCartes[i] = valeur; //on assigne à l'élément de la liste ayant pour index i l'ancienne valeur de l'élément de la liste ayant pour index k
-            }
-            return paquetCartes;
-        }
         
     }
 }
