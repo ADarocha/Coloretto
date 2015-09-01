@@ -31,6 +31,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         bool tourJ1; bool tourJ2; bool tourJ3; bool tourJ4; bool tourJ5; bool pioche; int manche;
         bool derniereManche; bool J1aRamasse; bool J2aRamasse; bool J3aRamasse; bool J4aRamasse; bool J5aRamasse; bool tousARamasse; string dernierAJouer;
+        int scoreJ1 = 0; int scoreJ2 = 0; int scoreJ5 = 0; int scoreJ3 = 0; int scoreJ4 = 0; 
 
         List<int> cartesBleu = new List<int> {0,0,0,0,0};
         List<int> cartesJaune = new List<int> { 0, 0, 0, 0, 0 };
@@ -227,6 +228,12 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void btPioche_Click(object sender, EventArgs e)
         {
+
+            if (coloretto.PaquetCartes.Count() == 0)
+            {
+                MessageBox.Show("Il n'y a plus de carte dans la pioche.");
+                return;
+            }
             cacherPlacerAfficherRamasser(true, false); //cache les boutons ramasser.
             //Si une rangée possède 3 carte, le joueur ne pourra pas placer car le bouton placer ne sera pas disponible
             if (pbR1C3.Image != null)
@@ -267,23 +274,29 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                         break;
                     case "+2":
                         btPioche.Image = Properties.Resources.cartePlus2;
-                        //
-                        //
-                        //
-                        //
-                        //
-                        //
-                        // FAIRE QUELQUE CHOSE ICI POUR LE MODE J2 (voir à la fin)
-                        //
-                        //
-                        //
-                        //
-                        //
-                        //
+                        cacherPlacerAfficherRamasser(false, false);
+                        if (tourJ1){scoreJ1++;}//on rajoute les deux points au score du joueur qui a piocher.
+                        else{if (tourJ2){scoreJ2++;}
+                            else{if (tourJ3){scoreJ3++;}
+                                else{if (tourJ4){scoreJ4++;}
+                                    else{if (tourJ5){scoreJ5++;}}}}}
+                        MessageBox.Show("Vous avez piocher une carte ''+2''. Deux points ont été ajoutés à votre score final !"); //on le notifie.
+                        btPioche.Image = null;
+                        break;
+                    case "joker":
+                        btPioche.Image = Properties.Resources.carteJoker;
+                        cacherPlacerAfficherRamasser(false, false);
+                        gbJoker.Visible = true;
                         break;
                 }
                 pioche = false; //empêche le joueur de piocher deux fois.
                 lbNbCartes.Text = coloretto.PaquetCartes.Count().ToString(); //on actualise le nombr de cartes dans la pioche.
+
+                if (coloretto.PaquetCartes[0] == "+2")
+                {
+                    coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+                    tourSuivant();
+                }
             }
             else
             {
@@ -594,6 +607,176 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
 
 
+        private void btJokerBleu_Click(object sender, EventArgs e)
+        {
+            if (tourJ1) { cartesBleu[0]++; }
+            else
+            {
+                if (tourJ2) { cartesBleu[1]++; }
+                else
+                {
+                    if (tourJ3) { cartesBleu[2]++; }
+                    else
+                    {
+                        if (tourJ4) { cartesBleu[3]++; }
+                        else { if (tourJ5) { cartesBleu[4]++; } }
+                    }
+                }
+            }
+            btPioche.Image = null; //retire l'image de la pioche
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            gbJoker.Visible = false;
+            tourSuivant();
+        }
+
+        private void btJokerJaune_Click(object sender, EventArgs e)
+        {
+            if (tourJ1) { cartesJaune[0]++; }
+            else
+            {
+                if (tourJ2) { cartesJaune[1]++; }
+                else
+                {
+                    if (tourJ3) { cartesJaune[2]++; }
+                    else
+                    {
+                        if (tourJ4) { cartesJaune[3]++; }
+                        else { if (tourJ5) { cartesJaune[4]++; } }
+                    }
+                }
+            }
+            btPioche.Image = null; //retire l'image de la pioche
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            gbJoker.Visible = false;
+            tourSuivant();
+        }
+
+        private void btJokerMarron_Click(object sender, EventArgs e)
+        {
+            if (tourJ1) { cartesMarron[0]++; }
+            else
+            {
+                if (tourJ2) { cartesMarron[1]++; }
+                else
+                {
+                    if (tourJ3) { cartesMarron[2]++; }
+                    else
+                    {
+                        if (tourJ4) { cartesMarron[3]++; }
+                        else { if (tourJ5) { cartesMarron[4]++; } }
+                    }
+                }
+            }
+            btPioche.Image = null; //retire l'image de la pioche
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            gbJoker.Visible = false;
+            tourSuivant();
+        }
+
+        private void btJokerOrange_Click(object sender, EventArgs e)
+        {
+            if (tourJ1) { cartesOrange[0]++; }
+            else
+            {
+                if (tourJ2) { cartesOrange[1]++; }
+                else
+                {
+                    if (tourJ3) { cartesOrange[2]++; }
+                    else
+                    {
+                        if (tourJ4) { cartesOrange[3]++; }
+                        else { if (tourJ5) { cartesOrange[4]++; } }
+                    }
+                }
+            }
+            btPioche.Image = null; //retire l'image de la pioche
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            gbJoker.Visible = false;
+            tourSuivant();
+        }
+
+        private void btJokerRouge_Click(object sender, EventArgs e)
+        {
+            if (tourJ1) { cartesRouge[0]++; }
+            else
+            {
+                if (tourJ2) { cartesRouge[1]++; }
+                else
+                {
+                    if (tourJ3) { cartesRouge[2]++; }
+                    else
+                    {
+                        if (tourJ4) { cartesRouge[3]++; }
+                        else { if (tourJ5) { cartesRouge[4]++; } }
+                    }
+                }
+            }
+            btPioche.Image = null; //retire l'image de la pioche
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            gbJoker.Visible = false;
+            tourSuivant();
+        }
+
+        private void btJokerVert_Click(object sender, EventArgs e)
+        {
+            if (tourJ1) { cartesVert[0]++; }
+            else
+            {
+                if (tourJ2) { cartesVert[1]++; }
+                else
+                {
+                    if (tourJ3) { cartesVert[2]++; }
+                    else
+                    {
+                        if (tourJ4) { cartesVert[3]++; }
+                        else { if (tourJ5) { cartesVert[4]++; } }
+                    }
+                }
+            }
+            btPioche.Image = null; //retire l'image de la pioche
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            gbJoker.Visible = false;
+            tourSuivant();
+        }
+
+        private void btJokerViolet_Click(object sender, EventArgs e)
+        {
+            if (tourJ1) { cartesViolet[0]++; }
+            else
+            {
+                if (tourJ2) { cartesViolet[1]++; }
+                else
+                {
+                    if (tourJ3) { cartesViolet[2]++; }
+                    else
+                    {
+                        if (tourJ4) { cartesViolet[3]++; }
+                        else { if (tourJ5) { cartesViolet[4]++; } }
+                    }
+                }
+            }
+            btPioche.Image = null; //retire l'image de la pioche
+            coloretto.PaquetCartes.RemoveAt(0); //on supprime la carte de la pioche
+            gbJoker.Visible = false;
+            tourSuivant();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -613,11 +796,33 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private void tourSuivant()
         {
 
+
             if (J1aRamasse && J2aRamasse && J3aRamasse && J4aRamasse && J5aRamasse) //si tous le monde a ramasser dans le tour
                 tousARamasse = true;
+
+            if (tousARamasse && derniereManche)
+            {
+                MessageBox.Show("Partie terminée.");
+                return;
+            }
 
             if(tousARamasse) //si tous le monde a ramasser
             {
@@ -654,6 +859,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 btRamasserR4.Visible = false;
             if (pbR5C1.Image == null)
                 btRamasserR5.Visible = false;
+
             pioche = true; //autorise la pioche au joueur.
 
 
@@ -733,8 +939,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
                                 actualiserVosCartes(2);
                                 resumeJoueurs();
-                                tourSuivant();
-                                break;
 
                             }
                             else
@@ -757,8 +961,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                                     actualiserVosCartes(0);
                                     resumeJoueurs();
-                                    tourSuivant();
-                                    break;
                                 }
                                 else
                                 {
@@ -780,8 +982,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                         lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
                                         actualiserVosCartes(1);
                                         resumeJoueurs();
-                                        tourSuivant();
-                                        break;
                                     }
                                     else
                                     {
@@ -806,8 +1006,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
                                 actualiserVosCartes(2);
                                 resumeJoueurs();
-                                tourSuivant();
-                                break;
                             }
                             else
                             {
@@ -829,8 +1027,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
                                     actualiserVosCartes(3);
                                     resumeJoueurs();
-                                    tourSuivant();
-                                    break;
                                 }
                                 else
                                 {
@@ -853,8 +1049,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                         lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                                         actualiserVosCartes(0);
                                         resumeJoueurs();
-                                        tourSuivant();
-                                        break;
                                     }
                                     else
                                     {
@@ -900,8 +1094,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
                                 actualiserVosCartes(2);
                                 resumeJoueurs();
-                                tourSuivant();
-                                break;
                             }
                             else
                             {
@@ -923,8 +1115,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
                                     actualiserVosCartes(3);
                                     resumeJoueurs();
-                                    tourSuivant();
-                                    break;
                                 }
                                 else
                                 {
@@ -946,8 +1136,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                         lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom + " de jouer.";
                                         actualiserVosCartes(4);
                                         resumeJoueurs();
-                                        tourSuivant();
-                                        break;
                                     }
                                     else
                                     {
@@ -969,8 +1157,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                             lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
                                             actualiserVosCartes(0);
                                             resumeJoueurs();
-                                            tourSuivant();
-                                            break;
                                         }
                                         else
                                         {
@@ -1010,14 +1196,53 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 }
 
             }
-            if (derniereManche) //si c'est la dernière manche, on préviens les joueurs
+            if (coloretto.PaquetCartes.Count() == 15 && derniereManche == false) //si c'est la dernière manche, on préviens les joueurs
+            {
                 MessageBox.Show("Dernière manche !");
+                derniereManche = true;
+            }
 
             if (tousARamasse) //si le tour es terminé, on remet à zéro les valeurs
             {
                 J1aRamasse = false; J2aRamasse = false; J3aRamasse = false; J4aRamasse = false; J5aRamasse = false; tousARamasse = false; dernierAJouer = "";
                 manche++;
             }
+
+            if (tourJ1 && J1aRamasse)
+            {
+                tourSuivant();
+            }
+            else 
+            {
+                if (tourJ2 && J2aRamasse)
+                {
+                    tourSuivant();
+                }
+                else if (coloretto.NbJoueurs > 2)
+                {
+                    if (tourJ3 && J3aRamasse)
+                    {
+                        tourSuivant();
+                    }
+                    else if (coloretto.NbJoueurs > 3)
+                    {
+                        if (tourJ4 && J4aRamasse)
+                        {
+                            tourSuivant();
+                        }
+                        else if (coloretto.NbJoueurs == 5)
+                        {
+                            if (tourJ5 && J5aRamasse)
+                            {
+                                tourSuivant();
+                            }
+                        }
+
+                    }
+
+                }
+            }
+            
         }
 
 
@@ -1262,6 +1487,9 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             }
             return paquetCartes;
         }
+
+        
+
 
         
     }

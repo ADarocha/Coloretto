@@ -113,6 +113,16 @@ namespace projet_Coloretto_Da_Rocha_Grossmann.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap carteJoker {
+            get {
+                object obj = ResourceManager.GetObject("carteJoker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap carteMarron {
             get {
                 object obj = ResourceManager.GetObject("carteMarron", resourceCulture);
