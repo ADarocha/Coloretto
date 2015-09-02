@@ -33,13 +33,15 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         bool derniereManche; bool J1aRamasse; bool J2aRamasse; bool J3aRamasse; bool J4aRamasse; bool J5aRamasse; bool tousARamasse; string dernierAJouer;
         int scoreJ1 = 0; int scoreJ2 = 0; int scoreJ5 = 0; int scoreJ3 = 0; int scoreJ4 = 0; 
 
-        List<int> cartesBleu = new List<int> {0,0,0,0,0};
+        List<int> cartesBleu = new List<int> { 0, 0, 0, 0, 0 };
         List<int> cartesJaune = new List<int> { 0, 0, 0, 0, 0 };
         List<int> cartesMarron = new List<int> { 0, 0, 0, 0, 0 };
         List<int> cartesRouge = new List<int> { 0, 0, 0, 0, 0 };
         List<int> cartesVert = new List<int> { 0, 0, 0, 0, 0 };
         List<int> cartesViolet = new List<int> { 0, 0, 0, 0, 0 };
         List<int> cartesOrange = new List<int> { 0, 0, 0, 0, 0 };
+
+        List<int> scoreJoueurs = new List<int> { 0, 0, 0, 0, 0 };
         
 
 
@@ -821,6 +823,11 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             if (tousARamasse && derniereManche)
             {
                 MessageBox.Show("Partie terminée.");
+                scoreJoueurs[0] = scoreJ1; //ajout des scores à la liste
+                scoreJoueurs[1] = scoreJ2;
+                scoreJoueurs[2] = scoreJ3;
+                scoreJoueurs[3] = scoreJ4;
+                scoreJoueurs[4] = scoreJ5;
                 return;
             }
 
