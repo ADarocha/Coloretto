@@ -42,6 +42,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         List<int> cartesOrange = new List<int> { 0, 0, 0, 0, 0 };
 
         List<int> scoreJoueurs = new List<int> { 0, 0, 0, 0, 0 };
+        Recap recap;
         
 
 
@@ -828,6 +829,8 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 scoreJoueurs[2] = scoreJ3;
                 scoreJoueurs[3] = scoreJ4;
                 scoreJoueurs[4] = scoreJ5;
+                recap = new Recap(coloretto, cartesBleu, cartesJaune, cartesMarron, cartesRouge, cartesVert, cartesViolet, cartesOrange, scoreJoueurs);
+                recap.Show();
                 return;
             }
 
