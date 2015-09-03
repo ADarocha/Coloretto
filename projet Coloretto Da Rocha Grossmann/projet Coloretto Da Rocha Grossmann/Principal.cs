@@ -878,31 +878,31 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 {
                     case "J1":
                         tourJ1 = true; tourJ2 = false; tourJ3 = false; tourJ4 = false; tourJ5 = false;
-                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom;
                         actualiserVosCartes(0);
                         resumeJoueurs();
                         break;
                     case "J2":
                         tourJ2 = true; tourJ1 = false; tourJ3 = false; tourJ4 = false; tourJ5 = false;
-                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom;
                         actualiserVosCartes(1);
                         resumeJoueurs();
                         break;
                     case "J3":
                         tourJ3 = true; tourJ2 = false; tourJ1 = false; tourJ4 = false; tourJ5 = false;
-                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom;
                         actualiserVosCartes(2);
                         resumeJoueurs();
                         break;
                     case "J4":
                         tourJ4 = true; tourJ2 = false; tourJ3 = false; tourJ1 = false; tourJ5 = false;
-                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom;
                         actualiserVosCartes(3);
                         resumeJoueurs();
                         break;
                     case "J5":
                         tourJ5 = true; tourJ2 = false; tourJ3 = false; tourJ4 = false; tourJ1 = false;
-                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom + " de jouer.";
+                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom;
                         actualiserVosCartes(4);
                         resumeJoueurs();
                         break;
@@ -922,7 +922,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                         {
                             tourJ1 = false;
                             tourJ2 = true;
-                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom;
                             actualiserVosCartes(1);
                             resumeJoueurs();
                         }
@@ -932,7 +932,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                             {
                                 tourJ1 = true;
                                 tourJ2 = false;
-                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom;
                                 actualiserVosCartes(0);
                                 resumeJoueurs();
                             }
@@ -945,7 +945,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                             {
                                 tourJ1 = false;
                                 tourJ3 = true;
-                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom;
                                 actualiserVosCartes(2);
                                 resumeJoueurs();
 
@@ -954,7 +954,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                             {
                                 tourJ1 = false;
                                 tourJ2 = true;
-                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom;
                                 actualiserVosCartes(1);
                                 resumeJoueurs();
                             }
@@ -967,7 +967,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 {
                                     tourJ1 = true;
                                     tourJ2 = false;
-                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom;
                                     actualiserVosCartes(0);
                                     resumeJoueurs();
                                 }
@@ -975,7 +975,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 {
                                     tourJ3 = true;
                                     tourJ2 = false;
-                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom;
                                     actualiserVosCartes(2);
                                     resumeJoueurs();
                                 }
@@ -988,7 +988,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     {
                                         tourJ2 = true;
                                         tourJ3 = false;
-                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom;
                                         actualiserVosCartes(1);
                                         resumeJoueurs();
                                     }
@@ -997,7 +997,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
                                         tourJ1 = true;
                                         tourJ3 = false;
-                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom;
                                         actualiserVosCartes(0);
                                         resumeJoueurs();
                                     }
@@ -1012,7 +1012,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                             {
                                 tourJ3 = true;
                                 tourJ1 = false;
-                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom;
                                 actualiserVosCartes(2);
                                 resumeJoueurs();
                             }
@@ -1020,7 +1020,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                             {
                                 tourJ1 = false;
                                 tourJ2 = true;
-                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom;
                                 actualiserVosCartes(1);
                                 resumeJoueurs();
                             }
@@ -1033,7 +1033,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 {
                                     tourJ4 = true;
                                     tourJ2 = false;
-                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom;
                                     actualiserVosCartes(3);
                                     resumeJoueurs();
                                 }
@@ -1042,7 +1042,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
                                     tourJ3 = true;
                                     tourJ2 = false;
-                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom;
                                     actualiserVosCartes(2);
                                     resumeJoueurs();
                                 }
@@ -1055,7 +1055,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     {
                                         tourJ1 = true;
                                         tourJ3 = false;
-                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom;
                                         actualiserVosCartes(0);
                                         resumeJoueurs();
                                     }
@@ -1063,7 +1063,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     {
                                         tourJ4 = true;
                                         tourJ3 = false;
-                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom;
                                         actualiserVosCartes(3);
                                         resumeJoueurs();
                                     }
@@ -1076,7 +1076,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                         {
                                             tourJ2 = true;
                                             tourJ4 = false;
-                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom;
                                             actualiserVosCartes(1);
                                             resumeJoueurs();
                                         }
@@ -1084,7 +1084,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                         {
                                             tourJ1 = true;
                                             tourJ4 = false;
-                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom;
                                             actualiserVosCartes(0);
                                             resumeJoueurs();
                                         }
@@ -1100,7 +1100,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                             {
                                 tourJ3 = true;
                                 tourJ1 = false;
-                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom;
                                 actualiserVosCartes(2);
                                 resumeJoueurs();
                             }
@@ -1108,7 +1108,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                             {
                                 tourJ1 = false;
                                 tourJ2 = true;
-                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom;
                                 actualiserVosCartes(1);
                                 resumeJoueurs();
                             }
@@ -1121,7 +1121,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 {
                                     tourJ4 = true;
                                     tourJ2 = false;
-                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom;
                                     actualiserVosCartes(3);
                                     resumeJoueurs();
                                 }
@@ -1129,7 +1129,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                 {
                                     tourJ3 = true;
                                     tourJ2 = false;
-                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom + " de jouer.";
+                                    lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[2].Nom;
                                     actualiserVosCartes(2);
                                     resumeJoueurs();
                                 }
@@ -1142,7 +1142,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     {
                                         tourJ5 = true;
                                         tourJ3 = false;
-                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom + " de jouer.";
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom;
                                         actualiserVosCartes(4);
                                         resumeJoueurs();
                                     }
@@ -1150,7 +1150,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                     {
                                         tourJ4 = true;
                                         tourJ3 = false;
-                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom + " de jouer.";
+                                        lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[3].Nom;
                                         actualiserVosCartes(3);
                                         resumeJoueurs();
                                     }
@@ -1163,7 +1163,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                         {
                                             tourJ1 = true;
                                             tourJ4 = false;
-                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom;
                                             actualiserVosCartes(0);
                                             resumeJoueurs();
                                         }
@@ -1171,7 +1171,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                         {
                                             tourJ5 = true;
                                             tourJ4 = false;
-                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom + " de jouer.";
+                                            lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[4].Nom;
                                             actualiserVosCartes(0);
                                             resumeJoueurs();
                                         }
@@ -1184,7 +1184,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                             {
                                                 tourJ2 = true;
                                                 tourJ5 = false;
-                                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom + " de jouer.";
+                                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[1].Nom;
                                                 actualiserVosCartes(1);
                                                 resumeJoueurs();
                                             }
@@ -1192,7 +1192,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                                             {
                                                 tourJ1 = true;
                                                 tourJ5 = false;
-                                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer.";
+                                                lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom;
                                                 actualiserVosCartes(0);
                                                 resumeJoueurs();
                                             }
