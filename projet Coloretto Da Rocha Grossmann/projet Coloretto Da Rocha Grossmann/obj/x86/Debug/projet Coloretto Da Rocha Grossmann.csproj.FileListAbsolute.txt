@@ -26,3 +26,4 @@ C:\Users\antho\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\pr
 C:\Users\Anthony\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet_Coloretto_Da_Rocha_Grossmann.Principal.resources
 C:\Users\Anthony\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet_Coloretto_Da_Rocha_Grossmann.Recap.resources
 C:\Users\Anthony\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet Coloretto Da Rocha Grossmann.csprojResolveAssemblyReference.cache
+C:\Users\antho\Documents\GitHub\Coloretto\projet Coloretto Da Rocha Grossmann\projet Coloretto Da Rocha Grossmann\obj\x86\Debug\projet_Coloretto_Da_Rocha_Grossmann.Regles.resources

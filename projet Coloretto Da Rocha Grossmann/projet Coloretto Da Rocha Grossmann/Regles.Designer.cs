@@ -34,7 +34,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 474);
+            this.BackgroundImage = global::projet_Coloretto_Da_Rocha_Grossmann.Properties.Resources.regles;
+            this.ClientSize = new System.Drawing.Size(699, 413);
             this.Name = "Regles";
             this.Text = "Regles";
             this.ResumeLayout(false);

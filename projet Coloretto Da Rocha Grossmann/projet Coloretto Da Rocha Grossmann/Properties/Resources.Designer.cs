@@ -269,5 +269,15 @@ namespace projet_Coloretto_Da_Rocha_Grossmann.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap regles {
+            get {
+                object obj = ResourceManager.GetObject("regles", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

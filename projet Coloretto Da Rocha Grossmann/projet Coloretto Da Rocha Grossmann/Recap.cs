@@ -30,7 +30,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
 
         
-
         public Recap(Jeu coloretto, List<int> cartesBleu, List<int> cartesJaune, List<int> cartesMarron, List<int> cartesRouge, List<int> cartesVert, List<int> cartesViolet, List<int> cartesOrange, List<int> scoreJoueurs)
         {
             InitializeComponent();
@@ -50,6 +49,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void Recap_Load(object sender, EventArgs e)
         {
+            gbScore.Text = gbScore.Text = coloretto.ListeJoueurs[0].Nom;
             nbPositifs = 0; joueur = 0;
             scoreJ1 = scoreJoueurs[0]; scoreJ2 = scoreJoueurs[1]; scoreJ3 = scoreJoueurs[2]; scoreJ4 = scoreJoueurs[3]; scoreJ5 = scoreJoueurs[4];
             fin = false;
@@ -57,6 +57,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             lbJ2.Text = "Score" + coloretto.ListeJoueurs[1].Nom + " :";
             lbScoreJ1.Text = scoreJ1.ToString();
             lbScoreJ2.Text = scoreJ2.ToString();
+            J1 = true;
 
 
             switch (coloretto.NbJoueurs)
@@ -254,12 +255,12 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         private void actuScore(int joueur)
         {
             lbJaune.Text = cartesJaune[joueur].ToString();
-            lbMarron.Text = cartesJaune[joueur].ToString();
-            lbOrange.Text = cartesJaune[joueur].ToString();
-            lbRouge.Text = cartesJaune[joueur].ToString();
-            lbVert.Text = cartesJaune[joueur].ToString();
-            lbViolet.Text = cartesJaune[joueur].ToString();
-            lbBleu.Text = cartesJaune[joueur].ToString();
+            lbMarron.Text = cartesMarron[joueur].ToString();
+            lbOrange.Text = cartesOrange[joueur].ToString();
+            lbRouge.Text = cartesRouge[joueur].ToString();
+            lbVert.Text = cartesVert[joueur].ToString();
+            lbViolet.Text = cartesViolet[joueur].ToString();
+            lbBleu.Text = cartesBleu[joueur].ToString();
             lbScoreJ1.Text = scoreJ1.ToString();
             lbScoreJ2.Text = scoreJ2.ToString();
             lbScoreJ3.Text = scoreJ3.ToString();
@@ -270,63 +271,120 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         private void btValider_Click(object sender, EventArgs e)
         {
             if (J1)
+            {
                 joueur = 0;
+            }
             else if (J2)
-                joueur = 1;
-            else if (J3)
-                joueur = 2;
-            else if (J4)
-                joueur = 3;
-            else if (J5)
-                joueur = 4;
+                {
+                    joueur = 1;
+                    gbScore.Text = coloretto.ListeJoueurs[1].Nom;
+                }
+                else if (J3)
+                    {
+                        joueur = 2;
+                        gbScore.Text = coloretto.ListeJoueurs[2].Nom;
+                    }
+                    else if (J4)
+                        {
+                            joueur = 3;
+                            gbScore.Text = coloretto.ListeJoueurs[3].Nom;
+                        }
+                        else if (J5)
+                            {
+                                joueur = 4;
+                                gbScore.Text = coloretto.ListeJoueurs[4].Nom;
+                            }
+
+
 
             if(nbPositifs == 3)
             {
-                if (cbBleu.Checked)
-                    nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
-                else
-                    nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                switch (joueur)
+                {
+                    case 0:
+                        scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        break;
+                    case 1:
+                        scoreJ2 = scoreJ2 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        break;
+                    case 2:
+                        scoreJ3 = scoreJ3 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        break;
+                    case 3:
+                        scoreJ4 = scoreJ4 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        break;
+                    case 4:
+                        scoreJ5 = scoreJ5 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        break;
+                }
+                switch (joueur)
+                {
+                    case 0:
+                        scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        break;
+                    case 1:
+                        scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        break;
+                    case 2:
+                        scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        break;
+                    case 3:
+                        scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        break;
+                    case 4:
+                        scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        break;
+                }
 
                 if (J1)
                 {
                     J1 = false; J2 = true; actuScore(1);
                 }
                 else if (J2 && coloretto.NbJoueurs == 2)
-                {
-                    J2 = false; fin = true;
-                }
-                else if (J2 && coloretto.NbJoueurs > 2)
-                {
-                    J2 = false; J3 = true; actuScore(2);
-                }
-                else if (J3 && coloretto.NbJoueurs == 3)
-                {
-                    J3 = false; fin = true;
-                }
-                else if (J3 && coloretto.NbJoueurs > 3)
-                {
-                    J3 = false; J4 = true; actuScore(3);
-                }
-                else if (J4 && coloretto.NbJoueurs == 4)
-                {
-                    J4 = false; fin = true;
-                }
-                else if (J4 && coloretto.NbJoueurs == 5)
-                {
-                    J4 = false; J5 = true; actuScore(4);
-                }
-                else if (J5)
-                {
-                    J5 = false; fin = true;
-                }
-
+                    {
+                        J2 = false; fin = true;
+                    }
+                    else if (J2 && coloretto.NbJoueurs > 2)
+                        {
+                            J2 = false; J3 = true; actuScore(2);
+                        }
+                        else if (J3 && coloretto.NbJoueurs == 3)
+                            {
+                                J3 = false; fin = true;
+                            }
+                            else if (J3 && coloretto.NbJoueurs > 3)
+                                {
+                                    J3 = false; J4 = true; actuScore(3);
+                                }
+                                else if (J4 && coloretto.NbJoueurs == 4)
+                                    {
+                                        J4 = false; fin = true;
+                                    }
+                                    else if (J4 && coloretto.NbJoueurs == 5)
+                                        {
+                                            J4 = false; J5 = true; actuScore(4);
+                                        }
+                                        else if (J5)
+                                            {
+                                                J5 = false; fin = true;
+                                            }
             }
+
+            
+
             else
             {
                 MessageBox.Show("Vous devez cocher 3 couleurs");
                 return;
             }
+            if (fin)
+            {
+                gbScore.Visible = false;
+                MessageBox.Show("Les scores ont étés calculés et sont affichés ci-dessous.");
+            }
         }
+
+
 
         private void Recap_FormClosed(object sender, FormClosedEventArgs e)
         {
