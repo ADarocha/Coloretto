@@ -23,7 +23,8 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         Jeu coloretto;
         List<Joueur> listeJoueurs;
         Joueur joueur1, joueur2, joueur3, joueur4, joueur5; //initialisation des objets de la classe Joueur
-        bool erreurCouleur = false;
+        bool erreurCouleur = false; bool score2Coche; bool score1Coche;
+        bool tableauScore;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -99,18 +100,22 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void btScoreBeige_Click(object sender, EventArgs e)
         {
-            //coloretto.TypeScore = true; //active le score beige dans l'objet.
+            tableauScore = true; //active le score beige dans l'objet.
             lbScoreGris.Visible = false; //rend invisible le label confirmant le score gris si il avait été séléctionné auparavant.
             lbScoreBeige.Visible = true; //rend visible le label confirmant le score beige.
+            score2Coche = false;
+            score1Coche = true;
+
 
         }
 
         private void btScoreGris_Click(object sender, EventArgs e)
         {
-            //voir btScoreBeige_Click
-            //coloretto.TypeScore = false; 
+            tableauScore = false; 
             lbScoreBeige.Visible = false;
             lbScoreGris.Visible = true;
+            score2Coche = true;
+            score1Coche = false;
         }
 
         private void btReset_Click(object sender, EventArgs e)
@@ -135,8 +140,15 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             }
         }
 
+        
+
         public void btValider_Click(object sender, EventArgs e)
         {
+            if (score1Coche == false && score2Coche == false)
+            {
+                MessageBox.Show("Il faut choisir un type de score.");
+                return;
+            }
 
             switch (tbNbJoueurs.Text)
             {
@@ -268,6 +280,8 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 coloretto.TypeScore = true;
             else
                 coloretto.TypeScore = false;
+            
+            leTypeScore(coloretto, tableauScore);
             principal = new Principal(coloretto); //instanciation du Form de la fenêtre de jeu principale avec l'objet Jeu en paramètre
             principal.Show(); //Affiche la fenêtre de jeu principale à l'utilisateur
             this.Hide(); //cache la fenêtre de paramètrage de la partie
@@ -286,6 +300,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             listeJoueurs.Add(joueur2);
             listeJoueurs.Add(joueur3);
             coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            leTypeScore(coloretto, tableauScore);
             if (lbScoreBeige.Visible == true)
                 coloretto.TypeScore = true;
             else
@@ -310,6 +325,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             listeJoueurs.Add(joueur3);
             listeJoueurs.Add(joueur4);
             coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            leTypeScore(coloretto, tableauScore);
             if (lbScoreBeige.Visible == true)
                 coloretto.TypeScore = true;
             else
@@ -336,6 +352,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             listeJoueurs.Add(joueur4);
             listeJoueurs.Add(joueur5);
             coloretto = new Jeu(listeJoueurs); //instanciation de l'objet Jeu avec la liste des Joueurs en paramètre
+            leTypeScore(coloretto, tableauScore);
             if (lbScoreBeige.Visible == true)
                 coloretto.TypeScore = true;
             else
@@ -343,6 +360,19 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             principal = new Principal(coloretto); //instanciation du Form de la fenêtre de jeu principale avec l'objet Jeu en paramètre
             principal.Show(); //Affiche la fenêtre de jeu principale à l'utilisateur
             this.Hide(); //cache la fenêtre de paramètrage de la partie
+        }
+
+        public void leTypeScore(Jeu jeuColoretto, bool score)
+        {
+        
+            jeuColoretto.TypeScore = score;
+    
+        }
+
+        private void btRegles_Click(object sender, EventArgs e)
+        {
+            Regles regles = new Regles();
+            regles.Show();
         }
     }
 }

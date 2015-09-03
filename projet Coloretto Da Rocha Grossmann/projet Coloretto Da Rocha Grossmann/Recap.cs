@@ -26,6 +26,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         int scoreJ1; int scoreJ2; int scoreJ3; int scoreJ4; int scoreJ5;
         bool fin;
         string gagant;
+        int joueur;
 
 
         
@@ -49,11 +50,11 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void Recap_Load(object sender, EventArgs e)
         {
-            nbPositifs = 0;
+            nbPositifs = 0; joueur = 0;
             scoreJ1 = scoreJoueurs[0]; scoreJ2 = scoreJoueurs[1]; scoreJ3 = scoreJoueurs[2]; scoreJ4 = scoreJoueurs[3]; scoreJ5 = scoreJoueurs[4];
             fin = false;
-            lbJ1.Text = "Score" + coloretto.ListeJoueurs[0].ToString() + " :";
-            lbJ2.Text = "Score" + coloretto.ListeJoueurs[1].ToString() + " :";
+            lbJ1.Text = "Score" + coloretto.ListeJoueurs[0].Nom + " :";
+            lbJ2.Text = "Score" + coloretto.ListeJoueurs[1].Nom + " :";
             lbScoreJ1.Text = scoreJ1.ToString();
             lbScoreJ2.Text = scoreJ2.ToString();
 
@@ -65,15 +66,15 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 case 2:
                     break;
                 case 3 :
-                    lbJ3.Text = "Score" + coloretto.ListeJoueurs[2].ToString() + " :";
+                    lbJ3.Text = "Score" + coloretto.ListeJoueurs[2].Nom + " :";
                     lbScoreJ3.Text = scoreJ3.ToString();
                     lbJ3.Visible = true;
                     lbScoreJ3.Visible = true;
                     break;
                 case 4 :
-                    lbJ3.Text = "Score" + coloretto.ListeJoueurs[2].ToString() + " :";
+                    lbJ3.Text = "Score" + coloretto.ListeJoueurs[2].Nom + " :";
                     lbScoreJ3.Text = scoreJ3.ToString();
-                    lbJ4.Text = "Score" + coloretto.ListeJoueurs[3].ToString() + " :";
+                    lbJ4.Text = "Score" + coloretto.ListeJoueurs[3].Nom + " :";
                     lbScoreJ4.Text = scoreJ4.ToString();
                     lbJ3.Visible = true;
                     lbScoreJ3.Visible = true;
@@ -81,11 +82,11 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                     lbScoreJ4.Visible = true;
                     break;
                 case 5 :
-                    lbJ3.Text = "Score" + coloretto.ListeJoueurs[2].ToString() + " :";
+                    lbJ3.Text = "Score" + coloretto.ListeJoueurs[2].Nom + " :";
                     lbScoreJ3.Text = scoreJ3.ToString();
-                    lbJ4.Text = "Score" + coloretto.ListeJoueurs[3].ToString() + " :";
+                    lbJ4.Text = "Score" + coloretto.ListeJoueurs[3].Nom + " :";
                     lbScoreJ4.Text = scoreJ4.ToString();
-                    lbJ5.Text = "Score" + coloretto.ListeJoueurs[4].ToString() + " :";
+                    lbJ5.Text = "Score" + coloretto.ListeJoueurs[4].Nom + " :";
                     lbScoreJ5.Text = scoreJ5.ToString();
                     lbJ3.Visible = true;
                     lbScoreJ3.Visible = true;
@@ -99,1018 +100,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             actuScore(0);
 
         }
-
-        private void btJaune_Click(object sender, EventArgs e)
-        {
-            if (J1)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesJaune[0]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[0]);
-                        if (btMarron.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[0]);
-                        if (btOrange.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[0]);
-                        if (btRouge.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[0]);
-                        if (btViolet.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[0]);
-                        if (btVert.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[0]);
-
-                        J1 = false;
-                        J2 = true; actuScore(1); apparaitre();
-                    }
-                }
-            }
-            else if (J2)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ2 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesJaune[1]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[1]);
-                        if (btMarron.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[1]);
-                        if (btOrange.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[1]);
-                        if (btRouge.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[1]);
-                        if (btViolet.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[1]);
-                        if (btVert.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[1]);
-
-                        J2 = false;
-                        if (coloretto.NbJoueurs == 2)
-                            fin = true;
-                        else
-                        {
-                            J3 = true; actuScore(2); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J3)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ3 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesJaune[2]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[2]);
-                        if (btMarron.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[2]);
-                        if (btOrange.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[2]);
-                        if (btRouge.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[2]);
-                        if (btViolet.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[2]);
-                        if (btVert.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[2]);
-                        J3 = false;
-                        if (coloretto.NbJoueurs == 3)
-                            fin = true;
-                        else
-                        {
-                            J4 = true; actuScore(3); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J4)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesJaune[3]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[3]);
-                        if (btMarron.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[3]);
-                        if (btOrange.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[3]);
-                        if (btRouge.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[3]);
-                        if (btViolet.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[3]);
-                        if (btVert.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[3]);
-
-                        J4 = false;
-                        if (coloretto.NbJoueurs == 4)
-                            fin = true;
-                        else
-                        {
-                            J5 = true; actuScore(4); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J5)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesJaune[4]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[4]);
-                        if (btMarron.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[4]);
-                        if (btOrange.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[4]);
-                        if (btRouge.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[4]);
-                        if (btViolet.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[4]);
-                        if (btVert.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[4]);
-                        J5 = false;
-                        fin = true;
-                    }
-                }
-            }
-            btJaune.Visible = false;
-        }
-
-
-        private void btMarron_Click(object sender, EventArgs e)
-        {
-            if (J1)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesMarron[0]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[0]);
-                        if (btMarron.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[0]);
-                        if (btOrange.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[0]);
-                        if (btRouge.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[0]);
-                        if (btViolet.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[0]);
-                        if (btVert.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[0]);
-
-                        J1 = false;
-                        J2 = true;
-                        actuScore(1); apparaitre();
-                    }
-                }
-            }
-            else if (J2)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ2 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesMarron[1]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[1]);
-                        if (btMarron.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[1]);
-                        if (btOrange.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[1]);
-                        if (btRouge.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[1]);
-                        if (btViolet.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[1]);
-                        if (btVert.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[1]);
-                        J2 = false;
-                        if (coloretto.NbJoueurs == 2)
-                            fin = true;
-                        else
-                        {
-                            J3 = true; actuScore(2); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J3)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ3 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesMarron[2]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[2]);
-                        if (btMarron.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[2]);
-                        if (btOrange.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[2]);
-                        if (btRouge.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[2]);
-                        if (btViolet.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[2]);
-                        if (btVert.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[2]);
-                        J3 = false;
-                        if (coloretto.NbJoueurs == 3)
-                            fin = true;
-                        else
-                        {
-                            J4 = true; actuScore(3); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J4)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesMarron[3]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[3]);
-                        if (btMarron.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[3]);
-                        if (btOrange.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[3]);
-                        if (btRouge.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[3]);
-                        if (btViolet.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[3]);
-                        if (btVert.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[3]);
-                        J4 = false;
-                        if (coloretto.NbJoueurs == 4)
-                            fin = true;
-                        else
-                        {
-                            J5 = true; actuScore(4); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J5)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesMarron[4]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[4]);
-                        if (btMarron.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[4]);
-                        if (btOrange.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[4]);
-                        if (btRouge.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[4]);
-                        if (btViolet.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[4]);
-                        if (btVert.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[4]);
-                        J5 = false;
-                        fin = true;
-                    }
-                }
-            }
-            btMarron.Visible = false;
-        }
-
-        private void btOrange_Click(object sender, EventArgs e)
-        {
-            if (J1)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesOrange[0]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[0]);
-                        if (btMarron.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[0]);
-                        if (btOrange.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[0]);
-                        if (btRouge.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[0]);
-                        if (btViolet.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[0]);
-                        if (btVert.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[0]);
-                        J1 = false; J2 = true; actuScore(1); apparaitre();
-                    }
-                }
-            }
-            else if (J2)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ2 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesOrange[1]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[1]);
-                        if (btMarron.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[1]);
-                        if (btOrange.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[1]);
-                        if (btRouge.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[1]);
-                        if (btViolet.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[1]);
-                        if (btVert.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[1]);
-                        J2 = false;
-                        if (coloretto.NbJoueurs == 2)
-                            fin = true;
-                        else
-                        {
-                            J3 = true; actuScore(2); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J3)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ3 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesOrange[2]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[2]);
-                        if (btMarron.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[2]);
-                        if (btOrange.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[2]);
-                        if (btRouge.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[2]);
-                        if (btViolet.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[2]);
-                        if (btVert.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[2]);
-                        J3 = false;
-                        if (coloretto.NbJoueurs == 3)
-                            fin = true;
-                        else
-                        {
-                            J3 = true; actuScore(2); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J4)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesOrange[3]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[3]);
-                        if (btMarron.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[3]);
-                        if (btOrange.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[3]);
-                        if (btRouge.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[3]);
-                        if (btViolet.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[3]);
-                        if (btVert.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[3]);
-                        J4 = false;
-                        if (coloretto.NbJoueurs == 4)
-                            fin = true;
-                        else
-                        {
-                            J5 = true; actuScore(4); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J5)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesOrange[4]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[4]);
-                        if (btMarron.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[4]);
-                        if (btOrange.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[4]);
-                        if (btRouge.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[4]);
-                        if (btViolet.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[4]);
-                        if (btVert.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[4]);
-                        J5 = false; fin = true;
-                    }
-                }
-            }
-            btOrange.Visible = false;
-        }
-
-        private void btRouge_Click(object sender, EventArgs e)
-        {
-            if (J1)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesRouge[0]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[0]);
-                        if (btMarron.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[0]);
-                        if (btOrange.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[0]);
-                        if (btRouge.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[0]);
-                        if (btViolet.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[0]);
-                        if (btVert.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[0]);
-                        J1 = false; J2 = true; actuScore(1); apparaitre();
-                    }
-                }
-            }
-            else if (J2)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ2 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesRouge[1]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[1]);
-                        if (btMarron.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[1]);
-                        if (btOrange.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[1]);
-                        if (btRouge.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[1]);
-                        if (btViolet.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[1]);
-                        if (btVert.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[1]);
-                        J2 = false;
-                        if (coloretto.NbJoueurs == 2)
-                            fin = true;
-                        else
-                        {
-                            J3 = true; actuScore(2); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J3)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ3 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesRouge[2]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[2]);
-                        if (btMarron.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[2]);
-                        if (btOrange.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[2]);
-                        if (btRouge.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[2]);
-                        if (btViolet.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[2]);
-                        if (btVert.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[2]);
-                        J3 = false;
-                        if (coloretto.NbJoueurs == 3)
-                            fin = true;
-                        else
-                        {
-                            J4 = true; actuScore(3); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J4)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesRouge[3]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[3]);
-                        if (btMarron.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[3]);
-                        if (btOrange.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[3]);
-                        if (btRouge.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[3]);
-                        if (btViolet.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[3]);
-                        if (btVert.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[3]);
-                        J4 = false;
-                        if (coloretto.NbJoueurs == 4)
-                            fin = true;
-                        else
-                        {
-                            J5 = true; actuScore(4); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J5)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesRouge[4]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[4]);
-                        if (btMarron.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[4]);
-                        if (btOrange.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[4]);
-                        if (btRouge.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[4]);
-                        if (btViolet.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[4]);
-                        if (btVert.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[4]);
-                        J5 = false; fin = true;
-                    }
-                }
-            }
-            btRouge.Visible = false;
-        }
-
-        private void btVert_Click(object sender, EventArgs e)
-        {
-            if (J1)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesVert[0]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[0]);
-                        if (btMarron.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[0]);
-                        if (btOrange.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[0]);
-                        if (btRouge.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[0]);
-                        if (btViolet.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[0]);
-                        if (btVert.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[0]);
-                        J1 = false; J2 = true; actuScore(1); apparaitre();
-                    }
-                }
-            }
-            else if (J2)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ2 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesVert[1]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[1]);
-                        if (btMarron.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[1]);
-                        if (btOrange.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[1]);
-                        if (btRouge.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[1]);
-                        if (btViolet.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[1]);
-                        if (btVert.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[1]);
-                        J2 = false;
-                        if (coloretto.NbJoueurs == 2)
-                            fin = true;
-                        else
-                        {
-                            J3 = true; actuScore(2); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J3)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ3 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesVert[2]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[2]);
-                        if (btMarron.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[2]);
-                        if (btOrange.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[2]);
-                        if (btRouge.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[2]);
-                        if (btViolet.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[2]);
-                        if (btVert.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[2]);
-                        J3 = false;
-                        if (coloretto.NbJoueurs == 3)
-                            fin = true;
-                        else
-                        {
-                            J4 = true; actuScore(3); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J4)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesVert[3]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[3]);
-                        if (btMarron.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[3]);
-                        if (btOrange.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[3]);
-                        if (btRouge.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[3]);
-                        if (btViolet.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[3]);
-                        if (btVert.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[3]);
-                        J4 = false;
-                        if (coloretto.NbJoueurs == 4)
-                            fin = true;
-                        else
-                        {
-                            J5 = true; actuScore(4); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J5)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesVert[4]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[4]);
-                        if (btMarron.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[4]);
-                        if (btOrange.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[4]);
-                        if (btRouge.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[4]);
-                        if (btViolet.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[4]);
-                        if (btVert.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[4]);
-                        J5 = false; fin = true;
-                    }
-                }
-            }
-            btVert.Visible = false;
-        }
-
-        private void btViolet_Click(object sender, EventArgs e)
-        {
-            if (J1)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesViolet[0]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[0]);
-                        if (btMarron.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[0]);
-                        if (btOrange.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[0]);
-                        if (btRouge.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[0]);
-                        if (btViolet.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[0]);
-                        if (btVert.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[0]);
-                        J1 = false; J2 = true; actuScore(1); apparaitre();
-                    }
-                }
-            }
-            else if (J2)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ2 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesViolet[1]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[1]);
-                        if (btMarron.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[1]);
-                        if (btOrange.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[1]);
-                        if (btRouge.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[1]);
-                        if (btViolet.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[1]);
-                        if (btVert.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[1]);
-                        J2 = false;
-                        if (coloretto.NbJoueurs == 2)
-                            fin = true;
-                        else
-                        {
-                            J3 = true; actuScore(2); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J3)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ3 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesViolet[2]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[2]);
-                        if (btMarron.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[2]);
-                        if (btOrange.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[2]);
-                        if (btRouge.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[2]);
-                        if (btViolet.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[2]);
-                        if (btVert.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[2]);
-                        J3 = false;
-                        if (coloretto.NbJoueurs == 3)
-                            fin = true;
-                        else
-                        {
-                            J4 = true; actuScore(3); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J4)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesViolet[3]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[3]);
-                        if (btMarron.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[3]);
-                        if (btOrange.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[3]);
-                        if (btRouge.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[3]);
-                        if (btViolet.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[3]);
-                        if (btVert.Visible)
-                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[3]);
-                        J4 = false;
-                        if (coloretto.NbJoueurs == 4)
-                            fin = true;
-                        else
-                        {
-                            J5 = true; actuScore(4); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J5)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesViolet[4]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[4]);
-                        if (btMarron.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[4]);
-                        if (btOrange.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[4]);
-                        if (btRouge.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[4]);
-                        if (btViolet.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[4]);
-                        if (btVert.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[4]);
-                        J5 = false; fin = true;
-                    }
-                }
-            }
-            btViolet.Visible = false;
-        }
-
-        private void btBleu_Click(object sender, EventArgs e)
-        {
-            if (J1)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[0]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[0]);
-                        if (btMarron.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[0]);
-                        if (btOrange.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[0]);
-                        if (btRouge.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[0]);
-                        if (btViolet.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[0]);
-                        if (btVert.Visible)
-                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[0]);
-                        J1 = false; J2 = true; actuScore(1); apparaitre();
-                    }
-                }
-            }
-            else if (J2)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ2 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[1]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[1]);
-                        if (btMarron.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[1]);
-                        if (btOrange.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[1]);
-                        if (btRouge.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[1]);
-                        if (btViolet.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[1]);
-                        if (btVert.Visible)
-                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[1]);
-                        J2 = false;
-                        if (coloretto.NbJoueurs == 2)
-                            fin = true;
-                        else
-                        {
-                            J3 = true; actuScore(2); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J3)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ3 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[2]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[2]);
-                        if (btMarron.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[2]);
-                        if (btOrange.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[2]);
-                        if (btRouge.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[2]);
-                        if (btViolet.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[2]);
-                        if (btVert.Visible)
-                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[2]);
-                        J3 = false;
-                        if (coloretto.NbJoueurs == 3)
-                            fin = true;
-                        else
-                        {
-                            J4 = true; actuScore(3); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J4)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[3]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ4 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[3]);
-                        if (btMarron.Visible)
-                            scoreJ4 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[3]);
-                        if (btOrange.Visible)
-                            scoreJ4 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[3]);
-                        if (btRouge.Visible)
-                            scoreJ4 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[3]);
-                        if (btViolet.Visible)
-                            scoreJ4 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[3]);
-                        if (btVert.Visible)
-                            scoreJ4 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[3]);
-                        J4 = false;
-                        if (coloretto.NbJoueurs == 4)
-                            fin = true;
-                        else
-                        {
-                            J5 = true; actuScore(4); apparaitre();
-                        }
-                    }
-                }
-            }
-            else if (J5)
-            {
-                if (nbPositifs < 3)
-                {
-                    scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[4]);
-                    nbPositifs++;
-                    if (nbPositifs >= 3)
-                    {
-                        if (btBleu.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[4]);
-                        if (btMarron.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[4]);
-                        if (btOrange.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[4]);
-                        if (btRouge.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[4]);
-                        if (btViolet.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[4]);
-                        if (btVert.Visible)
-                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[4]);
-                        J5 = false; fin = true;
-                    }
-                }
-            }
-            btBleu.Visible = false;
-        }
-
+             
 
         private int nbPointsNegatifs(bool beige, int nbCartes)
         {
@@ -1277,15 +267,155 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             lbScoreJ5.Text = scoreJ5.ToString();
         }
 
-        private void apparaitre()
+        private void btValider_Click(object sender, EventArgs e)
         {
-            btBleu.Visible = true;
-            btJaune.Visible = true;
-            btOrange.Visible = true;
-            btViolet.Visible = true;
-            btVert.Visible = true;
-            btRouge.Visible = true;
-            btMarron.Visible = true;
+            if (J1)
+                joueur = 0;
+            else if (J2)
+                joueur = 1;
+            else if (J3)
+                joueur = 2;
+            else if (J4)
+                joueur = 3;
+            else if (J5)
+                joueur = 4;
+
+            if(nbPositifs == 3)
+            {
+                if (cbBleu.Checked)
+                    nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                else
+                    nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+
+                if (J1)
+                {
+                    J1 = false; J2 = true; actuScore(1);
+                }
+                else if (J2 && coloretto.NbJoueurs == 2)
+                {
+                    J2 = false; fin = true;
+                }
+                else if (J2 && coloretto.NbJoueurs > 2)
+                {
+                    J2 = false; J3 = true; actuScore(2);
+                }
+                else if (J3 && coloretto.NbJoueurs == 3)
+                {
+                    J3 = false; fin = true;
+                }
+                else if (J3 && coloretto.NbJoueurs > 3)
+                {
+                    J3 = false; J4 = true; actuScore(3);
+                }
+                else if (J4 && coloretto.NbJoueurs == 4)
+                {
+                    J4 = false; fin = true;
+                }
+                else if (J4 && coloretto.NbJoueurs == 5)
+                {
+                    J4 = false; J5 = true; actuScore(4);
+                }
+                else if (J5)
+                {
+                    J5 = false; fin = true;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Vous devez cocher 3 couleurs");
+                return;
+            }
         }
+
+        private void Recap_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void cbJaune_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbJaune.Checked)
+            {
+                nbPositifs++;
+            }
+            else
+            {
+                nbPositifs--;
+            }
+        }
+
+        private void cbMarron_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMarron.Checked)
+            {
+                nbPositifs++;
+            }
+            else
+            {
+                nbPositifs--;
+            }
+        }
+
+        private void cbOrange_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbOrange.Checked)
+            {
+                nbPositifs++;
+            }
+            else
+            {
+                nbPositifs--;
+            }
+        }
+
+        private void cbRouge_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbRouge.Checked)
+            {
+                nbPositifs++;
+            }
+            else
+            {
+                nbPositifs--;
+            }
+        }
+
+        private void cbVert_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbVert.Checked)
+            {
+                nbPositifs++;
+            }
+            else
+            {
+                nbPositifs--;
+            }
+        }
+
+        private void cbViolet_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbViolet.Checked)
+            {
+                nbPositifs++;
+            }
+            else
+            {
+                nbPositifs--;
+            }
+        }
+
+        private void cbBleu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbBleu.Checked)
+            {
+                nbPositifs++;
+            }
+            else
+            {
+                nbPositifs--;
+            }
+        }
+
     }
 }

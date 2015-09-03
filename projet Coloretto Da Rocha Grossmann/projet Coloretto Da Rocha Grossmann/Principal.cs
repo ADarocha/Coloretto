@@ -206,7 +206,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
             switch (coloretto.NbJoueurs) //cache des rangées de carte en fonction du nombre de joueurs
             {
                 case 2 :
-                    //rien pour l'instant. Mode deux joueurs ici pour plus tard
+                    gbRangee3.Visible = false; gbRangee4.Visible = false; gbRangee5.Visible = false;
                     break;
                 case 3:
                     gbRangee4.Visible = false; gbRangee5.Visible = false;
@@ -219,7 +219,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                     break;
             }
             manche = 1; //definition du premier tour
-            lbNoTour.Text = manche.ToString(); // Tour 1
             lbTourJoueur.Text = "C'est au tour de " + coloretto.ListeJoueurs[0].Nom + " de jouer."; //nom du premier joueur à jouer.
             lbNbCartes.Text = coloretto.PaquetCartes.Count().ToString(); //nombre de carte sur le bouton de la pioche
             actualiserVosCartes(0);
@@ -1496,6 +1495,11 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                 paquetCartes[i] = valeur; //on assigne à l'élément de la liste ayant pour index i l'ancienne valeur de l'élément de la liste ayant pour index k
             }
             return paquetCartes;
+        }
+
+        private void Principal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         

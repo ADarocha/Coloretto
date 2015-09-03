@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbJoueurs = new System.Windows.Forms.GroupBox();
+            this.btRegles = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
             this.btValider = new System.Windows.Forms.Button();
             this.gbJ5 = new System.Windows.Forms.GroupBox();
@@ -77,6 +78,7 @@
             // 
             // gbJoueurs
             // 
+            this.gbJoueurs.Controls.Add(this.btRegles);
             this.gbJoueurs.Controls.Add(this.btReset);
             this.gbJoueurs.Controls.Add(this.btValider);
             this.gbJoueurs.Controls.Add(this.gbJ5);
@@ -95,6 +97,16 @@
             this.gbJoueurs.TabIndex = 0;
             this.gbJoueurs.TabStop = false;
             this.gbJoueurs.Text = "Initialisation de la partie";
+            // 
+            // btRegles
+            // 
+            this.btRegles.Location = new System.Drawing.Point(794, 37);
+            this.btRegles.Name = "btRegles";
+            this.btRegles.Size = new System.Drawing.Size(111, 23);
+            this.btRegles.TabIndex = 38;
+            this.btRegles.Text = "Voir règles du jeu";
+            this.btRegles.UseVisualStyleBackColor = true;
+            this.btRegles.Click += new System.EventHandler(this.btRegles_Click);
             // 
             // btReset
             // 
@@ -495,10 +507,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.ClientSize = new System.Drawing.Size(984, 503);
             this.Controls.Add(this.gbJoueurs);
             this.Name = "Coloretto";
-            this.Text = "Coloretto";
+            this.Text = "Préparation du jeu";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbJoueurs.ResumeLayout(false);
             this.gbJoueurs.PerformLayout();
@@ -558,6 +570,7 @@
         private System.Windows.Forms.GroupBox gbJ1;
         private System.Windows.Forms.Button btReset;
         private System.Windows.Forms.Button btValider;
+        private System.Windows.Forms.Button btRegles;
     }
 }
 

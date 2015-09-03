@@ -122,7 +122,6 @@
             this.btPlacerR2 = new System.Windows.Forms.Button();
             this.btPioche = new System.Windows.Forms.Button();
             this.lbPioche = new System.Windows.Forms.Label();
-            this.lbNoTour = new System.Windows.Forms.Label();
             this.lbTourJoueur = new System.Windows.Forms.Label();
             this.lbVosCartes = new System.Windows.Forms.Label();
             this.lbNbBleu = new System.Windows.Forms.Label();
@@ -132,7 +131,6 @@
             this.lbNbRouge = new System.Windows.Forms.Label();
             this.lbNbVert = new System.Windows.Forms.Label();
             this.lbNbViolet = new System.Windows.Forms.Label();
-            this.lbTourNoX = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbNbCartes = new System.Windows.Forms.Label();
             this.gbRangee2 = new System.Windows.Forms.GroupBox();
@@ -1159,7 +1157,7 @@
             // 
             // btPioche
             // 
-            this.btPioche.Location = new System.Drawing.Point(823, 196);
+            this.btPioche.Location = new System.Drawing.Point(808, 121);
             this.btPioche.Name = "btPioche";
             this.btPioche.Size = new System.Drawing.Size(75, 110);
             this.btPioche.TabIndex = 3;
@@ -1169,21 +1167,11 @@
             // lbPioche
             // 
             this.lbPioche.AutoSize = true;
-            this.lbPioche.Location = new System.Drawing.Point(808, 173);
+            this.lbPioche.Location = new System.Drawing.Point(793, 98);
             this.lbPioche.Name = "lbPioche";
             this.lbPioche.Size = new System.Drawing.Size(49, 13);
             this.lbPioche.TabIndex = 4;
             this.lbPioche.Text = "Pioche : ";
-            // 
-            // lbNoTour
-            // 
-            this.lbNoTour.AutoSize = true;
-            this.lbNoTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNoTour.Location = new System.Drawing.Point(917, 29);
-            this.lbNoTour.Name = "lbNoTour";
-            this.lbNoTour.Size = new System.Drawing.Size(27, 25);
-            this.lbNoTour.TabIndex = 5;
-            this.lbNoTour.Text = "X";
             // 
             // lbTourJoueur
             // 
@@ -1275,20 +1263,10 @@
             this.lbNbViolet.TabIndex = 38;
             this.lbNbViolet.Text = "0";
             // 
-            // lbTourNoX
-            // 
-            this.lbTourNoX.AutoSize = true;
-            this.lbTourNoX.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTourNoX.Location = new System.Drawing.Point(830, 29);
-            this.lbTourNoX.Name = "lbTourNoX";
-            this.lbTourNoX.Size = new System.Drawing.Size(92, 25);
-            this.lbTourNoX.TabIndex = 39;
-            this.lbTourNoX.Text = "Tour N°";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(808, 309);
+            this.label1.Location = new System.Drawing.Point(793, 234);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 40;
@@ -1297,7 +1275,7 @@
             // lbNbCartes
             // 
             this.lbNbCartes.AutoSize = true;
-            this.lbNbCartes.Location = new System.Drawing.Point(895, 309);
+            this.lbNbCartes.Location = new System.Drawing.Point(880, 234);
             this.lbNbCartes.Name = "lbNbCartes";
             this.lbNbCartes.Size = new System.Drawing.Size(49, 13);
             this.lbNbCartes.TabIndex = 41;
@@ -1668,7 +1646,6 @@
             this.Controls.Add(this.gbRangee2);
             this.Controls.Add(this.lbNbCartes);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbTourNoX);
             this.Controls.Add(this.lbNbViolet);
             this.Controls.Add(this.lbNbVert);
             this.Controls.Add(this.lbNbRouge);
@@ -1685,13 +1662,13 @@
             this.Controls.Add(this.pbCarteBleu);
             this.Controls.Add(this.lbVosCartes);
             this.Controls.Add(this.lbTourJoueur);
-            this.Controls.Add(this.lbNoTour);
             this.Controls.Add(this.lbPioche);
             this.Controls.Add(this.btPioche);
             this.Controls.Add(this.gbRangee1);
             this.Controls.Add(this.gbResumeJoueurs);
             this.Name = "Principal";
-            this.Text = "Principal";
+            this.Text = "Coloretto";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
             this.Load += new System.EventHandler(this.Principal_Load);
             this.gbResumeJoueurs.ResumeLayout(false);
             this.gbJ1.ResumeLayout(false);
@@ -1784,7 +1761,6 @@
         private System.Windows.Forms.GroupBox gbRangee1;
         private System.Windows.Forms.Button btPioche;
         private System.Windows.Forms.Label lbPioche;
-        private System.Windows.Forms.Label lbNoTour;
         private System.Windows.Forms.Label lbTourJoueur;
         private System.Windows.Forms.Label lbVosCartes;
         private System.Windows.Forms.PictureBox pbTypeR2;
@@ -1900,7 +1876,6 @@
         private System.Windows.Forms.GroupBox gbJ3;
         private System.Windows.Forms.GroupBox gbJ4;
         private System.Windows.Forms.GroupBox gbJ5;
-        private System.Windows.Forms.Label lbTourNoX;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbNbCartes;
         private System.Windows.Forms.Button btRamasserR5;
