@@ -25,7 +25,6 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         int nbPositifs;
         int scoreJ1; int scoreJ2; int scoreJ3; int scoreJ4; int scoreJ5;
         bool fin;
-        string gagant;
         int joueur;
 
 
@@ -49,18 +48,18 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void Recap_Load(object sender, EventArgs e)
         {
-            gbScore.Text = gbScore.Text = coloretto.ListeJoueurs[0].Nom;
-            nbPositifs = 0; joueur = 0;
-            scoreJ1 = scoreJoueurs[0]; scoreJ2 = scoreJoueurs[1]; scoreJ3 = scoreJoueurs[2]; scoreJ4 = scoreJoueurs[3]; scoreJ5 = scoreJoueurs[4];
-            fin = false;
+            gbScore.Text = gbScore.Text = coloretto.ListeJoueurs[0].Nom; //nom du premier joueur
+            nbPositifs = 0; joueur = 0; 
+            scoreJ1 = scoreJoueurs[0]; scoreJ2 = scoreJoueurs[1]; scoreJ3 = scoreJoueurs[2]; scoreJ4 = scoreJoueurs[3]; scoreJ5 = scoreJoueurs[4]; //récupère les scores des joueurs du form précécent.
+            fin = false; //détermine la fin du compte des points.
             lbJ1.Text = "Score" + coloretto.ListeJoueurs[0].Nom + " :";
             lbJ2.Text = "Score" + coloretto.ListeJoueurs[1].Nom + " :";
             lbScoreJ1.Text = scoreJ1.ToString();
             lbScoreJ2.Text = scoreJ2.ToString();
-            J1 = true;
+            J1 = true; //au tour du joueur 1 de compter ses points
 
 
-            switch (coloretto.NbJoueurs)
+            switch (coloretto.NbJoueurs) //en fonction du nombre de joueurs on fait apparaître le même nombre de noms et de scores.
             {
                 case 1:
                     break;
@@ -98,15 +97,17 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
                     break;
             }
 
-            actuScore(0);
+            actuScore(0); 
 
         }
              
 
         private int nbPointsNegatifs(bool beige, int nbCartes)
         {
+
+            //compte les points des couleurs de façon négative en fonction du type de score retenu.
             int pts = 0;
-            if (beige)
+            if (beige) //si la carte de score est la beige
             {
                 switch (nbCartes)
                 {
@@ -180,6 +181,8 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private int nbPointsPositifs(bool beige, int nbCartes)
         {
+
+            //même chose que pour nbPointsNegatifs mais pour les points positifs (choisi par l'utilisateurs).
             int pts = 0;
             if (beige)
             {
@@ -254,6 +257,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void actuScore(int joueur)
         {
+            //actualise les labels.
             lbJaune.Text = cartesJaune[joueur].ToString();
             lbMarron.Text = cartesMarron[joueur].ToString();
             lbOrange.Text = cartesOrange[joueur].ToString();
@@ -270,104 +274,268 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
 
         private void btValider_Click(object sender, EventArgs e)
         {
+            //détermine quel joueur compte ses points.
             if (J1)
             {
                 joueur = 0;
             }
-            else if (J2)
+            else
+            {
+                if (J2)
                 {
                     joueur = 1;
-                    gbScore.Text = coloretto.ListeJoueurs[1].Nom;
+                    
                 }
-                else if (J3)
+                else
+                {
+                    if (J3)
                     {
                         joueur = 2;
-                        gbScore.Text = coloretto.ListeJoueurs[2].Nom;
+                        
                     }
-                    else if (J4)
+                    else
+                    {
+                        if (J4)
                         {
                             joueur = 3;
-                            gbScore.Text = coloretto.ListeJoueurs[3].Nom;
+                            
                         }
-                        else if (J5)
+                        else
+                        {
+                            if (J5)
                             {
                                 joueur = 4;
-                                gbScore.Text = coloretto.ListeJoueurs[4].Nom;
+                                
                             }
+                        }
+                    }
+                }
+            }
 
 
-
-            if(nbPositifs == 3)
+            
+            if(nbPositifs == 3) //si le joueur a bien choisi 3 couleurs
             {
-                switch (joueur)
+                switch (joueur) //en fonction du joueur, on lui ajoute les points positifs.
                 {
                     case 0:
-                        scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbBleu.Checked)
+                            scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbMarron.Checked)
+                            scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesMarron[joueur]);
+                        if (cbViolet.Checked)
+                            scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesViolet[joueur]);
+                        if (cbJaune.Checked)
+                            scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesJaune[joueur]);
+                        if (cbVert.Checked)
+                            scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesVert[joueur]);
+                        if (cbRouge.Checked)
+                            scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesRouge[joueur]);
+                        if (cbOrange.Checked)
+                            scoreJ1 = scoreJ1 + nbPointsPositifs(coloretto.TypeScore, cartesOrange[joueur]);
                         break;
                     case 1:
-                        scoreJ2 = scoreJ2 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbBleu.Checked)
+                            scoreJ2 = scoreJ2 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbMarron.Checked)
+                            scoreJ2 = scoreJ2 + nbPointsPositifs(coloretto.TypeScore, cartesMarron[joueur]);
+                        if (cbViolet.Checked)
+                            scoreJ2 = scoreJ2 + nbPointsPositifs(coloretto.TypeScore, cartesViolet[joueur]);
+                        if (cbJaune.Checked)
+                            scoreJ2 = scoreJ2 + nbPointsPositifs(coloretto.TypeScore, cartesJaune[joueur]);
+                        if (cbVert.Checked)
+                            scoreJ2 = scoreJ2 + nbPointsPositifs(coloretto.TypeScore, cartesVert[joueur]);
+                        if (cbRouge.Checked)
+                            scoreJ2 = scoreJ2 + nbPointsPositifs(coloretto.TypeScore, cartesRouge[joueur]);
+                        if (cbOrange.Checked)
+                            scoreJ2 = scoreJ2 + nbPointsPositifs(coloretto.TypeScore, cartesOrange[joueur]);
                         break;
                     case 2:
-                        scoreJ3 = scoreJ3 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbBleu.Checked)
+                            scoreJ3 = scoreJ3 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbMarron.Checked)
+                            scoreJ3 = scoreJ3 + nbPointsPositifs(coloretto.TypeScore, cartesMarron[joueur]);
+                        if (cbViolet.Checked)
+                            scoreJ3 = scoreJ3 + nbPointsPositifs(coloretto.TypeScore, cartesViolet[joueur]);
+                        if (cbJaune.Checked)
+                            scoreJ3 = scoreJ3 + nbPointsPositifs(coloretto.TypeScore, cartesJaune[joueur]);
+                        if (cbVert.Checked)
+                            scoreJ3 = scoreJ3 + nbPointsPositifs(coloretto.TypeScore, cartesVert[joueur]);
+                        if (cbRouge.Checked)
+                            scoreJ3 = scoreJ3 + nbPointsPositifs(coloretto.TypeScore, cartesRouge[joueur]);
+                        if (cbOrange.Checked)
+                            scoreJ3 = scoreJ3 + nbPointsPositifs(coloretto.TypeScore, cartesOrange[joueur]);
                         break;
                     case 3:
-                        scoreJ4 = scoreJ4 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbBleu.Checked)
+                            scoreJ4 = scoreJ4 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbMarron.Checked)
+                            scoreJ4 = scoreJ4 + nbPointsPositifs(coloretto.TypeScore, cartesMarron[joueur]);
+                        if (cbViolet.Checked)
+                            scoreJ4 = scoreJ4 + nbPointsPositifs(coloretto.TypeScore, cartesViolet[joueur]);
+                        if (cbJaune.Checked)
+                            scoreJ4 = scoreJ4 + nbPointsPositifs(coloretto.TypeScore, cartesJaune[joueur]);
+                        if (cbVert.Checked)
+                            scoreJ4 = scoreJ4 + nbPointsPositifs(coloretto.TypeScore, cartesVert[joueur]);
+                        if (cbRouge.Checked)
+                            scoreJ4 = scoreJ4 + nbPointsPositifs(coloretto.TypeScore, cartesRouge[joueur]);
+                        if (cbOrange.Checked)
+                            scoreJ4 = scoreJ4 + nbPointsPositifs(coloretto.TypeScore, cartesOrange[joueur]);
                         break;
                     case 4:
-                        scoreJ5 = scoreJ5 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbBleu.Checked)
+                            scoreJ5 = scoreJ5 + nbPointsPositifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbMarron.Checked)
+                            scoreJ5 = scoreJ5 + nbPointsPositifs(coloretto.TypeScore, cartesMarron[joueur]);
+                        if (cbViolet.Checked)
+                            scoreJ5 = scoreJ5 + nbPointsPositifs(coloretto.TypeScore, cartesViolet[joueur]);
+                        if (cbJaune.Checked)
+                            scoreJ5 = scoreJ5 + nbPointsPositifs(coloretto.TypeScore, cartesJaune[joueur]);
+                        if (cbVert.Checked)
+                            scoreJ5 = scoreJ5 + nbPointsPositifs(coloretto.TypeScore, cartesVert[joueur]);
+                        if (cbRouge.Checked)
+                            scoreJ5 = scoreJ5 + nbPointsPositifs(coloretto.TypeScore, cartesRouge[joueur]);
+                        if (cbOrange.Checked)
+                            scoreJ5 = scoreJ5 + nbPointsPositifs(coloretto.TypeScore, cartesOrange[joueur]);
                         break;
                 }
-                switch (joueur)
+                switch (joueur) //puis les points négatifs.
                 {
                     case 0:
-                        scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbBleu.Checked == false)
+                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbMarron.Checked == false)
+                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[joueur]);
+                        if (cbViolet.Checked == false)
+                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[joueur]);
+                        if (cbJaune.Checked == false)
+                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[joueur]);
+                        if (cbVert.Checked == false)
+                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[joueur]);
+                        if (cbRouge.Checked == false)
+                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[joueur]);
+                        if (cbOrange.Checked == false)
+                            scoreJ1 = scoreJ1 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[joueur]);
                         break;
                     case 1:
-                        scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbBleu.Checked == false)
+                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbMarron.Checked == false)
+                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[joueur]);
+                        if (cbViolet.Checked == false)
+                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[joueur]);
+                        if (cbJaune.Checked == false)
+                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[joueur]);
+                        if (cbVert.Checked == false)
+                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[joueur]);
+                        if (cbRouge.Checked == false)
+                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[joueur]);
+                        if (cbOrange.Checked == false)
+                            scoreJ2 = scoreJ2 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[joueur]);
                         break;
                     case 2:
-                        scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbBleu.Checked == false)
+                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbMarron.Checked == false)
+                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[joueur]);
+                        if (cbViolet.Checked == false)
+                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[joueur]);
+                        if (cbJaune.Checked == false)
+                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[joueur]);
+                        if (cbVert.Checked == false)
+                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[joueur]);
+                        if (cbRouge.Checked == false)
+                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[joueur]);
+                        if (cbOrange.Checked == false)
+                            scoreJ3 = scoreJ3 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[joueur]);
                         break;
                     case 3:
-                        scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbBleu.Checked == false)
+                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbMarron.Checked == false)
+                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[joueur]);
+                        if (cbViolet.Checked == false)
+                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[joueur]);
+                        if (cbJaune.Checked == false)
+                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[joueur]);
+                        if (cbVert.Checked == false)
+                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[joueur]);
+                        if (cbRouge.Checked == false)
+                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[joueur]);
+                        if (cbOrange.Checked == false)
+                            scoreJ4 = scoreJ4 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[joueur]);
                         break;
                     case 4:
-                        scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbBleu.Checked == false)
+                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesBleu[joueur]);
+                        if (cbMarron.Checked == false)
+                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesMarron[joueur]);
+                        if (cbViolet.Checked == false)
+                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesViolet[joueur]);
+                        if (cbJaune.Checked == false)
+                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesJaune[joueur]);
+                        if (cbVert.Checked == false)
+                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesVert[joueur]);
+                        if (cbRouge.Checked == false)
+                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesRouge[joueur]);
+                        if (cbOrange.Checked == false)
+                            scoreJ5 = scoreJ5 + nbPointsNegatifs(coloretto.TypeScore, cartesOrange[joueur]);
                         break;
                 }
 
                 if (J1)
                 {
-                    J1 = false; J2 = true; actuScore(1);
+                    J1 = false; J2 = true; actuScore(1); gbScore.Text = coloretto.ListeJoueurs[1].Nom;
                 }
-                else if (J2 && coloretto.NbJoueurs == 2)
+                else
+                {
+                    if (J2 && coloretto.NbJoueurs == 2)
                     {
-                        J2 = false; fin = true;
+                        J2 = false; fin = true; actuScore(1);
                     }
-                    else if (J2 && coloretto.NbJoueurs > 2)
+                    else
+                    {
+                        if (J2 && coloretto.NbJoueurs > 2)
                         {
-                            J2 = false; J3 = true; actuScore(2);
+                            J2 = false; J3 = true; actuScore(2); gbScore.Text = coloretto.ListeJoueurs[2].Nom;
                         }
-                        else if (J3 && coloretto.NbJoueurs == 3)
+                        else
+                        {
+                            if (J3 && coloretto.NbJoueurs == 3)
                             {
-                                J3 = false; fin = true;
+                                J3 = false; fin = true; actuScore(1);
                             }
-                            else if (J3 && coloretto.NbJoueurs > 3)
+                            else
+                            {
+                                if (J3 && coloretto.NbJoueurs > 3)
                                 {
-                                    J3 = false; J4 = true; actuScore(3);
+                                    J3 = false; J4 = true; actuScore(3); gbScore.Text = coloretto.ListeJoueurs[3].Nom;
                                 }
-                                else if (J4 && coloretto.NbJoueurs == 4)
+                                else
+                                {
+                                    if (J4 && coloretto.NbJoueurs == 4)
                                     {
-                                        J4 = false; fin = true;
+                                        J4 = false; fin = true; actuScore(1);
                                     }
-                                    else if (J4 && coloretto.NbJoueurs == 5)
+                                    else
+                                    {
+                                        if (J4 && coloretto.NbJoueurs == 5)
                                         {
-                                            J4 = false; J5 = true; actuScore(4);
+                                            J4 = false; J5 = true; actuScore(4); gbScore.Text = coloretto.ListeJoueurs[4].Nom;
                                         }
-                                        else if (J5)
+                                        else
+                                        {
+                                            if (J5)
                                             {
-                                                J5 = false; fin = true;
+                                                J5 = false; fin = true; actuScore(1);
                                             }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             

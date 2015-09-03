@@ -93,7 +93,7 @@
             this.gbJoueurs.Controls.Add(this.btMoins);
             this.gbJoueurs.Location = new System.Drawing.Point(12, 12);
             this.gbJoueurs.Name = "gbJoueurs";
-            this.gbJoueurs.Size = new System.Drawing.Size(960, 638);
+            this.gbJoueurs.Size = new System.Drawing.Size(960, 479);
             this.gbJoueurs.TabIndex = 0;
             this.gbJoueurs.TabStop = false;
             this.gbJoueurs.Text = "Initialisation de la partie";
@@ -140,7 +140,6 @@
             this.gbJ5.TabIndex = 36;
             this.gbJ5.TabStop = false;
             this.gbJ5.Text = "Joueur 5";
-            this.gbJ5.Visible = false;
             // 
             // label10
             // 
@@ -195,7 +194,6 @@
             this.gbJ4.TabIndex = 36;
             this.gbJ4.TabStop = false;
             this.gbJ4.Text = "Joueur 4";
-            this.gbJ4.Visible = false;
             // 
             // label8
             // 
@@ -250,7 +248,6 @@
             this.gbJ3.TabIndex = 36;
             this.gbJ3.TabStop = false;
             this.gbJ3.Text = "Joueur 3";
-            this.gbJ3.Visible = false;
             // 
             // label6
             // 

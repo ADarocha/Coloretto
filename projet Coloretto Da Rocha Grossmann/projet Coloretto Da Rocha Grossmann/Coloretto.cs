@@ -19,7 +19,7 @@ namespace projet_Coloretto_Da_Rocha_Grossmann
         List<string> listeCouleurD = new List<string>();
         bool isUnique;
         Principal principal; //initialisation du Form de la fenêtre de jeu principale
-        int nbJoueurs = 2;
+        int nbJoueurs = 5;
         Jeu coloretto;
         List<Joueur> listeJoueurs;
         Joueur joueur1, joueur2, joueur3, joueur4, joueur5; //initialisation des objets de la classe Joueur
